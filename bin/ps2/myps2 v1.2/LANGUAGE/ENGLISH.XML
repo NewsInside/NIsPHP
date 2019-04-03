@@ -1,0 +1,603 @@
+<strings>
+	<string>
+		<id>1</id>
+		<value>My Pictures</value>
+	</string>
+	<string>
+		<id>2</id>
+		<value>My Programs</value>
+	</string>
+	<string>
+		<id>3</id>
+		<value>My Files</value>
+	</string>
+	<string>
+		<id>4</id>
+		<value>My Music</value>
+	</string>
+	<string>
+		<id>5</id>
+		<value>Settings</value>
+	</string>
+	<string>
+		<id>6</id>
+		<value>Browse HDD</value>
+	</string>
+	<string>
+		<id>7</id>
+		<value>Browse CD/DVD</value>
+	</string>
+	<string>
+		<id>8</id>
+		<value>Browse USB</value>
+	</string>
+	<string>
+		<id>9</id>
+		<value>Cache Images</value>
+	</string>
+	<string>
+		<id>10</id>
+		<value>Sort By Name</value>
+	</string>
+	<string>
+		<id>11</id>
+		<value>Sort By Size</value>
+	</string>
+	<string>
+		<id>12</id>
+		<value>Sort By Type</value>
+	</string>
+	<string>
+		<id>13</id>
+		<value>Go Back</value>
+	</string>
+	<string>
+		<id>14</id>
+		<value>Generating Thumbnails...</value>
+	</string>
+	<string>
+		<id>15</id>
+		<value>OK</value>
+	</string>
+	<string>
+		<id>16</id>
+		<value>Select ELF</value>
+	</string>
+	<string>
+		<id>17</id>
+		<value>Shortcuts</value>
+	</string>
+	<string>
+		<id>18</id>
+		<value>Error</value>
+	</string>
+	<string>
+		<id>19</id>
+		<value>Not a valid ELF file</value>
+	</string>
+	<string>
+		<id>20</id>
+		<value>New Folder</value>
+	</string>
+	<string>
+		<id>21</id>
+		<value>Select All</value>
+	</string>
+	<string>
+		<id>22</id>
+		<value>Delete</value>
+	</string>
+	<string>
+		<id>23</id>
+		<value>Rename</value>
+	</string>
+	<string>
+		<id>24</id>
+		<value>Copy</value>
+	</string>
+	<string>
+		<id>25</id>
+		<value>Move</value>
+	</string>
+	<string>
+		<id>26</id>
+		<value>Start</value>
+	</string>
+	<string>
+		<id>27</id>
+		<value>No</value>
+	</string>
+	<string>
+		<id>28</id>
+		<value>Yes</value>
+	</string>
+	<string>
+		<id>29</id>
+		<value>Delete Selected Files ?</value>
+	</string>
+	<string>
+		<id>30</id>
+		<value>Confirm File Delete</value>
+	</string>
+	<string>
+		<id>31</id>
+		<value>File Copy</value>
+	</string>
+	<string>
+		<id>32</id>
+		<value>Select Destination Dir</value>
+	</string>
+	<string>
+		<id>33</id>
+		<value>Shift</value>
+	</string>
+	<string>
+		<id>34</id>
+		<value>Space</value>
+	</string>
+	<string>
+		<id>35</id>
+		<value>Back</value>
+	</string>
+	<string>
+		<id>36</id>
+		<value>Cancel</value>
+	</string>
+	<string>
+		<id>37</id>
+		<value>Enter Folder Name</value>
+	</string>
+	<string>
+		<id>38</id>
+		<value>Enter new Filename</value>
+	</string>
+	<string>
+		<id>39</id>
+		<value>Copying Files</value>
+	</string>
+	<string>
+		<id>40</id>
+		<value>Radio</value>
+	</string>
+	<string>
+		<id>41</id>
+		<value>Show: Both</value>
+	</string>
+	<string>
+		<id>42</id>
+		<value>Show: MP3</value>
+	</string>
+	<string>
+		<id>43</id>
+		<value>Show: M3U</value>
+	</string>
+	<string>
+		<id>44</id>
+		<value>Internet Radio</value>
+	</string>
+	<string>
+		<id>45</id>
+		<value>Download List</value>
+	</string>
+	<string>
+		<id>46</id>
+		<value>Sort by Genre</value>
+	</string>
+	<string>
+		<id>47</id>
+		<value>Sort by Bitrate</value>
+	</string>
+	<string>
+		<id>48</id>
+		<value>Sort By Count</value>
+	</string>
+	<string>
+		<id>49</id>
+		<value>Bookmarks</value>
+	</string>
+	<string>
+		<id>50</id>
+		<value>Status:</value>
+	</string>
+	<string>
+		<id>51</id>
+		<value>Can not refresh list yet!</value>
+	</string>
+	<string>
+		<id>52</id>
+		<value>Connecting to server...</value>
+	</string>
+	<string>
+		<id>53</id>
+		<value>Parsing station list...please wait</value>
+	</string>
+	<string>
+		<id>54</id>
+		<value>Downloading station list</value>
+	</string>
+	<string>
+		<id>55</id>
+		<value>Failed creating socket</value>
+	</string>
+	<string>
+		<id>56</id>
+		<value>Could not resolve hostname</value>
+	</string>
+	<string>
+		<id>57</id>
+		<value>Could not connect to server</value>
+	</string>
+	<string>
+		<id>58</id>
+		<value>Error while sending data</value>
+	</string>
+	<string>
+		<id>59</id>
+		<value>Error while receiving data</value>
+	</string>
+	<string>
+		<id>60</id>
+		<value>Bad HTTP request</value>
+	</string>
+	<string>
+		<id>61</id>
+		<value>Requested file is too big</value>
+	</string>
+	<string>
+		<id>62</id>
+		<value>Memory allocation failed</value>
+	</string>
+	<string>
+		<id>63</id>
+		<value>Unknown Network Error</value>
+	</string>
+	<string>
+		<id>64</id>
+		<value>Error parsing Station List</value>
+	</string>
+	<string>
+		<id>65</id>
+		<value>Station List download complete</value>
+	</string>
+	<string>
+		<id>66</id>
+		<value>Connected, starting playback</value>
+	</string>
+
+	<string>
+		<id>70</id>
+		<value>Initialization error</value>
+	</string>
+	<string>
+		<id>71</id>
+		<value>Invalid URL</value>
+	</string>
+	<string>
+		<id>72</id>
+		<value>Could not create socket</value>
+	</string>
+	<string>
+		<id>73</id>
+		<value>Could not resolve hostname</value>
+	</string>
+	<string>
+		<id>74</id>
+		<value>Could not connect to server</value>
+	</string>
+	<string>
+		<id>75</id>
+		<value>Failed to send request</value>
+	</string>
+	<string>
+		<id>76</id>
+		<value>Erroneous ICY header</value>
+	</string>
+	<string>
+		<id>77</id>
+		<value>Monday</value>
+	</string>
+	<string>
+		<id>78</id>
+		<value>Tuesday</value>
+	</string>
+	<string>
+		<id>79</id>
+		<value>Wednesday</value>
+	</string>
+	<string>
+		<id>80</id>
+		<value>Thursday</value>
+	</string>
+	<string>
+		<id>81</id>
+		<value>Friday</value>
+	</string>
+	<string>
+		<id>82</id>
+		<value>Saturday</value>
+	</string>
+	<string>
+		<id>83</id>
+		<value>Sunday</value>
+	</string>
+	<string>
+		<id>84</id>
+		<value>January</value>
+	</string>
+	<string>
+		<id>85</id>
+		<value>February</value>
+	</string>
+	<string>
+		<id>86</id>
+		<value>March</value>
+	</string>
+	<string>
+		<id>87</id>
+		<value>April</value>
+	</string>
+	<string>
+		<id>88</id>
+		<value>May</value>
+	</string>
+	<string>
+		<id>89</id>
+		<value>June</value>
+	</string>
+	<string>
+		<id>90</id>
+		<value>July</value>
+	</string>
+	<string>
+		<id>91</id>
+		<value>August</value>
+	</string>
+	<string>
+		<id>92</id>
+		<value>September</value>
+	</string>
+	<string>
+		<id>93</id>
+		<value>October</value>
+	</string>
+	<string>
+		<id>94</id>
+		<value>November</value>
+	</string>
+	<string>
+		<id>95</id>
+		<value>December</value>
+	</string>
+	<string>
+		<id>96</id>
+		<value>Really turn off the PS2?</value>
+	</string>
+	<string>
+		<id>97</id>
+		<value>Confirm shutdown</value>
+	</string>
+	<string>
+		<id>98</id>
+		<value>Load Settings</value>
+	</string>
+	<string>
+		<id>99</id>
+		<value>Save Settings</value>
+	</string>
+	<string>
+		<id>100</id>
+		<value>Network</value>
+	</string>
+	<string>
+		<id>101</id>
+		<value>Network</value>
+	</string>
+	<string>
+		<id>102</id>
+		<value>Partitions</value>
+	</string>
+	<string>
+		<id>103</id>
+		<value>Skins</value>
+	</string>
+	<string>
+		<id>104</id>
+		<value>Localization</value>
+	</string>
+	<string>
+		<id>105</id>
+		<value>Screen Mode Selection</value>
+	</string>
+	<string>
+		<id>106</id>
+		<value>Screen Adjust X</value>
+	</string>
+	<string>
+		<id>107</id>
+		<value>Screen Adjust Y</value>
+	</string>
+	<string>
+		<id>108</id>
+		<value>&lt;AUTO&gt;</value>
+	</string>
+	<string>
+		<id>109</id>
+		<value>&lt;NTSC&gt;</value>
+	</string>
+	<string>
+		<id>110</id>
+		<value>&lt;PAL&gt;</value>
+	</string>
+	<string>
+		<id>111</id>
+		<value>Enable Screenshots</value>
+	</string>
+	<string>
+		<id>112</id>
+		<value>Screenshot Save Path</value>
+	</string>
+	<string>
+		<id>113</id>
+		<value>Configure...</value>
+	</string>
+	<string>
+		<id>114</id>
+		<value>Enter new Path</value>
+	</string>
+	<string>
+		<id>115</id>
+		<value>Cache Thumbnails</value>
+	</string>
+	<string>
+		<id>116</id>
+		<value>Thumbnail Cache Path</value>
+	</string>
+	<string>
+		<id>117</id>
+		<value>Cache Shoutcast List</value>
+	</string>
+	<string>
+		<id>118</id>
+		<value>Settings saved</value>
+	</string>
+	<string>
+		<id>119</id>
+		<value>Couldn't save settings</value>
+	</string>
+	<string>
+		<id>120</id>
+		<value>Network Settings</value>
+	</string>
+	<string>
+		<id>121</id>
+		<value>Enable Network</value>
+	</string>
+	<string>
+		<id>122</id>
+		<value>IP Address</value>
+	</string>
+	<string>
+		<id>123</id>
+		<value>Subnetmask</value>
+	</string>
+	<string>
+		<id>124</id>
+		<value>Gateway Address</value>
+	</string>
+	<string>
+		<id>125</id>
+		<value>DNS Address</value>
+	</string>
+	<string>
+		<id>126</id>
+		<value>Enable FTP Server</value>
+	</string>
+	<string>
+		<id>127</id>
+		<value>FTP Port</value>
+	</string>
+	<string>
+		<id>128</id>
+		<value>Allow Anonymous Login</value>
+	</string>
+	<string>
+		<id>129</id>
+		<value>Login Name</value>
+	</string>
+	<string>
+		<id>130</id>
+		<value>Login Password</value>
+	</string>
+	<string>
+		<id>131</id>
+		<value>HDD Partition Settings</value>
+	</string>
+	<string>
+		<id>132</id>
+		<value>Apply Changes</value>
+	</string>
+	<string>
+		<id>133</id>
+		<value>Changes applied</value>
+	</string>
+	<string>
+		<id>134</id>
+		<value>Custom Skins</value>
+	</string>
+	<string>
+		<id>135</id>
+		<value>Activate this skin?</value>
+	</string>
+	<string>
+		<id>136</id>
+		<value>Confirm</value>
+	</string>
+	<string>
+		<id>137</id>
+		<value>Language and Localization Settings</value>
+	</string>
+	<string>
+		<id>138</id>
+		<value>Load Language File?</value>
+	</string>
+	<string>
+		<id>139</id>
+		<value>A myPS2 partition could not be found</value>
+	</string>
+	<string>
+		<id>140</id>
+		<value>Do you want to create one now?</value>
+	</string>
+	<string>
+		<id>141</id>
+		<value>myPS2 Configuration</value>
+	</string>
+	<string>
+		<id>142</id>
+		<value>Select the size for the myPS2 partition</value>
+	</string>
+	<string>
+		<id>143</id>
+		<value>Create Partition</value>
+	</string>
+	<string>
+		<id>144</id>
+		<value>Partition created successfully</value>
+	</string>
+	<string>
+		<id>145</id>
+		<value>Couldn't create Partition</value>
+	</string>
+	<string>
+		<id>146</id>
+		<value>Couldn't mount Partition</value>
+	</string>
+	<string>
+		<id>147</id>
+		<value>Charset</value>
+	</string>
+	<string>
+		<id>148</id>
+		<value>Timezone</value>
+	</string>
+	<string>
+		<id>149</id>
+		<value>Daylight Saving Time</value>
+	</string>
+	<string>
+		<id>150</id>
+		<value>Workgroup</value>
+	</string>
+	<string>
+		<id>151</id>
+		<value>WINS Server</value>
+	</string>
+	<string>
+		<id>152</id>
+		<value>Samba</value>
+	</string>
+	<string>
+		<id>153</id>
+		<value>Samba Settings</value>
+	</string>
+</strings>

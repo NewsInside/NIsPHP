@@ -1,0 +1,77 @@
+//main menu
+LNG_MENU_MAIN_NAME="Menú Principal"
+LNG_MENU_MAIN_START="Iniciar emulación"
+LNG_MENU_MAIN_OPENIMAGE="Abrir Imagen de CD-ROM"
+LNG_MENU_MAIN_OPENEXE="Abrir ejecutable PSX"
+LNG_MENU_MAIN_OPTIONS="Configuración"
+
+//configuration
+LNG_MENU_OPTIONS_NAME="Configuración"
+LNG_MENU_OPTIONS_SYSTEM="Sistema"
+LNG_MENU_OPTIONS_VIDEO="Vídeo"
+LNG_MENU_OPTIONS_AUDIO="Audio"
+LNG_MENU_OPTIONS_INPUT="Entrada"
+LNG_MENU_OPTIONS_SAVEDEFAULT="Guardar configuración por defecto"
+LNG_MENU_OPTIONS_LOADDEFAULT="Cargar configuración por defecto"
+LNG_MENU_OPTIONS_SAVEIMAGE="Guardar configuración del juego"
+LNG_MENU_OPTIONS_DELETECONF="Borrar configuración del juego"
+
+//system
+LNG_MENU_SYSTEM_NAME="Sistema"
+LNG_MENU_SYSTEM_EMU="Ruta PS2PSXe"
+LNG_MENU_SYSTEM_BIOS="Seleccionar BIOS"
+LNG_MENU_SYSTEM_PERGAME="Configuración para cada juego"
+LNG_MENU_SYSTEM_SPFIX="Corregir puntero de pila"
+LNG_MENU_SYSTEM_EXCEP="Manejo de excepciones alt."
+LNG_MENU_SYSTEM_LOOP="Bucle de control"
+LNG_MENU_SYSTEM_FPS="Mostrar FPS"
+LNG_MENU_SYSTEM_INTER="Modo intérprete"
+
+//video
+LNG_MENU_VIDEO_NAME="Vídeo"
+LNG_MENU_VIDEO_SIGNAL="Tipo de Señal"
+LNG_MENU_VIDEO_LIMITER="Límite de Cuadros"
+LNG_MENU_VIDEO_DEPTH="Profundidad"
+LNG_MENU_VIDEO_DITHERING="Tramado"
+LNG_MENU_VIDEO_POLYFILTER="Filtro de Polígonos"
+LNG_MENU_VIDEO_SPRITEFILTER="Filtro de Imágenes"
+LNG_MENU_VIDEO_XOFF="Desplazamiento X de Pantalla"
+LNG_MENU_VIDEO_YOFF="Desplazamiento Y de Pantalla"
+
+//audio
+LNG_MENU_AUDIO_NAME="Audio"
+LNG_MENU_AUDIO_ENABLED="Emular sonido"
+LNG_MENU_AUDIO_NOTHREAD="Desactivar hilos"
+LNG_MENU_AUDIO_WAITIRQ="Esperar a SPU IRQ"
+
+//input
+LNG_MENU_INPUT_NAME="Entrada"
+LNG_MENU_INPUT_DIGITIZE="Digitalizar Mando"
+
+//all
+LNG_MENU_PATH="Elegir ruta..."
+LNG_GLOB_UNKNOWNPATH="Ruta de PS2PSXe incorrecta. Razones:\n—host falso utilizado para ocultar hdd,\n—pfs punto de montaje especificado y no hay manera de obtener la ruta real/partición,\n—Dispositivo desconocido usado.\nPor favor, modifique la ruta en Configuración -> Sistema."
+LNG_GLOB_UNKNOWNWRITEPATH="No se puede escribir en la ubicación \"{PATH}\".\nO bien un dispositivo desconocido, el dispositivo es de solo lectura o no se puede obtener información de la partición. Por favor, elija la ruta."
+LNG_GLOB_UNKNOWNLOADPATH="No se puede cargar desde la ubicación \"{PATH}\".\nO bien un dispositivo desconocido o no se puede obtener información de la partición. Por favor, elija la ruta."
+LNG_WRONG_PATHS="No se puede abrir las rutas:\n\n"
+LNG_WRONG_PATHS_BIOS="—Ruta de la Bios\n"
+LNG_WRONG_PATHS_EMU="—Ruta de PS2PSXe\n"
+LNG_WRONG_PATHS_IMG="—Ruta de Imagen CD o Exe\n"
+
+LNG_OPER_YES="Si"
+LNG_OPER_NO="No"
+LNG_OPER_QUESTION_OVERWRITE="¡El archivo seleccionado ya existe! ¿Estas seguro de que quieres sobrescribirlo?\n\nSobrescribir hará que todo el contenido de los archivos se pierda."
+LNG_WARN_CAP="Advertencia..."
+LNG_PROGRESS_SUCCESS="\nOperación satisfactoria\n\nPulsa X para continuar"
+LNG_PROGRESS_FAIL="\n\nOperación fallida\n\nPulsa X para continuar"
+LNG_FILE_CHOOSE_FILE_READ="Elegir el archivo a leer"
+LNG_FILE_CHOOSE_FILE_SAVE="Elegir el archivo a escribir"
+LNG_INFO_THX_TXT="\nTenga en cuenta que es solo un lanzador de temporal. Probablemente contenga algunos errores. Lo mismo para el propio PS2PSXe.\n\nEstás utilizándolo bajo tu propia responsabilidad. Traducción realizada por NokiaJavi(Tapia)"
+LNG_INFO_THX_CAP="Información:"
+LNG_TIP_VKBD_MASK="START - crear nuevo archivo\nL2/R2 - Activa/Desactiva filtro extensión"
+LNG_TIP_MASK_ENABLED="Filtro activado"
+LNG_TIP_MASK_DISABLED="Filtro desactivado"
+LNG_VKBD_WARN_WRONG_NAME="El nombre del archivo especificado contiene caracteres inválidos. Cambia el nombre del archivo para continuar.\n\n\nPulsa cualquier botón para continuar."
+LNG_EXIT_SELECT_ELF="Seleccione un archivo para ejecutar..."
+LNG_EXIT_INVALID="\n\nEl archivo seleccionado no es un archivo ELF ejecutable válido."
+LNG_EXIT_FAILED="\n\nEl archivo seleccionado no pudo abrirse."

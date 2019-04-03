@@ -1,0 +1,77 @@
+﻿//main menu
+LNG_MENU_MAIN_NAME="Menu Principal"
+LNG_MENU_MAIN_START="Iniciar Emulação"
+LNG_MENU_MAIN_OPENIMAGE="Abrir Imagem de CD-ROM"
+LNG_MENU_MAIN_OPENEXE="Abrir Executável de PSX"
+LNG_MENU_MAIN_OPTIONS="Configurações"
+
+//configuration
+LNG_MENU_OPTIONS_NAME="Configurações"
+LNG_MENU_OPTIONS_SYSTEM="Sistema"
+LNG_MENU_OPTIONS_VIDEO="Vídeo"
+LNG_MENU_OPTIONS_AUDIO="Áudio"
+LNG_MENU_OPTIONS_INPUT="Controle"
+LNG_MENU_OPTIONS_SAVEDEFAULT="Salvar configuração padrão"
+LNG_MENU_OPTIONS_LOADDEFAULT="Carregar configuraçao padrão"
+LNG_MENU_OPTIONS_SAVEIMAGE="Salvar configuração do jogo"
+LNG_MENU_OPTIONS_DELETECONF="Apagar configuração do jogo"
+
+//system
+LNG_MENU_SYSTEM_NAME="Sistema"
+LNG_MENU_SYSTEM_EMU="Pasta do PS2PSXe"
+LNG_MENU_SYSTEM_BIOS="Selecionar BIOS"
+LNG_MENU_SYSTEM_PERGAME="Configuração por jogo"
+LNG_MENU_SYSTEM_SPFIX="Correção de stack pointer"
+LNG_MENU_SYSTEM_EXCEP="Tratamento alt. de exceção"
+LNG_MENU_SYSTEM_LOOP="Checagem de loop"
+LNG_MENU_SYSTEM_FPS="Exibir FPS"
+LNG_MENU_SYSTEM_INTER="Modo interpretador"
+
+//video
+LNG_MENU_VIDEO_NAME="Vídeo"
+LNG_MENU_VIDEO_SIGNAL="Padrão de vídeo"
+LNG_MENU_VIDEO_LIMITER="Limitador de FPS"
+LNG_MENU_VIDEO_DEPTH="Profundidade de cores"
+LNG_MENU_VIDEO_DITHERING="Dithering"
+LNG_MENU_VIDEO_POLYFILTER="Filtro de polígonos 3D"
+LNG_MENU_VIDEO_SPRITEFILTER="Filtro de sprites 2D"
+LNG_MENU_VIDEO_XOFF="Ajuste horizontal da tela"
+LNG_MENU_VIDEO_YOFF="Ajuste vertical da tela"
+
+//audio
+LNG_MENU_AUDIO_NAME="Áudio"
+LNG_MENU_AUDIO_ENABLED="Emular som"
+LNG_MENU_AUDIO_NOTHREAD="Desabilitar threads"
+LNG_MENU_AUDIO_WAITIRQ="Esperar por IRQ da SPU"
+
+//input
+LNG_MENU_INPUT_NAME="Tipo de Controle"
+LNG_MENU_INPUT_DIGITIZE="Digitilizar controle"
+
+//all
+LNG_MENU_PATH="Escolha a pasta..."
+LNG_GLOB_UNKNOWNPATH="Pasta do PS2PSXe incorreta. Razões mais comuns:\n—fakehost usado para mascarar HDD,\n—pfs mountpoint especificado e impossível obter o destino/partição real,\n—dispositivo desconhecido foi usado.\nPor favor defina a pasta em Configuração -> Sistema."
+LNG_GLOB_UNKNOWNWRITEPATH="Impossível gravar no local \"{PATH}\".\nDispositivo desconhecido, dispositivo apenas de leitura ou impossível obter informações da partição. Por favor escolha a pasta."
+LNG_GLOB_UNKNOWNLOADPATH="Não foi possível carregar do local \"{PATH}\".\nDispositivo desconhecido ou impossível obter informações da partição. Por favor escolha a pasta."
+LNG_WRONG_PATHS="Não foi possível abrir as pastas:\n\n"
+LNG_WRONG_PATHS_BIOS="—Pasta do BIOS\n"
+LNG_WRONG_PATHS_EMU="—Pasta do PS2PSXe\n"
+LNG_WRONG_PATHS_IMG="—Pasta da imagem do CD ou executável\n"
+
+LNG_OPER_YES="Sim"
+LNG_OPER_NO="Não"
+LNG_OPER_QUESTION_OVERWRITE="Arquivo selecionado já existente! Tem certeza de que quer sobrescrevê-lo?\n\nSobrescrevê-lo fará com que todo o conteúdo do arquivo seja perdido."
+LNG_WARN_CAP="Warning..."
+LNG_PROGRESS_SUCCESS="\nOperação bem sucedida\n\nPressione X para continuar"
+LNG_PROGRESS_FAIL="\n\nFalha na Operação\n\nPressione X para continuar"
+LNG_FILE_CHOOSE_FILE_READ="Selecione arquivo para ler"
+LNG_FILE_CHOOSE_FILE_SAVE="Selecione arquivo para gravar"
+LNG_INFO_THX_TXT="\nPor favor note que este é um lançador temporário. Ele provavelmente contém muitos defeitos. O mesmo para vale para o PS2PSXe em si.\n\nVocê está usando-o por sua conta e risco."
+LNG_INFO_THX_CAP="Information:"
+LNG_TIP_VKBD_MASK="START - criar um novo arquivo\nL2/R2 - habilitar/desabilitar filtro de extensão"
+LNG_TIP_MASK_ENABLED="Filtro habilitado"
+LNG_TIP_MASK_DISABLED="Filtro desabilitado"
+LNG_VKBD_WARN_WRONG_NAME="O nome de arquivo especificado contém caracteres inválidos. Troque o nome do arquivo para continuar.\n\n\nPressione qualquer botão para continuar."
+LNG_EXIT_SELECT_ELF="Escolha um arquivo para executar..."
+LNG_EXIT_INVALID="\n\nO arquivo selecionado não é um ELF executável válido."
+LNG_EXIT_FAILED="\n\nO arquivo selecionado não pôde ser aberto."

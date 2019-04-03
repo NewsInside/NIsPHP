@@ -1,0 +1,1 @@
+Just replace the default english lang.lng in the ps2psxe launch dir with the translated one.

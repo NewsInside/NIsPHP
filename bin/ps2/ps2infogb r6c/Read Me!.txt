@@ -1,0 +1,243 @@
+--------------------------- PS2InfoGB Note ---------------------------
+
+This is PS2InfoGB rev. 6c continued by KarasQ. It's based on dlanor's 
+source of PS2InfoGB rev. 4
+
+PS2 port of InfoGB 0.5J by '7not6'
+
+Revision Date: 2010.10.06
+
+------------------------- Changes history -------------------------
+
+==== InfoGB continued by KarasQ ====
+=> Rev.6c
+     - Fixed: No-sound issue with some ROMs
+     - Fixed: Sound buffer overloading issue
+     - Added: Ability to remember position on browser list, after back to menu
+     - Added: Possibility to run ROM with longer file name than 32 characters, if
+              save device is set to MASS
+     - Removed: Save and Load config option from ingame-menu (all configuration files
+                will be saved automatically)
+     - Changed: Turbo config on/off option. Now it will force setting
+                buttons configuration after switching to ON
+
+=> Rev.6b
+     - Added: Show FPS option in menu
+     - Added: 64K RAM size support
+     - Fixed: sound issue (not property synchronized)
+     - Fixed: sound timing for ROMs which works in Double Speed Mode
+     - Optimized: sound processing function (reduced function calls,
+       which caused low rate FPS in ROMs which work in CPU Double Speed Mode)
+       
+=> Rev.6a
+     - Added: Access to mc1:/ device
+     - Added: Support for sub-directories
+     - Added: Sorting list (separately for folders and files)
+     - Added: Possibility to change buttons configuration
+     - Added: New In-browser menu with options (push start in browser)
+     - Added: Load and Save Game State (beta)
+     - Improved: CPU core (minor changes)
+     - Improved: Real Time Clock
+     - Improved: Preselected ROM option
+     - Changed: GUI - the way of selecting devices, some warning boxes etc.
+     - Removed: File gb.brm (what that file was for?)
+     And a lot of changes invisible for users
+
+=> Rev.5c
+     - Fixed bug: program stop on white-screen when folder PS2GB already
+       exists, but the file gb.brm dosen't exist in the same time (hopefully)
+     - Improved: MBC3 controller - should resolve problem with battery-backed save game
+     - Added: USB Mass Storage Support
+     - Added: Real Time Clock support for MBC3 controller
+     - Added: ability to back to browser when ROM can't be loaded
+     - Added: ability to run cardridge type:
+        * 'ROM+MBC3+TIMER+RAM+BATTERY'
+        * 'ROM+MBC3+TIMER+BATTERY'
+        * 'Hudson-HuC3'
+
+-------------------------------------------------------------------
+
+==== InfoGB by dlanor ====
+=> Rev.4
+     - Added pad Triangle reponse like 'Return' and 'BROWSE' entries
+       (Use it to exit from ROM folders or switch between MC/CDROM)
+     - Moved 'Return' entry from end of ROM list to its start instead
+     - Improved fast scroll (D-pad Left/Right now repeats faster)
+     - Fixed a bug that caused duplicate ROM entries for CD listings
+     - Fixed a bug that caused overly long ROM listings to be trashed
+
+=> Rev.3
+     - Added auto_ROM CNF variable, to start a ROM automatically
+     - Restructured the release package to include full source code
+
+=> Rev.2
+     - Added ability to exit from emu to user defined console manager.
+     - Fixed missing support for GBC extensions on CD.
+     - Added PS2GB folder with icon setup suitable for use on MC
+
+=> Rev.1
+     - Major overhaul of emu configuration and user interface.
+
+--------------------- Changes Notes and others ---------------------
+                          important notes!
+
+   [*] USB MASS Support
+                                -----------------
+ That was my major goal for my release. This PS2InfoGB uses USBHDFSD.IRX rev. 1534
+ and USBD.IRX rev. 1494 modules (source code from http://svn.ps2dev.org/)
+
+ USB Mass Support also extended ability added by dlanor in rev. 2 (I mean about
+ to exit from emu to user defined console manager). Now it's possible to run
+ your ELF file from USB mass storage. You can edit your INFOGB.CNF placed
+ on mc0:/PS2GB/. All you have to do is just change line:
+
+    "boot_ELF = mc0:/BOOT/BOOT.ELF"
+     to
+    "boot_ELF = mass:/PATH/YOUR_FILE.ELF"
+
+ and save changes.
+
+ There is possibility that your USB device can be not recognized by PS2InfoGB!
+ I don't guarantee correctly work!
+
+   [*] Real Time Clock
+ 
+ In revision 5c I've made mistake. Now it's fixed, but SOME SAVE GAMES, WHICH USE REAL 
+ TIME CLOCK (ROM type ROM+MBC3+TIMER+RAM+BATT and ROM+MBC3+TIMER+BATT) MIGHT BE
+ NOT COMPATIBLE WITH THIS REVISION (IT'S ACTUALLY RANDOM). THE ONLY WAY TO FULLY FIX
+ IT YOU HAVE TO REMOVE OLD SAVE AND START GAME AGAIN.
+
+ Well, probably you will be able to continue game but without real time clock.
+ Sometimes games offer to set real time clock (e.g. Pokemon Crystal), but you will
+ set it evry time you load battery backed save.
+
+ But as I said, it's random, so it doesn't always happen.
+
+   [*] New In-browser menu with options
+
+ You can enter this menu only from browser by press start button. You can change here:
+   - Current Save Device - This is device where saves (*.srm and *.sav) will be stored. 
+     You can change it from default MC0 device to MC1 or MASS. "PS2GB" folder will be
+     created automatically on this device (if not exists yet). If device will be not
+     available on the next reboot than current save divice will be set to default
+     MC0 debvice, PS2InfoGB will let you know about that fact.
+
+     Notice that saves are not copied from one device to another, so when you change
+     save device, than saves from previouse device will be not available (if you don't
+     copy them yourself).
+
+     Also remember that config file is always save to MC0 so if you run program without
+     memorycard in MC0 than default config will be loaded and Current Save Device will be 
+     set to default (MC0) device.
+
+   - Preselected ROM - in In-browser menu you can only turn off preselected ROM. The option
+     will be set to "Turn off" if any ROM is currently preselected. When you choose this
+     option than it will switch to "Not defined", which means that preselected ROM is
+     canceled.
+     
+     More details below in paragraph "Preselecting ROM".
+
+   - Screen Adjustment - by selecting this option you can adjust screen X, Y offsets.
+     You can move screen by pressing DPAD (arrows) buttons. When you done just press
+     X button.
+   
+   - Buttons configuration - see paragraph "Possibility to change buttons configuration"
+   
+   - Turbo buttons - On/Off turbo buttons
+
+   - Show FPS - On/off current FPS rate info
+
+   - Boot ELF - saves current config and run ELF follow ELF Path.
+
+   [*] Preselecting ROM
+
+ This option dlanor has added in Rev.3. Since this revision preselecting ROM is easier 
+ to use. You don't have to edit your config every time you would like to preselect a new 
+ ROM. All you have to do is choose the option called "Preselect this ROM" (In-game menu).
+
+ When you choose it the name of this option should change to "This ROM is preselected". 
+ It means, since now every time you reboot PS2InfoGB, message box will appear and if you 
+ agree then preselected ROM will be loaded, if not than you will return to browser.
+
+ You can turn off this option anytime you want. Just open In-browser menu (push start in 
+ browser) and turn it off.
+
+ I DON'T WARRANT BACKWARD COMPATIBILITY WITH PREVOUSE REVISIONS. I RECOMMEND TO REMOVE OR MAKE 
+ A COPY OF ALL .srm AND .sav FILE BEFORE YOU RUN A NEW REVISION. SOMETIMES THERE IS NEED TO CHANGE 
+ SAVE FILE STRUCTURE SO IT MAY BE NOT COMPATIBILE WITH PREVIOUSE ONE! DON'T FORGET THIS FUNCTION IS 
+ STILL IN BETA TESTING
+
+   [*] Possibility to change button configuration
+ 
+ Now you can freely change your button configuration. Enter In-browser menu and find option
+ called "Button configure". You will be asked for pressing buttons. If option "Turbo Buttons" 
+ is "On" you will be asked for 4 more buttons.
+
+ Every single gameboy or turbo button can be assign only to one PS2 PAD button, cause you 
+ can't assign e.g. A and B button to X at the same time, so chosen button will be blocked 
+ to avoid this situation.
+
+ DPAD (ARROWS) buttons are not changeable and you can't assign any gameboy or turbo button 
+ to DPAD buttons.
+
+ Configuration is saved to file BUTTONS.DAT (located in mc0:/PS2GB/) This file is not 
+ readable for human being so don't try to open it)
+
+   [*] Save and Load Game State
+
+ "Save State to [device]" and "Load State of [device]" options are finally implemented.
+ But! It has been tested with three ROMs so I'm not really sure how it will work with
+ other ROMs.
+ 
+ This method take about 50kB per game state on memory card (so it's pretty much, sorry
+ for that, but this emu is not adapted for such things, but maybe I will add zip compression
+ in future revision)
+
+ The location of save state and battery backed save depends on which current device is set.
+ Basically it's [device]:/PS2GB/. You can change "Current Save Device" in In-browser menu
+ to MC0, MC1 and MASS.
+ 
+ I DON'T WARRANT BACKWARD COMPATIBILITY WITH PREVOUSE REVISIONS. I RECOMMEND TO REMOVE 
+ ALL .srm AND .sav FILE WHEN YOU RUN A NEW REVISION. SOMETIMES THERE IS NEED TO CHANGE 
+ SAVE FILE STRUCTURE SO IT MAY BE NOT COMPATIBILE WITH PREVIOUSE ONE!
+
+   [*] Sorting List
+
+ Since this release list with ROM entries and directories will be sorted. There is
+ implemented algorithm QuickSort. First are listing folders following by this pattern 
+ 0-9A-Za-z, then files in the same way.
+
+   [*] Other notes
+
+- Please be careful with names of your ROM files and folders. They will be not longer
+ than 31 characters (or 64 if save device is set to MASS). If you use longer file
+ name, it may cause some problemslike missing save game and other failures, so since
+ this release emulator will not run kind of files anymore - it will let you know by 
+ show you the warning message box
+
+- In one folder you can put up to 256 files and up to 128 folders. Don't magnify
+ with folder depth either!
+ 
+- "Important reminder for saved games:
+ 
+ If you are playing a game that saves to the GB 'battery RAM', make
+ sure that you never turn off the PS2 while the game screen is showing.
+
+ You need to make sure that the 'battery RAM' of the emulator is also
+ transferred to a separate *.sav file in the save folder 'mc0:/PS2GB/'
+ so that the correct saves can be restored the next time you play the
+ same game. This is NOT done at the time when you save game as part of
+ the gameplay. That only saves to the internal RAM of the emulator.
+
+ The only time when such saves are transferred to mc0 is when you break
+ off playing by using the submenu command "Back to the main menu". This
+ takes you back to the ROM browser where you originally started the game.
+ When you see that browser appear on screen, your saves are saved to the
+ memory card, so you can then turn off the PS2 without 'losing place' in
+ the GB game"
+
+ For more info about previous changes please read dlanor's release note
+ file.
+
+                                -----------------
+--------------------------------------------------------------------

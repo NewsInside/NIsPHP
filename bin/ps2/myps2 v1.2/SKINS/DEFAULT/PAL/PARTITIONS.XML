@@ -1,0 +1,129 @@
+<window>
+	<defaultcontrol>100</defaultcontrol>
+	<controls>
+
+		<control>
+			<description>background image</description>
+			<type>image</type>
+			<posX>0</posX>
+			<posY>0</posY>
+			<width>640</width>
+			<height>512</height>
+			<texture>background.png</texture>
+		</control>	
+
+		<control>
+			<description>partitions image</description>
+			<type>image</type>
+			<posX>50</posX>
+			<posY>20</posY>
+			<width>64</width>
+			<height>64</height>
+			<texture>partitions.png</texture>
+		</control>
+
+		<control>
+			<description>partitions Label</description>
+			<type>label</type>
+			<posX>120</posX>
+			<posY>60</posY>
+			<label>131</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>Apply Button</description>
+			<type>button</type>
+			<id>100</id>
+			<posX>50</posX>
+			<posY>140</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>132</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>1</onup>
+			<ondown>1</ondown>
+			<onright>101</onright>
+		</control>
+
+		<control>
+			<description>Go Back Button</description>
+			<type>button</type>
+			<id>1</id>
+			<posX>50</posX>
+			<posY>160</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>13</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>100</onup>
+			<ondown>100</ondown>
+			<onright>101</onright>
+		</control>
+
+		<control>
+			<description>Partition List</description>
+			<id>101</id>
+			<type>list</type>
+			<posX>200</posX>
+			<posY>140</posY>
+			<width>400</width>
+			<height>300</height>
+			<texture>list_nofocus.png</texture>
+			<texturefocus>list_focus.png</texturefocus>
+			<texturemarked>list_marked.png</texturemarked>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<markedcolor>0x80FF00FF</markedcolor>
+			<itemheight>20</itemheight>
+			<padding>2</padding>
+			<textoffset>2</textoffset>
+			<font>arial_10</font>
+			<texturedown>scrolldown.png</texturedown>
+			<scrolldownposx>380</scrolldownposx>
+			<scrolldownposy>285</scrolldownposy>
+			<textureup>scrollup.png</textureup>
+			<scrollupposx>360</scrollupposx>
+			<scrollupposy>285</scrollupposy>
+			<onleft>1</onleft>
+		</control>
+
+		<control>
+			<description>music icon</description>
+			<id>5</id>
+			<type>image</type>
+			<posX>80</posX>
+			<posY>420</posY>
+			<width>32</width>
+			<height>32</height>
+			<texture>music.png</texture>
+		</control>
+
+		<control>
+			<description>mp3 time label</description>
+			<id>2</id>
+			<type>label</type>
+			<posX>75</posX>
+			<posY>460</posY>
+			<width>80</width>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+	</controls>
+</window>

@@ -1,0 +1,196 @@
+<window>
+	<defaultcontrol>100</defaultcontrol>
+	<controls>
+		<control>
+			<description>background image</description>
+			<type>image</type>
+			<posX>0</posX>
+			<posY>0</posY>
+			<width>640</width>
+			<height>512</height>
+			<texture>background.png</texture>
+		</control>
+
+		<control>
+			<description>My Pictures Button</description>
+			<id>100</id>
+			<type>button</type>
+			<posX>75</posX>
+			<posY>44</posY>
+			<width>400</width>
+			<height>64</height>
+			<texturefocus>mypictures_focus.png</texturefocus>
+			<texturenofocus>mypictures.png</texturenofocus>
+			<texturewidth>64</texturewidth>
+			<textureheight>64</textureheight>
+			<texturealign>left</texturealign>
+			<label>1</label>
+			<textoffsetx>20</textoffsetx>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<ondown>101</ondown>
+			<onright>105</onright>
+		</control>
+
+		<control>
+			<description>My Programs Button</description>
+			<id>101</id>
+			<type>button</type>
+			<posX>50</posX>
+			<posY>134</posY>
+			<width>400</width>
+			<height>64</height>
+			<texturefocus>myprograms_focus.png</texturefocus>
+			<texturenofocus>myprograms.png</texturenofocus>
+			<texturewidth>64</texturewidth>
+			<textureheight>64</textureheight>
+			<texturealign>left</texturealign>
+			<label>2</label>
+			<textoffsetx>20</textoffsetx>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>100</onup>
+			<ondown>102</ondown>
+			<onright>105</onright>
+		</control>
+
+		<control>
+			<description>My Files Button</description>
+			<id>102</id>
+			<type>button</type>
+			<posX>25</posX>
+			<posY>224</posY>
+			<width>400</width>
+			<height>64</height>
+			<texturefocus>myfiles_focus.png</texturefocus>
+			<texturenofocus>myfiles.png</texturenofocus>
+			<texturewidth>64</texturewidth>
+			<textureheight>64</textureheight>
+			<texturealign>left</texturealign>
+			<label>3</label>
+			<textoffsetx>20</textoffsetx>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>101</onup>
+			<ondown>103</ondown>
+			<onright>105</onright>
+		</control>
+
+		<control>
+			<description>My Music Button</description>
+			<id>103</id>
+			<type>button</type>
+			<posX>50</posX>
+			<posY>314</posY>
+			<width>400</width>
+			<height>64</height>
+			<texturefocus>mymusic_focus.png</texturefocus>
+			<texturenofocus>mymusic.png</texturenofocus>
+			<texturewidth>64</texturewidth>
+			<textureheight>64</textureheight>
+			<texturealign>left</texturealign>
+			<label>4</label>
+			<textoffsetx>20</textoffsetx>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>102</onup>
+			<ondown>104</ondown>
+			<onright>105</onright>
+		</control>
+
+		<control>
+			<description>Settings Button</description>
+			<id>104</id>
+			<type>button</type>
+			<posX>75</posX>
+			<posY>404</posY>
+			<width>400</width>
+			<height>64</height>
+			<texturefocus>options_focus.png</texturefocus>
+			<texturenofocus>options.png</texturenofocus>
+			<texturewidth>64</texturewidth>
+			<textureheight>64</textureheight>
+			<texturealign>left</texturealign>
+			<label>5</label>
+			<textoffsetx>20</textoffsetx>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>103</onup>
+			<onright>105</onright>
+		</control>
+
+		<control>
+			<description>Exit Button</description>
+			<id>105</id>
+			<type>button</type>
+			<posX>580</posX>
+			<posY>50</posY>
+			<width>32</width>
+			<height>32</height>
+			<texturefocus>exit_focus.png</texturefocus>
+			<texturenofocus>exit.png</texturenofocus>
+			<onleft>100</onleft>
+		</control>
+
+		<control>
+			<description>music icon</description>
+			<id>5</id>
+			<type>image</type>
+			<posX>580</posX>
+			<posY>300</posY>
+			<width>32</width>
+			<height>32</height>
+			<texture>music.png</texture>
+		</control>
+
+		<control>
+			<description>mp3 time label</description>
+			<id>2</id>
+			<type>label</type>
+			<posX>575</posX>
+			<posY>340</posY>
+			<width>80</width>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<type>image</type>
+			<posX>550</posX>
+			<posY>380</posY>
+			<width>64</width>
+			<height>64</height>
+			<texture>date.png</texture>
+		</control>
+
+		<control>
+			<description>datestring label</description>
+			<id>6</id>
+			<type>label</type>
+			<posX>365</posX>
+			<posY>450</posY>
+			<textcolor>0x80FFFFFF</textcolor>
+			<width>250</width>
+			<align>right</align>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>current time label</description>
+			<id>12</id>
+			<type>label</type>
+			<posX>365</posX>
+			<posY>470</posY>
+			<textcolor>0x80FFFFFF</textcolor>
+			<width>250</width>
+			<align>right</align>
+			<font>arial_10</font>
+		</control>
+
+	</controls>
+</window>

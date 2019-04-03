@@ -1,0 +1,4 @@
+Main function is in sdl/SDL.cpp
+Compilation of file src\filters\hq\c\hq_implementation.cpp may take a longer while
+
+Default path to load GBC rom is 'mass:/ROM.GBC' (only mass device is valid)

@@ -1,0 +1,146 @@
+hey all, for the people who have the PAL version of this game (SCES_542.06) then this might help. Found it using Google :D 
+
+First of all u need the Gow_tools.rar to get xpert2 and other required tools. The link is from svtstand's thread. Download here 
+
+Go here for GOW2PAL-SPA.rar file 
+
+And here for the PS2_GOW2_pak_Multi6_pal_toc.epi plugin. 
+
+Oh and don't worry if it says Spanish version, it will work for all pal versions of the game. Enjoy! 
+
+==================================================== 
+
+Tools needed 
+
+-Apache3 or 2 
+-xpert2 (need to install recommended on drive c: or need the hdd drive c for that xpert2 tool) => 
+-PS2_GOW2_pak_Multi6_pal_toc.epi plugin 
+-sonix PSSdown101beta.exe 
+-cdvd_iml2iso gui ver 5.2 for those don't have zlib1.dll and extract to windows\system32 or windows\system folder 
+-easy sfv creater need to install 
+-*GOW2PAL-SPA*.rar archive 
+-*dummy 
+-*join-part1-part2-file.bat 
+-*gow2palspa.iml 
+-*gow2palspa.ims 
+-*SPA-GODOFWAR.TOC 
+-*filecheckmd5.exe 
+-*FCMD5-sums.MD5 
+-*cdvd_iml2iso.exe 
+-*splitter.exe 
+-*split.bat 
+-*zlib1.dll 
+-*NEW-PART1.PAK.sfv 
+-*move.bat 
+-*pss 
+-*PSSdown101beta.exe 
+-*ACTIVESKIN.OCX 
+================================================== ======== 
+
+1. Create a folder name as GOW2PAL (any drive C:\GOW2PAL) 
+
+2. Use Apache3 open you God of War 2 iso file, and right click the playstation logo, select extract all and browse to C:\GOW2PAL folder you created 
+
+3. Wait till all the file extracted 
+
+4. Go to the *GOW2PAL-SPA.rar* archive, copy this join-part1-part2-file.bat app, 
+goto C:\GOW2PAL paste inside the folder, then double click on the join-part1-part2-file.bat file and wait until done [NEW-PART1.PAK]. 
+
+5. After done NEW-PART1.PAK, RUN xpert2 tool 
+
+6. Click the plugin dropdown list and select PS2 God Of War 2 [Multi6] PAL*.PAK |*.TOC, sound option dropdown list select sTrumpet1.wav 
+
+7. Click the B button, Browse to C:\GOW2PAL folder, Select NEW-PART1.PAK, Click the T button, Browse to C:\GOW2PAL folder,Select GODOFWAR.TOC 
+
+8. Click the 1. Extract LBA, done click Ok 
+
+9. Click the 2. Extract File, just wait till all the file extracted, all the data file will extract to C:\GOW2PAL\@NEW-PART1.PAK folder, and don't close the xpert2 tool 
+
+10. Go to the *GOW2PAL-SPA.rar* archive, to the DUMMY folder and copy all of the files and paste all files into C:\GOW2PAL\@NEW-PART1.PAK folder, Confirm File Replace , click "Yes to All" 
+
+10a. Go to the *GOW2PAL-SPA.rar* archive, to the PSS folder and copy with the pss folder and paste into C:\GOW2PAL\@NEW-PART1.PAK folder 
+i.e. C:\GOW2PAL\@NEW-PART1.PAK \pss folder 
+
+10b. Go to the *GOW2PAL-SPA.rar* archive, copy the move.bat app,paste inside the @NEW-PART1.PAK folder,double click on the move.bat file. 
+PART1-0-BOG20TEMPLESLIDE.PSS 
+PART1-0-COLOSSUSEYE.PSS 
+PART1-0-COLOSSUSHAND.PSS 
+PART1-0-DOCK1EYEEXPLODE.PSS 
+PART1-0-DOCK2EYEEXPLODE.PSS 
+PART1-0-ISLEHORSEPULL.PSS 
+PART2-0-BONUSCREDITS.PSS 
+PART2-0-DEATHICARUS.PSS 
+PART2-0-DEATHKRAKEN.PSS 
+PART2-0-PHOENIXFLIGHT.PSS 
+PART2-0-SEPARATEPHOENIX.PSS 
+PART2-0-SUMMONLAVAGEYSER.PSS 
+
+11. Go to the *GOW2PAL-SPA.rar* archive,copy PSSdown101beta.exe into C:\GOW2PAL folder 
+
+11a. Now run PSSdown101beta.exe, and goto C:\GOW2PAL\@NEW-PART1.PAK\pss folder select all the 12 pss files, 
+drag and drop into the pssdownsample tool.enter Downsample Rate: 50%, Use Stream: Primary, Force ADPCM uncheck 
+
+11b. Errors you might find with the PSS Program: 
+
+> "Component activeskin ocx not registered" 
+Don't forget to copy the ACTIVESKIN.OCX in th .rar file to your \Windows\system32 folder 
+
+> "Error 339: MSComCt2.ocx NOT correctly registered" 
+Install this file: MSCom Update file.) 
+
+12. Click GO, wait till all the pss downsampled, you should get 215 MB (225,804,336 bytes) (all the 12 pss files) and click the Clear button 
+13. goto C:\GOW2PAL\@NEW-PART1.PAK folder select all the 31 pss files (sort it by type to make it easier for you), 
+drag and drop into the pssdownsample tool. enter Downsample Rate: 50%, Use Stream: Primary, Force ADPCM uncheck 
+
+13a. Click GO, wait til all the pss downsampled, you should get 1.12 GB (1,209,237,628 bytes)(all the 31 pss files) and exit the tool 
+
+13b. Goto C:\GOW2PAL\@NEW-PART1.PAK\pss folder,select all the 12 pss file and move into C:\GOW2PAL\@NEW-PART1.PAK folder 
+-easy sfv creater need to install 
+note :Go to the *GOW2PAL-SPA.rar* archive, copy this file NEW-PART1.PAK.sfv paste inside the @NEW-PART1.PAK folder and run NEW-PART1.PAK.sfv to check any file corrupted , if all perfect goto next step 
+
+14. Now goto xpert2 tool, click 3.rebuild File, after done you should get NEW-NEW-PART1.PAK 4.29 GB (4,611,221,504 bytes) 
+
+15. Click 4. Rebuild LBA, you should get NEW-GODOFWAR.TOC. NOW close the xpert2 tool 
+
+16. Delete all this file NEW-PART1.PAK, GODOFWAR.TOC,NEW-GODOFWAR.TOC 
+
+17. Go to the *GOW2PAL-SPA.rar* archive, copy this included SPA-GODOFWAR.TOC , paste into C:\GOW2PAL folder 
+
+18. Rename SPA-GODOFWAR.TOC as GODOFWAR.TOC 
+
+19. Go to the *GOW2PAL-SPA.rar* archive, copy this included splitter.exe,split.bat, paste into C:\GOW2PAL folder 
+
+20. double click on the split.bat file and wait until done. 
+
+21. It will be split into 5 parts 
+PARK1.PAK size 0.99 GB (1,073,739,776 bytes) 
+PARK2.PAK size 0.99 GB (1,073,739,776 bytes) 
+PARK3.PAK size 0.99 GB (1,073,739,776 bytes) 
+PARK4.PAK size 0.99 GB (1,073,739,776 bytes) 
+PARK5.PAK size 301 MB (316,262,400 bytes) 
+
+22. Go to the *GOW2PAL-SPA.rar* archive, copy this 2 files FCMD5-sums.MD5, filecheckmd5.exe ,paste into C:\GOW2PAL folder and run filecheckmd5.exe, it may take sometime to check and done you will get this text Operation complete. 5 files tested.EVERY FILE APPEARS OK! 
+
+23. Go to the *GOW2PAL-SPA.rar* archive,copy this 4 files gow2palspa.iml , zlib1.dll, gow2palspa.ims and cdvd_iml2iso.exe paste into C:\GOW2PAL folder 
+
+24. Run cdvd_iml2iso.exe and browse the gow2palspa.iml,click Open button , click the Full Path button,browse to your C:\GOW2PAL folder, click the Select button,and click iml2iso button. 
+
+25. After done,final gowdvd5spa.iso file size 4.29 GB (4,614,651,904 bytes) 
+
+26. Now you can burn gowdvd5spa.iso image with DVD Decryptor (make sure its low as possible, like 2X gives best results.) 
+PARK1.PAK size 0.99 GB (1,073,739,776 bytes) 
+PARK2.PAK size 0.99 GB (1,073,739,776 bytes) 
+PARK3.PAK size 0.99 GB (1,073,739,776 bytes) 
+PARK4.PAK size 0.99 GB (1,073,739,776 bytes) 
+PARK5.PAK size 301 MB (316,262,400 bytes) 
+
+gowdvd5spa.iso size 4.29 GB (4,614,651,904 bytes) 
+
+=========================================================== 
+
+I didn't write this, got it from http://vagos.es/showthread.php?p=744755 so credits go to skinjed76. Although I modified it with some grammar corrections and spacing. And changed some option settings so that you will get English audio instead of Spanish :S 
+
+Credit also goes to svtstang for his awesome GOW2 Tutorial. 
+[ + quote]
+
+This message has been edited since posting. Last time this message was edited on 30. July 2007 @ 22:35

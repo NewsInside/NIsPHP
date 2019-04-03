@@ -1,0 +1,374 @@
+<window>
+	<defaultcontrol>110</defaultcontrol>
+	<controls>
+
+		<control>
+			<description>background image</description>
+			<type>image</type>
+			<posX>0</posX>
+			<posY>0</posY>
+			<width>640</width>
+			<height>512</height>
+			<texture>background.png</texture>
+		</control>	
+
+		<control>
+			<description>network settings image</description>
+			<type>image</type>
+			<posX>50</posX>
+			<posY>20</posY>
+			<width>64</width>
+			<height>64</height>
+			<texture>network.png</texture>
+		</control>
+
+		<control>
+			<description>network settings Label</description>
+			<type>label</type>
+			<posX>120</posX>
+			<posY>60</posY>
+			<label>120</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>Samba Button</description>
+			<type>button</type>
+			<id>110</id>
+			<posX>50</posX>
+			<posY>140</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>152</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onright>100</onright>
+			<ondown>1</ondown>
+		</control>
+
+		<control>
+			<description>Go Back Button</description>
+			<type>button</type>
+			<id>1</id>
+			<posX>50</posX>
+			<posY>160</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>13</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>110</onup>
+			<onright>100</onright>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>140</posY>
+			<label>121</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>network enable togglebutton</description>
+			<type>togglebutton</type>
+			<id>100</id>
+			<posX>500</posX>
+			<posY>140</posY>
+			<width>100</width>
+			<height>20</height>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>center</texturealign>
+			<texturefocus>setting_off_focus.png</texturefocus>
+			<texturenofocus>setting_off.png</texturenofocus>
+			<alttexturefocus>setting_on_focus.png</alttexturefocus>
+			<alttexturenofocus>setting_on.png</alttexturenofocus>
+			<onleft>1</onleft>
+			<ondown>101</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>160</posY>
+			<label>122</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>ip configure button</description>
+			<type>button</type>
+			<id>101</id>
+			<posX>500</posX>
+			<posY>160</posY>
+			<width>100</width>
+			<height>20</height>
+			<align>center</align>
+			<label>113</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onleft>1</onleft>
+			<onup>100</onup>
+			<ondown>102</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>180</posY>
+			<label>123</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>subnetmask configure button</description>
+			<type>button</type>
+			<id>102</id>
+			<posX>500</posX>
+			<posY>180</posY>
+			<width>100</width>
+			<height>20</height>
+			<align>center</align>
+			<label>113</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onleft>1</onleft>
+			<onup>101</onup>
+			<ondown>103</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>200</posY>
+			<label>124</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>gateway configure button</description>
+			<type>button</type>
+			<id>103</id>
+			<posX>500</posX>
+			<posY>200</posY>
+			<width>100</width>
+			<height>20</height>
+			<align>center</align>
+			<label>113</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onleft>1</onleft>
+			<onup>102</onup>
+			<ondown>104</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>220</posY>
+			<label>125</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>dns configure button</description>
+			<type>button</type>
+			<id>104</id>
+			<posX>500</posX>
+			<posY>220</posY>
+			<width>100</width>
+			<height>20</height>
+			<align>center</align>
+			<label>113</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onleft>1</onleft>
+			<onup>103</onup>
+			<ondown>105</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>270</posY>
+			<label>126</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>ftp enable togglebutton</description>
+			<type>togglebutton</type>
+			<id>105</id>
+			<posX>500</posX>
+			<posY>270</posY>
+			<width>100</width>
+			<height>20</height>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>center</texturealign>
+			<texturefocus>setting_off_focus.png</texturefocus>
+			<texturenofocus>setting_off.png</texturenofocus>
+			<alttexturefocus>setting_on_focus.png</alttexturefocus>
+			<alttexturenofocus>setting_on.png</alttexturenofocus>
+			<onleft>1</onleft>
+			<onup>104</onup>
+			<ondown>106</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>290</posY>
+			<label>127</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>ftp port configure button</description>
+			<type>button</type>
+			<id>106</id>
+			<posX>500</posX>
+			<posY>290</posY>
+			<width>100</width>
+			<height>20</height>
+			<align>center</align>
+			<label>113</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onleft>1</onleft>
+			<onup>105</onup>
+			<ondown>107</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>310</posY>
+			<label>128</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>ftp anonymous togglebutton</description>
+			<type>togglebutton</type>
+			<id>107</id>
+			<posX>500</posX>
+			<posY>310</posY>
+			<width>100</width>
+			<height>20</height>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>center</texturealign>
+			<texturefocus>setting_off_focus.png</texturefocus>
+			<texturenofocus>setting_off.png</texturenofocus>
+			<alttexturefocus>setting_on_focus.png</alttexturefocus>
+			<alttexturenofocus>setting_on.png</alttexturenofocus>
+			<onleft>1</onleft>
+			<onup>106</onup>
+			<ondown>108</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>330</posY>
+			<label>129</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>ftp username configure button</description>
+			<type>button</type>
+			<id>108</id>
+			<posX>500</posX>
+			<posY>330</posY>
+			<width>100</width>
+			<height>20</height>
+			<align>center</align>
+			<label>113</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onleft>1</onleft>
+			<onup>107</onup>
+			<ondown>109</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>350</posY>
+			<label>130</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>ftp password configure button</description>
+			<type>button</type>
+			<id>109</id>
+			<posX>500</posX>
+			<posY>350</posY>
+			<width>100</width>
+			<height>20</height>
+			<align>center</align>
+			<label>113</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onleft>1</onleft>
+			<onup>108</onup>
+		</control>
+
+		<control>
+			<description>music icon</description>
+			<id>5</id>
+			<type>image</type>
+			<posX>80</posX>
+			<posY>420</posY>
+			<width>32</width>
+			<height>32</height>
+			<texture>music.png</texture>
+		</control>
+
+		<control>
+			<description>mp3 time label</description>
+			<id>2</id>
+			<type>label</type>
+			<posX>75</posX>
+			<posY>460</posY>
+			<width>80</width>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+	</controls>
+</window>

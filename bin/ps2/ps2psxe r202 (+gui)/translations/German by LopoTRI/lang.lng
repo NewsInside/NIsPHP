@@ -1,0 +1,77 @@
+//main menu
+LNG_MENU_MAIN_NAME="Hauptmenü"
+LNG_MENU_MAIN_START="Starte emu..."
+LNG_MENU_MAIN_OPENIMAGE="Öffne CD-image"
+LNG_MENU_MAIN_OPENEXE="Öffne PSX *.exe"
+LNG_MENU_MAIN_OPTIONS="Einstellungen"
+
+//configuration
+LNG_MENU_OPTIONS_NAME="Einstellungen"
+LNG_MENU_OPTIONS_SYSTEM="System"
+LNG_MENU_OPTIONS_VIDEO="Video"
+LNG_MENU_OPTIONS_AUDIO="Audio"
+LNG_MENU_OPTIONS_INPUT="Eingabe"
+LNG_MENU_OPTIONS_SAVEDEFAULT="Einstellungen Speichern"
+LNG_MENU_OPTIONS_LOADDEFAULT="Einstellungen Laden"
+LNG_MENU_OPTIONS_SAVEIMAGE="Speichere Spiel-einstellung"
+LNG_MENU_OPTIONS_DELETECONF="Lösche Spiel-einstellung"
+
+//system
+LNG_MENU_SYSTEM_NAME="System"
+LNG_MENU_SYSTEM_EMU="PS2PSXe Pfad"
+LNG_MENU_SYSTEM_BIOS="Wähle BIOS"
+LNG_MENU_SYSTEM_PERGAME="Je Spiel-einstellung"
+LNG_MENU_SYSTEM_SPFIX="Stack Pointer Fix"
+LNG_MENU_SYSTEM_EXCEP="Alt. Ausnahmen-behandlung"
+LNG_MENU_SYSTEM_LOOP="Schleife Checken"
+LNG_MENU_SYSTEM_FPS="Zeige FPS"
+LNG_MENU_SYSTEM_INTER="Interpreter Modus"
+
+//video
+LNG_MENU_VIDEO_NAME="Video"
+LNG_MENU_VIDEO_SIGNAL="Signal Typ"
+LNG_MENU_VIDEO_LIMITER="Frame limitieren"
+LNG_MENU_VIDEO_DEPTH="Tiefe"
+LNG_MENU_VIDEO_DITHERING="Bildbearbeitung"
+LNG_MENU_VIDEO_POLYFILTER="Polygon Filter"
+LNG_MENU_VIDEO_SPRITEFILTER="Sprite Filter"
+LNG_MENU_VIDEO_XOFF="Bild X Pos"
+LNG_MENU_VIDEO_YOFF="Bild Y Pos"
+
+//audio
+LNG_MENU_AUDIO_NAME="Audio"
+LNG_MENU_AUDIO_ENABLED="Emuliere Ton"
+LNG_MENU_AUDIO_NOTHREAD="Ausschalten der Themen"
+LNG_MENU_AUDIO_WAITIRQ="Warte auf SPU IRQ"
+
+//input
+LNG_MENU_INPUT_NAME="Eingabe"
+LNG_MENU_INPUT_DIGITIZE="Digital Pad"
+
+//all
+LNG_MENU_PATH="Wähle Pfad..."
+LNG_GLOB_UNKNOWNPATH="Falscher PS2PSXe Pfad. Häufige Gründe:\n—fakehost wurde benutzt um HDD zu verbergen,\n—pfs mount-punkt angegeben und keine möglichkeit den echten pfad/partition zu bekommen,\n—unbekanntes Gerät.\nBitte Pfad einstellen in Einstellungen -> System."
+LNG_GLOB_UNKNOWNWRITEPATH="Kann nicht schreiben auf \"{PATH}\".\nEntweder unbekanntes Gerät, Gerät hat nur lese-rechte oder kann keine Partitions-info lesen. Bitte pfad wählen."
+LNG_GLOB_UNKNOWNLOADPATH="Kann nicht laden von \"{PATH}\".\nEntweder unbekanntes Gerät oder kann keine Partitions-info lesen. Bitte pfad wählen."
+LNG_WRONG_PATHS="Konnte Pfad(e) nicht öffnen:\n\n"
+LNG_WRONG_PATHS_BIOS="—Bios Pfad\n"
+LNG_WRONG_PATHS_EMU="—PS2PSXe Pfad\n"
+LNG_WRONG_PATHS_IMG="—CD-image oder *.exe Pfad\n"
+
+LNG_OPER_YES="Ja"
+LNG_OPER_NO="Nein"
+LNG_OPER_QUESTION_OVERWRITE="Datei existiert bereits! Überschreiben?\n\nAlle momentane inhalte der Datei gehen verloren."
+LNG_WARN_CAP="Warnung ! !"
+LNG_PROGRESS_SUCCESS="\nErledigt.\n\nDrücke X "
+LNG_PROGRESS_FAIL="\n\nFehlgeschlagen.\n\nDrücke X "
+LNG_FILE_CHOOSE_FILE_READ="Wähle Datei zum lesen"
+LNG_FILE_CHOOSE_FILE_SAVE="Wähle Datei zum schreiben"
+LNG_INFO_THX_TXT="\nNicht vergessen, es ist nur ein vorläufiger starter. Er enthällt viele Fehler. Genau so wie PS2PSXe.\n\nBenutzung auf eigenes Risiko."
+LNG_INFO_THX_CAP="Information:"
+LNG_TIP_VKBD_MASK="START - neue Datei\nL2/R2 - ein/aus der Filter"
+LNG_TIP_MASK_ENABLED="Filter ein"
+LNG_TIP_MASK_DISABLED="Filter aus"
+LNG_VKBD_WARN_WRONG_NAME="Der Name enthält ungültige Zeichen. Bitte ändern um fortzufahren.\n\n\nDrücke eine Taste um fortzufahren."
+LNG_EXIT_SELECT_ELF="Wähle eine .exe..."
+LNG_EXIT_INVALID="\n\nKeine gültige ELF .exe..."
+LNG_EXIT_FAILED="\n\nDatei konnte nicht geöffnet werden."

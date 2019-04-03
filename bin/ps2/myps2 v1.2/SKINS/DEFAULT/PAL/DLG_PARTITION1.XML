@@ -1,0 +1,90 @@
+<window>
+	<defaultcontrol>100</defaultcontrol>
+	<controls>
+		<control>
+			<description>dialog background</description>
+			<type>image</type>
+			<posX>140</posX>
+			<posY>160</posY>
+			<width>384</width>
+			<height>192</height>
+			<texture>dialog_background.png</texture>
+		</control>
+
+		<control>
+			<description>dialog caption</description>
+			<type>label</type>
+			<posX>145</posX>
+			<posY>165</posY>
+			<width>350</width>
+			<label>141</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>145</posX>
+			<posY>210</posY>
+			<width>370</width>
+			<label>139</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+			<align>center</align>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>145</posX>
+			<posY>240</posY>
+			<width>370</width>
+			<label>140</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+			<align>center</align>
+		</control>
+
+		<control>
+			<description>No Button</description>
+			<type>button</type>
+			<id>100</id>
+			<posX>230</posX>
+			<posY>290</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>27</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onright>101</onright>
+			<onleft>101</onleft>
+		</control>
+
+		<control>
+			<description>Yes Button</description>
+			<type>button</type>
+			<id>101</id>
+			<posX>360</posX>
+			<posY>290</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>28</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onright>100</onright>
+			<onleft>100</onleft>
+		</control>
+
+	</controls>
+</window>

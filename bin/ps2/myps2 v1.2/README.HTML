@@ -1,0 +1,614 @@
+<html>
+<head>
+<title>myPS2 v1.2 README</title>
+</head>
+<body>
+<pre><font face="arial"><b>myPS2 v1.2 README</b>
+
+The latest version of myPS2 can be found at
+<a href="http://www.ntba2.de/">http://www.ntba2.de/</a>
+
+The source code can be found in the SVN repository at
+<a href="http://www.ps2dev.org">http://www.ps2dev.org/</a>
+
+<b>Overview</b>
+
+	1. <a href="Readme.html#Installing">Installing & Configuration</a>
+		- <a href="Readme.html#USB_Support">USB Support</a>
+		- <a href="Readme.html#HDD_Partition">HDD Partition</a>
+		- <a href="Readme.html#Gamepad_Layout">Gamepad Layout</a>
+		- <a href="Readme.html#Samba">Accessing Samba (Windows) Shares</a>
+	2. <a href="Readme.html#My_Pictures">My Pictures</a>
+	3. <a href="Readme.html#My_Programs">My Programs</a>
+	4. <a href="Readme.html#My_Files">My Files</a>
+		- <a href="Readme.html#Creating_New_Folders">Creating New Folders</a>
+		- <a href="Readme.html#Renaming_And_Deleting">Renaming And Deleting</a>
+		- <a href="Readme.html#Copying_Files">Copying Files</a>
+	5. <a href="Readme.html#My_Music">My Music</a>
+		- <a href="Readme.html#Internet_Radio">Internet Radio</a>
+	6. <a href="Readme.html#Settings">Settings</a>
+		- <a href="Readme.html#Network_Settings">Network Settings</a>
+		- <a href="Readme.html#Partition_Settings">Partition Settings</a>
+		- <a href="Readme.html#Skin_Settings">Skin Settings</a>
+		- <a href="Readme.html#Language_Settings">Language Settings</a>
+	7. <a href="Readme.html#FAQ">FAQ</a>
+	8. <a href="Readme.html#Credits">Credits</a>
+	9. <a href="Readme.html#Links">Links</a>
+
+
+
+<b><big><a name="Installing">1. Installing & Configuring myPS2</a></b></big>
+
+To install myPS2 to your memory card simply transfer the following directories
+and files using your favourite file manager or FTP program (Directory- and
+filenames are case sensitive).
+
+	/boot/
+	/fonts/
+	/language/
+	/shoutcast/
+	/skins/
+	/logs/
+	MYPS2.ELF
+	CONFIG.DAT
+	samba.xml
+
+After you have transfered the files just launch the MYPS2.ELF executable
+from your bootlauncher application.
+
+If you want to install the program to your HDD you must add two entries
+to the CONFIG.DAT file:
+
+hdd_boot_part	= hdd0:PARTITION
+hdd_boot_path	= /PROGRAMS/MYPS2/
+
+hdd_boot_part is the name of the partition you have myPS2 installed on.
+hdd_boot_path is the path of the directory you have myPS2 installed in.
+
+You can also run the program from CD. To do this burn the files on CD along
+with the SYSTEM.CNF file. You should also add a dummy file to the compilation.
+It doesn't matter what this file is, just make sure it's at least 30 MB.
+
+<b><a name="USB_Support">USB Support</a></b>
+
+If you want to use your USB stick with myPS2 you need to supply an
+USBD.IRX module. You can find this module on many PS2 game discs so
+you can just copy it from one of your games.
+
+Alternatively you can use the usbd module from Naplink which
+can be downloaded at <a href="http://naplink.napalm-x.com/">http://naplink.napalm-x.com/</a>
+
+myPS2 will look for the USBD.IRX module in the installation directory first.
+If it can't find the file in the installation directory it will then look for
+the module on the memory card in the following places:
+
+	- mc0:/USBD.IRX
+	- mc0:/SYS-CONF/USBD.IRX
+	- mc0:/BOOT/USBD.IRX
+	- mc0:/BOOT/SMS/USBD.IRX
+	- mc0:/BOOT/PS2MP3/USBD.IRX
+	- mc0:/SMS/USBD.IRX
+	- mc0:/PS2MP3/USBD.IRX
+
+
+<b><a name="HDD_Partition">HDD Partition</a></b>
+
+If myPS2 detects a HDD on startup but cannot find a myPS2 partition, it will
+ask you if you want to create one and guide you through the process. You don't
+have to create a HDD partition but doing so will allow to use advanced features
+such as Thumbnail Caching.
+
+<a href="images/partition_1.jpg"><img src="images/partition_1_sm.jpg" border="0"></a>  <a href="images/partition_2.jpg"><img src="images/partition_2_sm.jpg" border="0"></a>
+
+
+<b><a name="Gamepad_Layout">Gamepad Layout</a></b>
+
+<table border="0">
+<tr>
+<td width="250"><b><font face="arial" size="2">Key</font></b></td>
+<td width="275"><b><font face="arial" size="2">Gamepad Button</font></b></td>
+</tr>
+<tr>
+<td><font face="arial" size="2">up/down/left/right</font></td>
+<td><font face="arial" size="2">Directional Buttons</font></td>
+</tr>
+<tr>
+<td><font face="arial" size="2">Select a file/entry</font></td>
+<td><font face="arial" size="2">CROSS Button</font></td>
+</tr>
+<tr>
+<td><font face="arial" size="2">Back to previous menu</font></td>
+<td><font face="arial" size="2">TRIANGLE Button</font></td>
+</tr>
+<tr>
+<td><font face="arial" size="2">Take a screenshot</font></td>
+<td><font face="arial" size="2">SELECT Button</font></td>
+</tr>
+<tr>
+<td><font face="arial" size="2">Highlight list entries</font></td>
+<td><font face="arial" size="2">SQUARE Button</font></td>
+</tr>
+</table>
+When viewing an image fullscreen in the "My Pictures" menu:
+
+<table border="0">
+<tr>
+<td width="250"><b><font face="arial" size="2">Key</font></b></td>
+<td width="275"><b><font face="arial" size="2">Gamepad Button</font></b></td>
+</tr>
+<tr>
+<td><font face="arial" size="2">Zoom in</font></td>
+<td><font face="arial" size="2">CIRCLE or R1 Button</font></td>
+</tr>
+<tr>
+<td><font face="arial" size="2">Zoom out</font></td>
+<td><font face="arial" size="2">SQUARE or L1 Button</font></td>
+</tr>
+<tr>
+<td><font face="arial" size="2">Back to thumbnail view</font></td>
+<td><font face="arial" size="2">TRIANGLE button</font></td>
+</tr>
+</table>
+
+
+<b><a name="Samba">Accessing Samba (Windows) Network Shares</a></b>
+
+You can access shared network folders from myPS2. To share a folder on a
+network under Windows XP, right click it and select "Sharing and Security".
+To access the share from myPS2 you must then add an entry to the samba.xml
+file.
+
+An entry in the file would look like this :
+
+&lt;<font color="blue">share</font>&gt;
+	&lt;<font color="blue">name></font>My C-Drive (SMB)&lt;<font color="blue">/name</font>&gt;
+	&lt;<font color="blue">path></font>smb://username:password@computer/C/&lt;<font color="blue">/share</font>&gt;
+&lt;<font color="blue">/share</font>&gt;
+
+<i>name</i> is the name that will show up in the menu.
+<i>path</i> is the path to the network share.
+
+The path can include a username and a password, as in the example above.
+Whether this is neccessary or not depends on your Windows/Samba configuration.
+
+<i>computer</i> is the network name of the computer. You can also enter the IP
+address of the computer instead of its name.
+
+If you want to use this feature you must first configure the network in the
+<a href="Readme.html#Network_Settings">Network Settings</a> menu.
+
+<a href="images/smb_1.jpg"><img src="images/smb_1_sm.jpg" border="0"></a>  <a href="images/smb_2.jpg"><img src="images/smb_2_sm.jpg" border="0"></a>
+
+This is a new feature and I have only tested it with my Windows XP box. It <i>should</i>
+work with all other versions of Windows or Samba, but if you can not get it to work,
+here are some things to try out :
+
+ - If you are running Windows XP it can help to turn off the "NetBIOS over TCP/IP" setting under
+   "Local Area Network Properties" -> "Advanced" -> "WINS"
+
+ - Enter the IP address of your computer instead of its NetBIOS name in the samba.xml file.
+
+ - Create an <a href="http://www.computerhope.com/jargon/l/lmhost.htm">lmhosts file</a> with appropriate settings for your network and upload it
+   to mc0:lmhosts
+
+ - Make sure you can access your shares from other computers in the network.
+
+
+<b><big><a name="My_Pictures">My Pictures</a></b></big>
+
+This lets you browse picture collections on CD/DVD/MC/HDD/USB or Samba shares.
+
+<a href="images/mypictures_1.jpg"><img src="images/mypictures_1_sm.jpg" border="0"></a>  <a href="images/mypictures_2.jpg"><img src="images/mypictures_2_sm.jpg" border="0"></a>
+
+The "Cache Images" Option generates thumbnails for all images in the current
+directory and stores them on the HDD. This reduces loading times alot.
+
+Clicking on a thumbnail will open the detail view of the image. In detail
+view you can zoom in and out with the CIRCLE and SQUARE buttons. To return
+to the thumbnail view press the TRIANGLE button.
+
+
+
+<b><big><a name="My_Programs">My Programs</a></b></big>
+
+This lets you launch other homebrew programs from MC/HDD/CD and USB.
+
+<a href="images/myprograms_1.jpg"><img src="images/myprograms_1_sm.jpg" border="0"></a>  <a href="images/myprograms_2.jpg"><img src="images/myprograms_2_sm.jpg" border="0"></a>
+
+If you click on a ELF file in the file list myPS2 will exit and attempt
+to load the selected ELF executable.
+
+
+
+<b><big><a name="My_Files">My Files</a></b></big>
+
+This lets you manage files and directories.
+
+<a href="images/myfiles_1.jpg"><img src="images/myfiles_1_sm.jpg" border="0"></a>
+
+<b><a name="Creating_New_Folders">Creating New Folders</a></b>
+
+To create a new folder navigate to the directory you want to create the folder
+in and then click the "New Folder" button. Enter the name of the folder in the
+keyboard dialog window and press the "OK" button.
+
+<a href="images/newfolder_1.jpg"><img src="images/newfolder_1_sm.jpg" border="0"></a>  <a href="images/newfolder_2.jpg"><img src="images/newfolder_2_sm.jpg" border="0"></a>
+
+<b><a name="Renaming_And_Deleting">Renaming And Deleting</a></b>
+
+To rename or delete a file or directory select it from the file list and mark it
+by pressing the SQUARE button. The entry will then be highlighted and the
+"Rename" and "Delete" buttons will become available.
+
+To rename the file click "Rename", enter the new name in the keyboard dialog and
+click "OK".
+
+To delete the file click the "Delete" button. A window will pop up and ask for
+confirmation so that you can not accidentally delete any of your files. You can
+also delete several files at once, just highlight all files and directories that
+you want to delete.
+
+<a href="images/delete_1.jpg"><img src="images/delete_1_sm.jpg" border="0"></a>  <a href="images/delete_2.jpg"><img src="images/delete_2_sm.jpg" border="0"></a>
+
+<b><a name="Copying_Files">Copying Files</a></b>
+
+Highlight the files and directories that you want to copy by pressing the
+SQUARE button. The "Copy" button will become active once you have selected at
+least one file. When you are done selecting your files click the "Copy" button
+and the program will ask you to select the destination directory.
+
+Navigate to the directory you want the files to be copied into. The "Start" button
+will become available once you have selected a valid destination directory.
+Click the "Start" button to start the copy operation.
+
+<a href="images/copy_1.jpg"><img src="images/copy_1_sm.jpg" border="0"></a>  <a href="images/copy_2.jpg"><img src="images/copy_2_sm.jpg" border="0"></a>
+
+
+
+<b><big><a name="My_Music">My Music</a></b></big>
+
+This lets you playback MP3s and Internet Radio Streams. M3U playlist files
+are also supported.
+
+To play an MP3 or M3U file simply select it from the list and press the
+CROSS button.
+
+<a href="images/mymusic_1.jpg"><img src="images/mymusic_1_sm.jpg" border="0"></a>  <a href="images/mymusic_2.jpg"><img src="images/mymusic_2_sm.jpg" border="0"></a>
+
+<b><a name="Internet_Radio">Internet Radio</a></b>
+
+You need to configure your <a href="">network settings</a> before you can use this feature.
+
+Click on the "Download" button to download a list with radio stations from
+<a href="http://www.shoutcast.com/">Shoutcast.com</a>.
+
+This can take a little while depending on the speed of your internet connection. Once the
+download is complete, you can select a radio station from the list and tune in by pressing
+the CROSS button.
+
+You can also import your bookmarks from Winamp into myPS2. Just copy the Winamp.bm file
+from the Winamp directory into the shoutcast directory of your myPS2 installation. You can
+then access your bookmarks under "Bookmarks" in the radio menu.
+
+<a href="images/radio_1.jpg"><img src="images/radio_1_sm.jpg" border="0"></a>  <a href="images/radio_2.jpg"><img src="images/radio_2_sm.jpg" border="0"></a>
+
+
+
+<b><big><a name="Settings">Settings</a></b></big>
+
+This lets you configure some program variables. You can save your changes permamently
+by clicking the "Save Config" button. This will write the CONFIG.DAT to disk (into
+the same directory the myPS2.elf executable is in). "Load Config" will load config
+settings from disk.
+
+<a href="images/settings_1.jpg"><img src="images/settings_1_sm.jpg" border="0"></a>
+
+	<b>Screen Mode Selection</b>
+	This lets you configure the display mode. Normally myPS2 will figure out
+	the appropriate display mode for your PS2 automatically, however by changing
+	this option you can enforce a certain display mode.
+
+	<b>Screen X Adjust</b>
+	This lets you adjust the horizontal offset of the screen display.
+
+	<b>Screen Y Adjust</b>
+	This lets you adjust the vertical offset of the screen display.
+
+	<b>Screenshots</b>
+	If this option is enabled you can take screenshots in myPS2 by pressing the
+	SELECT button. Screenshots are saved as JPG images.
+
+	<b>Screenshot Save Path</b>
+	This lets you configure where myPS2 will store your screenshots.
+
+	<b>Thumbnail Caching</b>
+	If this option is enabled myPS2 will cache thumbnails generated in the
+	"My Pictures" menu. This can speed up image browsing alot.
+
+	<b>Thumbnail Cache Path</b>
+	This lets you configure where the thumbnail data is stored if Thumbnail
+	Caching is enabled.
+
+	<b>Cache Shoutcast List</b>
+	If this option is enabled myPS2 will save the shoutcast station listing to
+	disc.
+
+<b><a name="Network_Settings">Network Settings</a></b>
+
+This lets you configure your network settings. If you don't plan on using any
+of the network functionality you can turn the network off. This will speed up
+the boot process. You must restart myPS2 after changing any of the network
+changes for them to take effect.
+
+<a href="images/network_1.jpg"><img src="images/network_1_sm.jpg" border="0"></a>
+
+	<b>Enable Network</b>
+	This must be enabled if you want to use any of the network functionality
+	such as Shoutcast Radio or FTP.
+
+	<b>IP Address</b>
+	This lets you configure the IP Address of your PS2. The default setting is
+	192.168.0.10
+
+	<b>Subnet mask</b>
+	This lets you configure the subnet mask of your network. The default setting
+	is 255.255.255.0
+
+	<b>Gateway Address</b>
+	This lets you configure the Gateway Address of your network. If you are behind
+	a router this is often 192.168.0.1
+
+	<b>DNS Address</b>
+	This lets you configure the IP Address of your DNS server. If your router acts
+	as a DNS server set this to your router's IP address. If you are unsure about
+	your DNS server address ask your ISP.
+
+The following settings let you configure the built-in FTP server.
+
+	<b>FTP Enable</b>
+	Enable this if you want to use the FTP server.
+
+	<b>FTP Port</b>
+	This lets you configure the port that will be used for the FTP server. The default
+	settings is 21.
+
+	<b>Allow Anonymous Login</b>
+	If this is enabled anonymous ftp logins are allowed.
+
+	<b>FTP Username</b>
+	This lets you configure the login username for the FTP server. This setting is only
+	used if "Allow Anonymous Login" is not enabled. The default login name is "myPS2".
+
+	<b>FTP Password</b>
+	This lets you configure the login password for the FTP server. This setting is only
+	used if "Allow Anonymous Login" is not enabled. The default login password is
+	"myPS2".
+
+The "Samba" menu under "Network Settings" lets you configure some Samba specific settings.
+
+	<b>Workgroup</b>
+	This lets you configure the workgroup to use for Samba. The default is "WORKGROUP".
+
+	<b>WINS Server</b>
+	This lets you configure the address of the WINS server in your network to use for
+	name resolution. If you don't know what a WINS server is, just leave this setting alone.
+
+<b><a name="Partition_Settings">Partition Settings</a></b>
+
+This lets you configure which HDD partitions will be mounted on start up.
+If you want to access other HDD partitions from myPS2 you must add them to the mount
+list in this menu.
+
+<a href="images/partitions_1.jpg"><img src="images/partitions_1_sm.jpg" border="0"></a>
+
+To add a partition to the mount list, select it from the partition list and highlight
+it by pressing the SQUARE button. Once you have selected all partitions that you want
+to include in the mount list press the "Apply Changes" button. This will attempt to mount
+all of your selected partitions. If you want to save the changes permanently go back
+to the Settings menu and click "Save Config".
+
+The myPS2 partition is always mounted to mountpoint pfs0. If you boot the program from
+HDD the boot partition is mounted to pfs1. Other partitions are mounted according to
+their order of the partition list, i.e. the first selected partition is mounted to mountpoint
+pfs2, the second to pfs3 etc.
+
+<b><a name="Skin_Settings">Skin Settings</a></b>
+
+This lets you configure which skin is used.
+
+<a href="images/skins_1.jpg"><img src="images/skins_1_sm.jpg" border="0"></a>
+
+To apply a new skin select it from the list and press the CROSS button. Applying a new
+skin can take a few seconds because all of the skin data has to be loaded and parsed.
+
+<b><a name="Language_Settings">Language Settings</a></b>
+
+This lets you chose a language from the installed language packs.
+
+<a href="images/language_1.jpg"><img src="images/language_1_sm.jpg" border="0"></a>
+
+To activate a language pack select it from the list and press the CROSS button.
+The "Charset" option lets you configure the character encoding. The default character
+encoding is Latin-1 (Western European - ISO-8859-1).
+
+
+
+<b><big><a name="FAQ">Frequently Asked Questions</a></b></big>
+
+	<i><b>Do I need a harddisk to run myPS2?</b></i>
+
+	No, myPS2 will also work without a harddisk but some features can only be used if
+	a HDD is present.
+
+	<i><b>Can I run myPS2 on unmodified consoles?</b></i>
+
+	There are ways to run homebrew programs on unmodified consoles such as the independence
+	exploit or swap tricks. If you want to know how any of these work check out the forums
+	at <a href="http://www.ps2hd.com/">http://www.ps2hd.com/</a> and <a href="http://www.ps2-scene.org/">http://www.ps2-scene.org/</a>.
+
+	<i><b>My USB stick does not work!</i></b>
+
+	You have to supply an USBD.IRX module if you want to use your USB stick with myPS2, read
+	<a href="Readme.html#USB_Support">here</a>. Also there are some USB sticks that won't work with myPS2.
+
+	<i><b>When I try to rename a directory on my memory card nothing happens?</b></i>
+
+	Renaming directories on Memory Cards and USB sticks has not been implemented yet.
+
+	<i><b>Can I use myPS2 to watch DivX movies?</b></i>
+
+	No, myPS2 currently does not have any video playback functionality. You should check out
+	EEUG's <a href="http://home.casema.nl/eugene_plotnikov/" target="_blank">Simple Media System</a> (SMS) for that!
+
+	<i><b>I get a blackscreen but the bootscreen said everything was OK?</i></b>
+
+	You have probably installed a bad skin then. After myPS2 has loaded all of its drivers it
+	resets the graphics synthesizer and tries to load the skin. If it encounters a problem while
+	loading the skin the program will halt. You can either edit the CONFIG.DAT manually and change
+	the "skin_name" setting back to "default" or boot in safe mode (read below) and then change
+	the skin in the <a href="Readme.html#Skin_Settings">Skin Settings</a> menu.
+
+	<i><b>I changed something in the config file and now the program won't boot anymore.</b></i>
+
+	You can either try to run another program and simply delete the myPS2 CONFIG.DAT file or
+	you can boot in safe mode.
+
+	To boot in safe mode press R1, R2, L1 and L2 simultaneously while myPS2 is booting. myPS2 will
+	then use the default system settings rather than reading the settings from the CONFIG.DAT.
+
+	<i><b>Feature XY doesn't work / The program crashes when I try to...</b></i>
+
+	If you find any unknown bugs please send me an <a href="mailto:torben.koenke@web.de">email</a> and let me know. Otherwise I can't fix them.
+	You can also post at one of the forums mentioned in the <a href="Readme.html#Links">Links Section</a> to get help.
+
+	<i><b>How do I install custom skins?</b></i>
+
+	Extract the custom skin to the /skins/ directory. It should then show up in the Settings menu
+	under "Skins".
+
+	<i><b>How do I install language packs?</b></i>
+
+	Copy the language xml file into the /language/ directory. It should then show up in the Settings
+	menu under "Language". If your language pack does not use the default Latin-1 character encoding
+	you will also have to change the "Charset" setting in the Language Menu.
+
+	<i><b>I can not access my Samba network shares</b></i>
+
+	Make sure your Windows Network/Samba configuration is correct, check if you can access your shared
+	folders from other computers in the network so you can rule out configuration and access problems.
+	If you are running Windows XP it can help to turn off the "NetBIOS over TCP/IP" setting under
+	Network Configuration.
+
+
+<b><big><a name="Credits">Credits</a></b></big>
+
+myPS2 is programmed by Torben "ntba2" K&ouml;nke.
+
+Thanks go to the following people (in no particular order)  :
+
+ - <b>All the cool people from ps2dev.org</b> that made PS2SDK
+ - <b>Dreamtime</b> for his PS2DEV tutorials
+ - <b>Ivaylo Byalkov</b> for his article on bitmap resizing
+ - <b>Pixel</b> for ps2-packer
+ - <b>Ole</b> for the usb_mass module
+ - <b>Hiryu</b> for libCDVD
+ - <b>Sjeep</b> for SjPCM
+ - <b>linuzappz</b> for the libjpg port
+ - <b>Jesper Svennevid</b> for the ps2ftpd module
+ - <b>EP</b> for various fixes and improvements to ps2ftpd
+ - <b>Underbit Technologies</b> for their MPEG Audio Decoder
+ - <b>Ryan Kegel</b> for parts of the audio resampling code
+ - <b>Lennart Poettering</b> for libsample
+ - <b>James Clark</b> for the expat XML parser
+ - <b>Aleix Conchillo Flaque</b> for the SCEW wrapper
+ - <b>Team XBMC</b> for inspiration and ideas
+ - <b>Chris "Neovanglist" Gilbert</b> for gsKit and dmaKit
+ - <b>David Vignoni</b> for his iconset the myPS2 skin is based on
+ - <b>Liron Tocker </b> for his iconset the myPS2 skin is based on
+ - <b>Wolfgang Bartelme</b> for his wallpaper that the myPS2 skin uses
+ - <b>GNU Project</b> for libiconv
+ - <b>Thom Wetzel</b> for Bitmap Font Builder
+ - <b>Everyone that I forgot to mention :)</b>
+
+
+
+<b><big><a name="Links">Links</a></b></big>
+
+<b>myPS2 Help Forums</b>
+
+	- <a href="http://www.ps2-scene.org/forums/forumdisplay.php?f=114">English Support Forum</a>
+	- <a href="http://www.nemesiz.tk/wbb2/board.php?boardid=189">German Support Forum</a>
+	- <a href="http://www.consoleworld.org/forumdisplay.php?f=126">Italian Support Forum</a>
+
+<b>PS2 Discussion Forums</b>
+
+	- <a href="http://www.nemesiz.tk/wbb2/index.php" target="_blank">http://www.nemisiz.tk/</a>
+	- <a href="http://www.ps2hd.com/forums/" target="_blank">http://www.ps2hd.com/</a>
+	- <a href="http://www.ps2-scene.org/forums/index.php" target="_blank">http://www.ps2-scene.org</a>
+
+
+
+<b><big><a name="Links">Version History</a></b></big>
+
+<i>
+	1.2 (released 02-26-06)
+		-ported and integrated Samba's libsmb
+		-added libps2time
+		-fonts now use a 4-bit CLUT
+		-rewrote directory browsing for "My Pictures" menu
+		-hdd partitions now show up in the menu with their
+		 names instead of mountpoints
+
+	1.1 (released 02-03-06)
+		-improved localization support
+		-skin fontsets to support different charsets
+		-can now be run from CD
+		-fixed several loading bugs
+		-got rid of BFT format, fonts now use png + dat
+
+	1.0 (released 01-22-06)
+		-added XML based skinning system
+		-added support for other languages
+		-complete GUI rewrite
+		-completely rewritten GS code based on gs- and dmaKit
+		-replaced old XML parser with expat library
+		-added libpng / png loading
+		-fixed 'blackscreen' bug on consoles with no HDD
+		-added boot screen
+		-can now mount and access other harddisk partitions
+		-reorganized source tree
+		-added bitmap font loading (bft)
+
+	0.5 (released 12-17-05)
+		-radio streaming
+		-shoutcast station browser
+
+	0.4 (released 12-06-05)
+		-added MP3 player
+		-added screenshot code
+		-fixed filter bug when listing directories
+		-added poweroff button in options menu (Bixente)
+		-will now look for USBD.IRX in several
+		 locations on startup
+
+	0.3 (released 11-27-05)
+		-added thumbnail caching
+		-added options menu
+		-added option to load custom USBD.IRX module
+		-added ps2ftpd FTP server
+
+	0.2 (released 11-18-05)
+		-added USB support
+		-added ELF loader
+		-added config file for adjusting screen offset
+		-added installation dialog
+
+	0.1 (released 11-13-05)
+		-initial release
+
+</i>
+
+
+</pre>
+
+</body>

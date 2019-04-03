@@ -1,0 +1,186 @@
+<window>
+	<defaultcontrol>1</defaultcontrol>
+	<controls>
+
+		<control>
+			<description>background image</description>
+			<type>image</type>
+			<posX>0</posX>
+			<posY>0</posY>
+			<width>640</width>
+			<height>512</height>
+			<texture>background.png</texture>
+		</control>	
+
+		<control>
+			<description>language image</description>
+			<type>image</type>
+			<posX>50</posX>
+			<posY>20</posY>
+			<width>64</width>
+			<height>64</height>
+			<texture>language.png</texture>
+		</control>
+
+		<control>
+			<description>language Label</description>
+			<type>label</type>
+			<posX>120</posX>
+			<posY>60</posY>
+			<label>137</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>Go Back Button</description>
+			<type>button</type>
+			<id>1</id>
+			<posX>50</posX>
+			<posY>140</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>13</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onright>100</onright>
+		</control>
+
+		<control>
+			<description>Language Selection List</description>
+			<id>100</id>
+			<type>list</type>
+			<posX>200</posX>
+			<posY>140</posY>
+			<width>400</width>
+			<height>160</height>
+			<texture>list_nofocus.png</texture>
+			<texturefocus>list_focus.png</texturefocus>
+			<texturemarked>list_marked.png</texturemarked>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<markedcolor>0x80FF00FF</markedcolor>
+			<itemheight>20</itemheight>
+			<padding>2</padding>
+			<textoffset>2</textoffset>
+			<font>arial_10</font>
+			<texturedown>scrolldown.png</texturedown>
+			<scrolldownposx>380</scrolldownposx>
+			<scrolldownposy>285</scrolldownposy>
+			<textureup>scrollup.png</textureup>
+			<scrollupposx>360</scrollupposx>
+			<scrollupposy>285</scrollupposy>
+			<onleft>1</onleft>
+			<ondown>102</ondown>
+		</control>
+
+		<control>
+			<description>charset combo selection</description>
+			<id>101</id>
+			<type>combo</type>
+			<posX>300</posX>
+			<posY>325</posY>
+			<width>300</width>
+			<height>20</height>
+			<align>left</align>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>102</onup>
+			<onleft>1</onleft>
+			<ondown>103</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<label>147</label>
+			<posX>200</posX>
+			<posY>325</posY>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>timezone combo selection</description>
+			<id>102</id>
+			<type>combo</type>
+			<posX>300</posX>
+			<posY>300</posY>
+			<width>300</width>
+			<height>20</height>
+			<align>left</align>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>100</onup>
+			<onleft>1</onleft>
+			<ondown>101</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<label>148</label>
+			<posX>200</posX>
+			<posY>300</posY>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>200</posX>
+			<posY>375</posY>
+			<label>149</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>dst togglebutton</description>
+			<type>togglebutton</type>
+			<id>103</id>
+			<posX>450</posX>
+			<posY>375</posY>
+			<width>100</width>
+			<height>20</height>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>center</texturealign>
+			<texturefocus>setting_off_focus.png</texturefocus>
+			<texturenofocus>setting_off.png</texturenofocus>
+			<alttexturefocus>setting_on_focus.png</alttexturefocus>
+			<alttexturenofocus>setting_on.png</alttexturenofocus>
+			<onleft>1</onleft>
+			<onup>101</onup>
+		</control>
+
+		<control>
+			<description>music icon</description>
+			<id>5</id>
+			<type>image</type>
+			<posX>80</posX>
+			<posY>420</posY>
+			<width>32</width>
+			<height>32</height>
+			<texture>music.png</texture>
+		</control>
+
+		<control>
+			<description>mp3 time label</description>
+			<id>2</id>
+			<type>label</type>
+			<posX>75</posX>
+			<posY>460</posY>
+			<width>80</width>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+	</controls>
+</window>

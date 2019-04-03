@@ -1,0 +1,337 @@
+<window>
+	<defaultcontrol>100</defaultcontrol>
+	<controls>
+
+		<control>
+			<description>background image</description>
+			<type>image</type>
+			<posX>0</posX>
+			<posY>0</posY>
+			<width>640</width>
+			<height>512</height>
+			<texture>background.png</texture>
+		</control>
+
+		<control>
+			<description>My Music image</description>
+			<type>image</type>
+			<posX>50</posX>
+			<posY>20</posY>
+			<width>64</width>
+			<height>64</height>
+			<texture>mymusic.png</texture>
+		</control>
+
+		<control>
+			<description>My Music Label</description>
+			<type>label</type>
+			<posX>120</posX>
+			<posY>60</posY>
+			<label>4</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>Sort By Name Button</description>
+			<type>button</type>
+			<id>100</id>
+			<posX>50</posX>
+			<posY>140</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>10</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<ondown>101</ondown>
+			<onright>105</onright>
+			<onup>1</onup>
+		</control>
+
+		<control>
+			<description>Sort By Size Button</description>
+			<type>button</type>
+			<id>101</id>
+			<posX>50</posX>
+			<posY>160</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>11</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>100</onup>
+			<ondown>102</ondown>
+			<onright>105</onright>
+		</control>
+
+		<control>
+			<description>Sort by Type</description>
+			<type>button</type>
+			<id>102</id>
+			<posX>50</posX>
+			<posY>180</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>12</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>101</onup>
+			<ondown>103</ondown>
+			<onright>105</onright>
+		</control>
+
+		<control>
+			<description>Show Filter Combobutton</description>
+			<type>combo</type>
+			<id>103</id>
+			<posX>50</posX>
+			<posY>200</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>9</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>102</onup>
+			<ondown>104</ondown>
+			<onright>105</onright>
+		</control>
+
+		<control>
+			<description>Shoutcast Radio Button</description>
+			<type>button</type>
+			<id>104</id>
+			<posX>50</posX>
+			<posY>220</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>40</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>103</onup>
+			<ondown>1</ondown>
+			<onright>105</onright>
+		</control>
+
+		<control>
+			<description>Go Back Button</description>
+			<type>button</type>
+			<id>1</id>
+			<posX>50</posX>
+			<posY>240</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>13</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>104</onup>
+			<onright>105</onright>
+			<ondown>100</ondown>
+		</control>
+
+		<control>
+			<description>MP3/M3U Selection List</description>
+			<id>105</id>
+			<type>dirview</type>
+			<posX>220</posX>
+			<posY>140</posY>
+			<width>400</width>
+			<height>200</height>
+			<texture>list_nofocus.png</texture>
+			<texturefocus>list_focus.png</texturefocus>
+			<texturemarked>list_marked.png</texturemarked>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<markedcolor>0x80FF00FF</markedcolor>
+			<itemheight>20</itemheight>
+			<padding>2</padding>
+			<textoffset>2</textoffset>
+			<font>arial_10</font>
+			<texturedown>scrolldown.png</texturedown>
+			<scrolldownposx>380</scrolldownposx>
+			<scrolldownposy>195</scrolldownposy>
+			<textureup>scrollup.png</textureup>
+			<scrollupposx>360</scrollupposx>
+			<scrollupposy>195</scrollupposy>
+			<onleft>100</onleft>
+			<ondown>106</ondown>
+		</control>
+
+		<control>
+			<description>playtime label</description>
+			<id>2</id>
+			<type>label</type>
+			<posX>220</posX>
+			<posY>360</posY>
+			<width>100</width>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_20</font>
+		</control>
+
+		<control>
+			<description>trackname label</description>
+			<id>4</id>
+			<type>label</type>
+			<posX>220</posX>
+			<posY>400</posY>
+			<width>400</width>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>prev track button</description>
+			<id>106</id>
+			<type>button</type>
+			<posX>220</posX>
+			<posY>440</posY>
+			<width>32</width>
+			<height>32</height>
+			<texturefocus>prev_track_focus.png</texturefocus>
+			<texturenofocus>prev_track.png</texturenofocus>
+			<onleft>1</onleft>
+			<onup>105</onup>
+			<onright>107</onright>
+		</control>
+
+		<control>
+			<description>play button</description>
+			<id>107</id>
+			<type>button</type>
+			<posX>270</posX>
+			<posY>440</posY>
+			<width>32</width>
+			<height>32</height>
+			<texturefocus>play_focus.png</texturefocus>
+			<texturenofocus>play.png</texturenofocus>
+			<onleft>106</onleft>
+			<onup>105</onup>
+			<onright>108</onright>
+		</control>
+
+		<control>
+			<description>pause togglebutton</description>
+			<id>108</id>
+			<type>togglebutton</type>
+			<posX>320</posX>
+			<posY>440</posY>
+			<width>32</width>
+			<height>32</height>
+			<texturefocus>pause_off_focus.png</texturefocus>
+			<texturenofocus>pause_off.png</texturenofocus>
+			<alttexturefocus>pause_on_focus.png</alttexturefocus>
+			<alttexturenofocus>pause_on.png</alttexturenofocus>
+			<onleft>107</onleft>
+			<onup>105</onup>
+			<onright>109</onright>
+		</control>
+
+		<control>
+			<description>stop button</description>
+			<id>109</id>
+			<type>button</type>
+			<posX>370</posX>
+			<posY>440</posY>
+			<width>32</width>
+			<height>32</height>
+			<texturefocus>stop_focus.png</texturefocus>
+			<texturenofocus>stop.png</texturenofocus>
+			<onleft>108</onleft>
+			<onup>105</onup>
+			<onright>110</onright>
+		</control>
+
+		<control>
+			<description>next track button</description>
+			<id>110</id>
+			<type>button</type>
+			<posX>420</posX>
+			<posY>440</posY>
+			<width>32</width>
+			<height>32</height>
+			<texturefocus>next_track_focus.png</texturefocus>
+			<texturenofocus>next_track.png</texturenofocus>
+			<onleft>109</onleft>
+			<onup>105</onup>
+			<onright>111</onright>
+		</control>
+
+		<control>
+			<description>loop track togglebutton</description>
+			<id>111</id>
+			<type>togglebutton</type>
+			<posX>470</posX>
+			<posY>440</posY>
+			<width>32</width>
+			<height>32</height>
+			<texturefocus>loop_off_focus.png</texturefocus>
+			<texturenofocus>loop_off.png</texturenofocus>
+			<alttexturefocus>loop_on_focus.png</alttexturefocus>
+			<alttexturenofocus>loop_on.png</alttexturenofocus>
+			<onleft>110</onleft>
+			<onup>105</onup>
+		</control>
+
+		<!-- You can also add an optional slider control for
+			 volume adjustment in this menu. Just give it id 112.
+		-->
+
+		<control>
+			<description>music icon</description>
+			<id>5</id>
+			<type>image</type>
+			<posX>80</posX>
+			<posY>420</posY>
+			<width>32</width>
+			<height>32</height>
+			<texture>music.png</texture>
+		</control>
+
+		<control>
+			<description>mp3 time label</description>
+			<id>2</id>
+			<type>label</type>
+			<posX>75</posX>
+			<posY>460</posY>
+			<width>80</width>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+	</controls>
+</window>

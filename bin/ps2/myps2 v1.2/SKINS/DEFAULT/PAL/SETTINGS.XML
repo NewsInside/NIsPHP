@@ -1,0 +1,428 @@
+<window>
+	<defaultcontrol>100</defaultcontrol>
+	<controls>
+
+		<control>
+			<description>background image</description>
+			<type>image</type>
+			<posX>0</posX>
+			<posY>0</posY>
+			<width>640</width>
+			<height>512</height>
+			<texture>background.png</texture>
+		</control>	
+
+		<control>
+			<description>settings image</description>
+			<type>image</type>
+			<posX>50</posX>
+			<posY>20</posY>
+			<width>64</width>
+			<height>64</height>
+			<texture>options.png</texture>
+		</control>
+
+		<control>
+			<description>settings Label</description>
+			<type>label</type>
+			<posX>120</posX>
+			<posY>60</posY>
+			<label>5</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>Load Settings Button</description>
+			<type>button</type>
+			<id>100</id>
+			<posX>50</posX>
+			<posY>140</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>98</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<ondown>101</ondown>
+			<onup>1</onup>
+			<onright>106</onright>
+		</control>
+
+		<control>
+			<description>Save Settings Button</description>
+			<type>button</type>
+			<id>101</id>
+			<posX>50</posX>
+			<posY>160</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>99</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<disabledcolor>0x40FFFFFF</disabledcolor>
+			<font>arial_10</font>
+			<onup>100</onup>
+			<ondown>102</ondown>
+			<onright>106</onright>
+		</control>
+
+		<control>
+			<description>Network Button</description>
+			<type>button</type>
+			<id>102</id>
+			<posX>50</posX>
+			<posY>200</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>100</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>101</onup>
+			<ondown>103</ondown>
+			<onright>106</onright>
+		</control>
+
+		<control>
+			<description>Partitions Button</description>
+			<type>button</type>
+			<id>103</id>
+			<posX>50</posX>
+			<posY>220</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>102</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>102</onup>
+			<ondown>104</ondown>
+			<onright>106</onright>
+		</control>
+
+		<control>
+			<description>Skins Button</description>
+			<type>button</type>
+			<id>104</id>
+			<posX>50</posX>
+			<posY>240</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>103</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>103</onup>
+			<ondown>105</ondown>
+			<onright>106</onright>
+		</control>
+
+		<control>
+			<description>Language Button</description>
+			<type>button</type>
+			<id>105</id>
+			<posX>50</posX>
+			<posY>260</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>104</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>104</onup>
+			<ondown>1</ondown>
+			<onright>106</onright>
+		</control>
+
+		<control>
+			<description>Go Back Button</description>
+			<type>button</type>
+			<id>1</id>
+			<posX>50</posX>
+			<posY>300</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>13</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>105</onup>
+			<ondown>100</ondown>
+			<onright>106</onright>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>140</posY>
+			<label>105</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>screen mode selection</description>
+			<type>combo</type>
+			<id>106</id>
+			<posX>500</posX>
+			<posY>140</posY>
+			<width>100</width>
+			<height>20</height>
+			<align>center</align>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onleft>100</onleft>
+			<ondown>107</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>160</posY>
+			<label>106</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>screen x adjust</description>
+			<type>slider</type>
+			<id>107</id>
+			<posX>500</posX>
+			<posY>160</posY>
+			<width>100</width>
+			<height>20</height>
+			<texturebg>slider.png</texturebg>
+			<textureslidernib>nib.png</textureslidernib>
+			<textureslidernibfocus>nib_focus.png</textureslidernibfocus>
+			<onleft>101</onleft>
+			<onup>106</onup>
+			<ondown>108</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>180</posY>
+			<label>107</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>screen y adjust</description>
+			<type>slider</type>
+			<id>108</id>
+			<posX>500</posX>
+			<posY>180</posY>
+			<width>100</width>
+			<height>20</height>
+			<texturebg>slider.png</texturebg>
+			<textureslidernib>nib.png</textureslidernib>
+			<textureslidernibfocus>nib_focus.png</textureslidernibfocus>
+			<onleft>101</onleft>
+			<onup>107</onup>
+			<ondown>109</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>200</posY>
+			<label>111</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>screenshots togglebutton</description>
+			<type>togglebutton</type>
+			<id>109</id>
+			<posX>500</posX>
+			<posY>200</posY>
+			<width>100</width>
+			<height>20</height>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>center</texturealign>
+			<texturefocus>setting_off_focus.png</texturefocus>
+			<texturenofocus>setting_off.png</texturenofocus>
+			<alttexturefocus>setting_on_focus.png</alttexturefocus>
+			<alttexturenofocus>setting_on.png</alttexturenofocus>
+			<onleft>101</onleft>
+			<onup>108</onup>
+			<ondown>110</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>220</posY>
+			<label>112</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>screenshots path button</description>
+			<type>button</type>
+			<id>110</id>
+			<posX>500</posX>
+			<posY>220</posY>
+			<width>100</width>
+			<height>20</height>
+			<align>center</align>
+			<label>113</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onleft>101</onleft>
+			<onup>109</onup>
+			<ondown>111</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>270</posY>
+			<label>115</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>cache thumbnail togglebutton</description>
+			<type>togglebutton</type>
+			<id>111</id>
+			<posX>500</posX>
+			<posY>270</posY>
+			<width>100</width>
+			<height>20</height>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>center</texturealign>
+			<texturefocus>setting_off_focus.png</texturefocus>
+			<texturenofocus>setting_off.png</texturenofocus>
+			<alttexturefocus>setting_on_focus.png</alttexturefocus>
+			<alttexturenofocus>setting_on.png</alttexturenofocus>
+			<onleft>101</onleft>
+			<onup>110</onup>
+			<ondown>112</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>290</posY>
+			<label>116</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>thumb save path button</description>
+			<type>button</type>
+			<id>112</id>
+			<posX>500</posX>
+			<posY>290</posY>
+			<width>100</width>
+			<height>20</height>
+			<align>center</align>
+			<label>113</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onleft>101</onleft>
+			<onup>111</onup>
+			<ondown>113</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>340</posY>
+			<label>117</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>cache shoutcast list togglebutton</description>
+			<type>togglebutton</type>
+			<id>113</id>
+			<posX>500</posX>
+			<posY>340</posY>
+			<width>100</width>
+			<height>20</height>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>center</texturealign>
+			<texturefocus>setting_off_focus.png</texturefocus>
+			<texturenofocus>setting_off.png</texturenofocus>
+			<alttexturefocus>setting_on_focus.png</alttexturefocus>
+			<alttexturenofocus>setting_on.png</alttexturenofocus>
+			<onleft>101</onleft>
+			<onup>112</onup>
+		</control>
+
+		<control>
+			<description>music icon</description>
+			<id>5</id>
+			<type>image</type>
+			<posX>80</posX>
+			<posY>420</posY>
+			<width>32</width>
+			<height>32</height>
+			<texture>music.png</texture>
+		</control>
+
+		<control>
+			<description>mp3 time label</description>
+			<id>2</id>
+			<type>label</type>
+			<posX>75</posX>
+			<posY>460</posY>
+			<width>80</width>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+	</controls>
+</window>

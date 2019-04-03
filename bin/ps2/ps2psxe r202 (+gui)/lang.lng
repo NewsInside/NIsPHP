@@ -1,0 +1,77 @@
+//main menu
+LNG_MENU_MAIN_NAME="Main Menu"
+LNG_MENU_MAIN_START="Start emulation"
+LNG_MENU_MAIN_OPENIMAGE="Open cdrom image"
+LNG_MENU_MAIN_OPENEXE="Open PSX executable"
+LNG_MENU_MAIN_OPTIONS="Configuration"
+
+//configuration
+LNG_MENU_OPTIONS_NAME="Configuration"
+LNG_MENU_OPTIONS_SYSTEM="System"
+LNG_MENU_OPTIONS_VIDEO="Video"
+LNG_MENU_OPTIONS_AUDIO="Audio"
+LNG_MENU_OPTIONS_INPUT="Input"
+LNG_MENU_OPTIONS_SAVEDEFAULT="Save default config"
+LNG_MENU_OPTIONS_LOADDEFAULT="Load default config"
+LNG_MENU_OPTIONS_SAVEIMAGE="Save game config"
+LNG_MENU_OPTIONS_DELETECONF="Delete game config"
+
+//system
+LNG_MENU_SYSTEM_NAME="System"
+LNG_MENU_SYSTEM_EMU="PS2PSXe path"
+LNG_MENU_SYSTEM_BIOS="Select BIOS"
+LNG_MENU_SYSTEM_PERGAME="Per game config"
+LNG_MENU_SYSTEM_SPFIX="Stack pointer fix"
+LNG_MENU_SYSTEM_EXCEP="Alt. exception handling"
+LNG_MENU_SYSTEM_LOOP="Loop check"
+LNG_MENU_SYSTEM_FPS="Show FPS"
+LNG_MENU_SYSTEM_INTER="Interpreter mode"
+
+//video
+LNG_MENU_VIDEO_NAME="Video"
+LNG_MENU_VIDEO_SIGNAL="Signal type"
+LNG_MENU_VIDEO_LIMITER="Frame limiter"
+LNG_MENU_VIDEO_DEPTH="Depth"
+LNG_MENU_VIDEO_DITHERING="Dithering"
+LNG_MENU_VIDEO_POLYFILTER="Polygon filter"
+LNG_MENU_VIDEO_SPRITEFILTER="Sprite filter"
+LNG_MENU_VIDEO_XOFF="Screen X offset"
+LNG_MENU_VIDEO_YOFF="Screen Y offset"
+
+//audio
+LNG_MENU_AUDIO_NAME="Audio"
+LNG_MENU_AUDIO_ENABLED="Emulate sound"
+LNG_MENU_AUDIO_NOTHREAD="Disable threads"
+LNG_MENU_AUDIO_WAITIRQ="Wait for SPU IRQ"
+
+//input
+LNG_MENU_INPUT_NAME="Input"
+LNG_MENU_INPUT_DIGITIZE="Digitize pad"
+
+//all
+LNG_MENU_PATH="Choose path..."
+LNG_GLOB_UNKNOWNPATH="Incorrect PS2PSXe path. Most common reasons:\n—fakehost has been used to mask hdd,\n—pfs mountpoint specified and no way to get real path/partition,\n—unknown device has been used.\nPlease set the path in Configuration -> System."
+LNG_GLOB_UNKNOWNWRITEPATH="Can't write to the location \"{PATH}\".\nEither unknown device, device is read only or cannot get partition info. Please choose the path."
+LNG_GLOB_UNKNOWNLOADPATH="Can't load from the location \"{PATH}\".\nEither unknown device or cannot get partition info. Please choose the path."
+LNG_WRONG_PATHS="Couldn't open paths:\n\n"
+LNG_WRONG_PATHS_BIOS="—bios path\n"
+LNG_WRONG_PATHS_EMU="—PS2PSXe path\n"
+LNG_WRONG_PATHS_IMG="—CD image or Exe path\n"
+
+LNG_OPER_YES="Yes"
+LNG_OPER_NO="No"
+LNG_OPER_QUESTION_OVERWRITE="Selected file already exists! Are you sure you want to overwrite it?\n\nOverwriting will cause all the file contents to be lost."
+LNG_WARN_CAP="Warning..."
+LNG_PROGRESS_SUCCESS="\nOperation successful\n\nPress X to continue"
+LNG_PROGRESS_FAIL="\n\nOperation failed\n\nPress X to continue"
+LNG_FILE_CHOOSE_FILE_READ="Choose file to read"
+LNG_FILE_CHOOSE_FILE_SAVE="Choose file to write"
+LNG_INFO_THX_TXT="\nPlease note, that it is only a temporary launcher. It probably contains a lot of bugs. Same for the PS2PSXe itself.\n\nYou're using it at your own risk."
+LNG_INFO_THX_CAP="Information:"
+LNG_TIP_VKBD_MASK="START - create new file\nL2/R2 - enable/disable extension filter"
+LNG_TIP_MASK_ENABLED="Filter enabled"
+LNG_TIP_MASK_DISABLED="Filter disabled"
+LNG_VKBD_WARN_WRONG_NAME="The specified filename contains invalid characters. Change the filename to continue.\n\n\nPress any button to continue."
+LNG_EXIT_SELECT_ELF="Select a file to execute..."
+LNG_EXIT_INVALID="\n\nThe selected file is not a valid ELF executable."
+LNG_EXIT_FAILED="\n\nThe selected file couldn't be opened."

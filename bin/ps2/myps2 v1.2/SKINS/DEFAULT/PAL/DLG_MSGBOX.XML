@@ -1,0 +1,58 @@
+<window>
+	<defaultcontrol>102</defaultcontrol>
+	<controls>
+		<control>
+			<description>dialog background</description>
+			<type>image</type>
+			<posX>192</posX>
+			<posY>192</posY>
+			<width>256</width>
+			<height>128</height>
+			<texture>dialog_background.png</texture>
+		</control>
+
+		<control>
+			<description>caption label set by source code</description>
+			<type>label</type>
+			<id>100</id>
+			<posX>195</posX>
+			<posY>192</posY>
+			<width>250</width>
+			<align>left</align>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>text label set by source code</description>
+			<type>label</type>
+			<id>101</id>
+			<posX>200</posX>
+			<posY>240</posY>
+			<width>240</width>
+			<align>center</align>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>OK button</description>
+			<type>button</type>
+			<id>102</id>
+			<posX>280</posX>
+			<posY>280</posY>
+			<width>100</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>15</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+		</control>
+
+	</controls>
+</window>

@@ -1,0 +1,1006 @@
+<window>
+	<defaultcontrol>49</defaultcontrol>
+	<controls>
+		<control>
+			<description>dialog background</description>
+			<type>image</type>
+			<posX>125</posX>
+			<posY>128</posY>
+			<width>390</width>
+			<height>290</height>
+			<texture>dialog_background.png</texture>
+		</control>
+
+		<control>
+			<description>caption label</description>
+			<type>label</type>
+			<id>100</id>
+			<posX>160</posX>
+			<posY>135</posY>
+			<width>370</width>
+			<align>left</align>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>edit label</description>
+			<type>label</type>
+			<id>101</id>
+			<posX>180</posX>
+			<posY>180</posY>
+			<width>355</width>
+			<align>left</align>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>'1' button</description>
+			<type>button</type>
+			<id>49</id>
+			<posX>183</posX>
+			<posY>210</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onright>50</onright>
+			<onleft>48</onleft>
+			<ondown>81</ondown>
+			<onup>109</onup>
+		</control>
+
+		<control>
+			<description>'2' button</description>
+			<type>button</type>
+			<id>50</id>
+			<posX>210</posX>
+			<posY>210</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>49</onleft>
+			<onright>51</onright>
+			<ondown>87</ondown>
+			<onup>109</onup>
+		</control>
+
+		<control>
+			<description>'3' button</description>
+			<type>button</type>
+			<id>51</id>
+			<posX>237</posX>
+			<posY>210</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>50</onleft>
+			<onright>52</onright>
+			<ondown>69</ondown>
+			<onup>109</onup>
+		</control>
+
+		<control>
+			<description>'4' button</description>
+			<type>button</type>
+			<id>52</id>
+			<posX>264</posX>
+			<posY>210</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>51</onleft>
+			<onright>53</onright>
+			<ondown>82</ondown>
+			<onup>110</onup>
+		</control>
+
+		<control>
+			<description>'5' button</description>
+			<type>button</type>
+			<id>53</id>
+			<posX>291</posX>
+			<posY>210</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>52</onleft>
+			<onright>54</onright>
+			<ondown>84</ondown>
+			<onup>110</onup>
+		</control>
+
+		<control>
+			<description>'6' button</description>
+			<type>button</type>
+			<id>54</id>
+			<posX>318</posX>
+			<posY>210</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>53</onleft>
+			<onright>55</onright>
+			<ondown>89</ondown>
+			<onup>110</onup>
+		</control>
+
+		<control>
+			<description>'7' button</description>
+			<type>button</type>
+			<id>55</id>
+			<posX>345</posX>
+			<posY>210</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>54</onleft>
+			<onright>56</onright>
+			<ondown>85</ondown>
+			<onup>107</onup>
+		</control>
+
+		<control>
+			<description>'8' button</description>
+			<type>button</type>
+			<id>56</id>
+			<posX>372</posX>
+			<posY>210</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>55</onleft>
+			<onright>57</onright>
+			<ondown>73</ondown>
+			<onup>107</onup>
+		</control>
+
+		<control>
+			<description>'9' button</description>
+			<type>button</type>
+			<id>57</id>
+			<posX>399</posX>
+			<posY>210</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>56</onleft>
+			<onright>48</onright>
+			<ondown>79</ondown>
+			<onup>108</onup>
+		</control>
+
+		<control>
+			<description>'0' button</description>
+			<type>button</type>
+			<id>48</id>
+			<posX>426</posX>
+			<posY>210</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>57</onleft>
+			<onright>49</onright>
+			<ondown>80</ondown>
+			<onup>108</onup>
+		</control>
+
+		<control>
+			<description>'Q' button</description>
+			<type>button</type>
+			<id>81</id>
+			<posX>183</posX>
+			<posY>237</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>80</onleft>
+			<onright>87</onright>
+			<ondown>65</ondown>
+			<onup>49</onup>
+		</control>
+
+		<control>
+			<description>'W' button</description>
+			<type>button</type>
+			<id>87</id>
+			<posX>210</posX>
+			<posY>237</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>81</onleft>
+			<onright>69</onright>
+			<ondown>83</ondown>
+			<onup>50</onup>
+		</control>
+
+		<control>
+			<description>'E' button</description>
+			<type>button</type>
+			<id>69</id>
+			<posX>237</posX>
+			<posY>237</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>87</onleft>
+			<onright>82</onright>
+			<ondown>68</ondown>
+			<onup>51</onup>
+		</control>
+
+		<control>
+			<description>'R' button</description>
+			<type>button</type>
+			<id>82</id>
+			<posX>264</posX>
+			<posY>237</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>69</onleft>
+			<onright>84</onright>
+			<ondown>70</ondown>
+			<onup>52</onup>
+		</control>
+
+		<control>
+			<description>'T' button</description>
+			<type>button</type>
+			<id>84</id>
+			<posX>291</posX>
+			<posY>237</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>82</onleft>
+			<onright>89</onright>
+			<ondown>71</ondown>
+			<onup>53</onup>
+		</control>
+
+		<control>
+			<description>'Y' button</description>
+			<type>button</type>
+			<id>89</id>
+			<posX>318</posX>
+			<posY>237</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>84</onleft>
+			<onright>85</onright>
+			<ondown>72</ondown>
+			<onup>54</onup>
+		</control>
+
+		<control>
+			<description>'U' button</description>
+			<type>button</type>
+			<id>85</id>
+			<posX>345</posX>
+			<posY>237</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>89</onleft>
+			<onright>73</onright>
+			<ondown>74</ondown>
+			<onup>55</onup>
+		</control>
+
+		<control>
+			<description>'I' button</description>
+			<type>button</type>
+			<id>73</id>
+			<posX>372</posX>
+			<posY>237</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>85</onleft>
+			<onright>79</onright>
+			<ondown>75</ondown>
+			<onup>56</onup>
+		</control>
+
+		<control>
+			<description>'O' button</description>
+			<type>button</type>
+			<id>79</id>
+			<posX>399</posX>
+			<posY>237</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>73</onleft>
+			<onright>80</onright>
+			<ondown>76</ondown>
+			<onup>57</onup>
+		</control>
+
+		<control>
+			<description>'P' button</description>
+			<type>button</type>
+			<id>80</id>
+			<posX>426</posX>
+			<posY>237</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>79</onleft>
+			<onright>81</onright>
+			<ondown>58</ondown>
+			<onup>48</onup>
+		</control>
+
+		<control>
+			<description>'A' button</description>
+			<type>button</type>
+			<id>65</id>
+			<posX>183</posX>
+			<posY>264</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>58</onleft>
+			<onright>83</onright>
+			<ondown>90</ondown>
+			<onup>81</onup>
+		</control>
+
+		<control>
+			<description>'S' button</description>
+			<type>button</type>
+			<id>83</id>
+			<posX>210</posX>
+			<posY>264</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>65</onleft>
+			<onright>68</onright>
+			<ondown>88</ondown>
+			<onup>87</onup>
+		</control>
+
+		<control>
+			<description>'D' button</description>
+			<type>button</type>
+			<id>68</id>
+			<posX>237</posX>
+			<posY>264</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>83</onleft>
+			<onright>70</onright>
+			<ondown>67</ondown>
+			<onup>69</onup>
+		</control>
+
+		<control>
+			<description>'F' button</description>
+			<type>button</type>
+			<id>70</id>
+			<posX>264</posX>
+			<posY>264</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>68</onleft>
+			<onright>71</onright>
+			<ondown>86</ondown>
+			<onup>82</onup>
+		</control>
+
+		<control>
+			<description>'G' button</description>
+			<type>button</type>
+			<id>71</id>
+			<posX>291</posX>
+			<posY>264</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>70</onleft>
+			<onright>72</onright>
+			<ondown>66</ondown>
+			<onup>84</onup>
+		</control>
+
+		<control>
+			<description>'H' button</description>
+			<type>button</type>
+			<id>72</id>
+			<posX>318</posX>
+			<posY>264</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>71</onleft>
+			<onright>74</onright>
+			<ondown>78</ondown>
+			<onup>89</onup>
+		</control>
+
+		<control>
+			<description>'J' button</description>
+			<type>button</type>
+			<id>74</id>
+			<posX>345</posX>
+			<posY>264</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>72</onleft>
+			<onright>75</onright>
+			<ondown>77</ondown>
+			<onup>85</onup>
+		</control>
+
+		<control>
+			<description>'K' button</description>
+			<type>button</type>
+			<id>75</id>
+			<posX>372</posX>
+			<posY>264</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>74</onleft>
+			<onright>76</onright>
+			<ondown>95</ondown>
+			<onup>73</onup>
+		</control>
+
+		<control>
+			<description>'L' button</description>
+			<type>button</type>
+			<id>76</id>
+			<posX>399</posX>
+			<posY>264</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>75</onleft>
+			<onright>58</onright>
+			<ondown>46</ondown>
+			<onup>79</onup>
+		</control>
+
+		<control>
+			<description>':' button</description>
+			<type>button</type>
+			<id>58</id>
+			<posX>426</posX>
+			<posY>264</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>76</onleft>
+			<onright>65</onright>
+			<ondown>47</ondown>
+			<onup>80</onup>
+		</control>
+
+		<control>
+			<description>'Z' button</description>
+			<type>button</type>
+			<id>90</id>
+			<posX>183</posX>
+			<posY>291</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>47</onleft>
+			<onright>88</onright>
+			<ondown>103</ondown>
+			<onup>65</onup>
+		</control>
+
+		<control>
+			<description>'X' button</description>
+			<type>button</type>
+			<id>88</id>
+			<posX>210</posX>
+			<posY>291</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>90</onleft>
+			<onright>67</onright>
+			<ondown>104</ondown>
+			<onup>83</onup>
+		</control>
+
+		<control>
+			<description>'C' button</description>
+			<type>button</type>
+			<id>67</id>
+			<posX>237</posX>
+			<posY>291</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>88</onleft>
+			<onright>86</onright>
+			<ondown>105</ondown>
+			<onup>68</onup>
+		</control>
+
+		<control>
+			<description>'V' button</description>
+			<type>button</type>
+			<id>86</id>
+			<posX>264</posX>
+			<posY>291</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>67</onleft>
+			<onright>66</onright>
+			<ondown>106</ondown>
+			<onup>70</onup>
+		</control>
+
+		<control>
+			<description>'B' button</description>
+			<type>button</type>
+			<id>66</id>
+			<posX>291</posX>
+			<posY>291</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>86</onleft>
+			<onright>78</onright>
+			<ondown>106</ondown>
+			<onup>71</onup>
+		</control>
+
+		<control>
+			<description>'N' button</description>
+			<type>button</type>
+			<id>78</id>
+			<posX>318</posX>
+			<posY>291</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>66</onleft>
+			<onright>77</onright>
+			<ondown>107</ondown>
+			<onup>72</onup>
+		</control>
+
+		<control>
+			<description>'M' button</description>
+			<type>button</type>
+			<id>77</id>
+			<posX>345</posX>
+			<posY>291</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>78</onleft>
+			<onright>95</onright>
+			<ondown>107</ondown>
+			<onup>74</onup>
+		</control>
+
+		<control>
+			<description>'_' button</description>
+			<type>button</type>
+			<id>95</id>
+			<posX>372</posX>
+			<posY>291</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>77</onleft>
+			<onright>46</onright>
+			<ondown>107</ondown>
+			<onup>75</onup>
+		</control>
+
+		<control>
+			<description>'.' button</description>
+			<type>button</type>
+			<id>46</id>
+			<posX>399</posX>
+			<posY>291</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>95</onleft>
+			<onright>47</onright>
+			<ondown>108</ondown>
+			<onup>76</onup>
+		</control>
+
+		<control>
+			<description>'/' button</description>
+			<type>button</type>
+			<id>47</id>
+			<posX>426</posX>
+			<posY>291</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>46</onleft>
+			<onright>90</onright>
+			<ondown>108</ondown>
+			<onup>58</onup>
+		</control>
+
+		<control>
+			<description>Left button</description>
+			<type>button</type>
+			<id>103</id>
+			<posX>183</posX>
+			<posY>318</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_left_focus.png</texturefocus>
+			<texturenofocus>kboard_btn_left.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>108</onleft>
+			<onright>104</onright>
+			<ondown>109</ondown>
+			<onup>90</onup>
+		</control>
+
+		<control>
+			<description>Right button</description>
+			<type>button</type>
+			<id>104</id>
+			<posX>210</posX>
+			<posY>318</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_right_focus.png</texturefocus>
+			<texturenofocus>kboard_btn_right.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>103</onleft>
+			<onright>105</onright>
+			<ondown>109</ondown>
+			<onup>88</onup>
+		</control>
+
+		<control>
+			<description>Delete button</description>
+			<type>button</type>
+			<id>105</id>
+			<posX>237</posX>
+			<posY>318</posY>
+			<width>22</width>
+			<height>22</height>
+			<texturefocus>kboard_btn_del_focus.png</texturefocus>
+			<texturenofocus>kboard_btn_del.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>104</onleft>
+			<onright>106</onright>
+			<ondown>109</ondown>
+			<onup>67</onup>
+		</control>
+
+		<control>
+			<description>Shift button</description>
+			<type>togglebutton</type>
+			<id>106</id>
+			<posX>264</posX>
+			<posY>318</posY>
+			<width>49</width>
+			<height>22</height>
+			<label>33</label>
+			<texturefocus>kbbtn_shift_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<alttexturefocus>kbbtn_shift_focus.png</alttexturefocus>
+			<alttexturenofocus>kbbtn_shift_on.png</alttexturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>105</onleft>
+			<onright>107</onright>
+			<ondown>110</ondown>
+			<onup>86</onup>
+		</control>
+
+		<control>
+			<description>Space button</description>
+			<type>button</type>
+			<id>107</id>
+			<posX>318</posX>
+			<posY>318</posY>
+			<width>76</width>
+			<height>22</height>
+			<label>34</label>
+			<texturefocus>kbbtn_space_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>106</onleft>
+			<onright>108</onright>
+			<ondown>110</ondown>
+			<onup>78</onup>
+		</control>
+
+		<control>
+			<description>Backspace button</description>
+			<type>button</type>
+			<id>108</id>
+			<posX>399</posX>
+			<posY>318</posY>
+			<width>49</width>
+			<height>22</height>
+			<label>35</label>
+			<texturefocus>kbbtn_shift_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>107</onleft>
+			<onright>103</onright>
+			<ondown>110</ondown>
+			<onup>46</onup>
+		</control>
+
+		<control>
+			<description>OK button</description>
+			<type>button</type>
+			<id>109</id>
+			<posX>183</posX>
+			<posY>360</posY>
+			<width>76</width>
+			<height>22</height>
+			<label>15</label>
+			<texturefocus>kbbtn_space_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>110</onleft>
+			<onright>110</onright>
+			<onup>103</onup>
+			<ondown>49</ondown>
+		</control>
+
+		<control>
+			<description>Cancel button</description>
+			<type>button</type>
+			<id>110</id>
+			<posX>264</posX>
+			<posY>360</posY>
+			<width>76</width>
+			<height>22</height>
+			<label>36</label>
+			<texturefocus>kbbtn_space_focus.png</texturefocus>
+			<texturenofocus>kboard_btn.png</texturenofocus>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<align>center</align>
+			<onleft>109</onleft>
+			<onright>109</onright>
+			<onup>106</onup>
+			<ondown>52</ondown>
+		</control>
+
+	</controls>
+</window>

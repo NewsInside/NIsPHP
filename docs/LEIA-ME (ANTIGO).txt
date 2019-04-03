@@ -1,0 +1,107 @@
+***\/\/\|--- Pacote de aplicativos feito por @rafaelfrequiao. ---|/\/\/\/***
+
+-----------------------------------------------------------------------------------
+
+A inspiração veio do MEGAPACK BR, criado por bootsector, um pacote de programas
+úteis para o console (PlayStation 2), executado pelo HD, mas aí vieram as reviões
+SLIM e o MEGAPACK veio a se tornar CD/DVD usando o uLaunchElf.
+
+Apesar do PlayStation 2 já estar ultrapassado, ele ainda diverte.
+Quando eu conhecí o MEGAPACK BR DVD, eu ví que estava desatualizado, então resolvi
+criar meu próprio pacote de aplicativos.
+
+A cena de desenvolvimento de aplicativos caseiros para o PS2 estagnou? Não, apesar
+de que a maioria dos aplicativos não recebem mais atualizações. O PSP sugou tudo,
+mas ainda existe gente que se esforça; exemplos não faltam: traduções (como a do
+FF XII IZJS) e hacks novos.
+
+No caso do meu pacote, não contém o HDLoader, pois os modelos TIJOLÕES não são tão
+mais populares. A Sony não fabrica mais os tijolões com o suporte para HD.
+
+Alguns arquivos foram retirados do MEGAPACK BR 2 em DVD e colocados no meu pacote,
+como o arquivo de linguagem do uLaunchElf, alguns programas e a skin.
+
+O que eu fiz foi conseguir versões mais atualizadas dos programas, corrigindo bugs,
+os desenvolvedores dos aplicativos adicionaram funções novas, mudei a GUI do 
+uLaunchElf e conseguir outros programas.
+
+Incluí bônus: cds de bandas independentes que eu gosto.
+
+Enfim, aproveite...
+
+-----------------------------------------------------------------------------------
+
+BASE:		uLaunchElf v4.41 (5º aniversário do projeto, versão não-oficial)
+
+-----------------------------------------------------------------------------------
+
+APPS (PS2)
+
+* CodeBreaker 					v9.2 (Anti-Modchip version)
+* ESR beta 					vr9b
+* MCManager 					v1
+* MyPS2 					v1.3
+* Naplink
+* Open PS2 Loader 				v0.7
+* PS2Dumper v2.0
+* PS2Link
+* Simple Media System 				v2.9 (Rev.4)
+* Snes-Station 					v0.2.4 (USB MASS)
+* USBAdvance
+
+-----------------------------------------------------------------------------------
+
+APPS (PC)
+
+* CDGENPS2
+* Devil May Cry 3 Save Game Editor 		v1.1
+* ESR Disc Patcher 				v0.24a
+* God of War 2 Ripkit by dudugames07
+* IDCheck + Generator  				v1.0
+* InLink
+* NapClient
+* Power Defragmenter
+* PS2 Y-Fix 					v1.07 beta
+* PS2Client + GUI for SMS
+* PS2 Save Builder 				v0.8
+* Rad Host Client				v1.8a
+* SmartFTP
+* USBAdvance
+* USBExtreme
+* USBInsane
+* USBUtil 					v2.1 Ultimate Rev 1.1, mayo 2010.
+* WinDip					v1.7
+
+-----------------------------------------------------------------------------------
+
+APPS (PERIGOSOS)
+
+* GSModeSelector				v0.23u beta (compiled by dlanor)
+
+>>> Ele é um pequeno programa que consegue "setar", escolher, forçar, o modo de 
+vídeo a ser usado pela GS (Graphics Synthetizer, a GPU do PS2). Imagine jogar em HD,
+50/60HZ, entrelaçado ou progressivo, sem precisar do chip.
+
+>>> Ele é perigoso por que é um hack na GS do PS2, na verdade ele só diz o modo e 
+o vídeo mostra.
+
+* MCKiller
+
+>>> Conhecido como "Assasino de Memory Cards", esse programa formata os Memory Cards
+de PS2 com 8MB de capacidade, originais, se não possuir esses requisitos ele não irá
+funcionar.
+
+>>> Eu ainda não testei ele, meu Memory Card é pirata, corrompe os dados facilmente
+e para formatar eu uso o CodeBreaker.
+
+* PS2Quake
+
+>>> Alguém portou o código da engine do primeiro Quake, da iD Software para o PS2.
+É necessário o arquivo "pak0.pak" que possui o conteúdo da versão shareware do jogo.
+Para jogar é necessário também um teclado e mouse conectados na USB do console.
+O arquivo "pak0.pak" já está no seu devido lugar. O motivo desse programa ser
+"perigoso" é que eu ainda não consegui fazê-lo rodar.
+
+-----------------------------------------------------------------------------------
+
+Qualquer problema mande um e-mail para: rafaelfrequiao@gmail.com

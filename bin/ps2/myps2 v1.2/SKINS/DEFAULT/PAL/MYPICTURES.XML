@@ -1,0 +1,212 @@
+<window>
+	<defaultcontrol>108</defaultcontrol>
+	<controls>
+		<control>
+			<description>background image</description>
+			<type>image</type>
+			<posX>0</posX>
+			<posY>0</posY>
+			<width>640</width>
+			<height>512</height>
+			<texture>background.png</texture>
+		</control>
+
+		<control>
+			<description>My Pictures image</description>
+			<type>image</type>
+			<posX>50</posX>
+			<posY>20</posY>
+			<width>64</width>
+			<height>64</height>
+			<texture>mypictures.png</texture>
+		</control>
+
+		<control>
+			<description>My Pictures Label</description>
+			<type>label</type>
+			<posX>120</posX>
+			<posY>60</posY>
+			<label>1</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>Precache Thumbnails Button</description>
+			<type>button</type>
+			<id>103</id>
+			<posX>50</posX>
+			<posY>140</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>9</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>102</onup>
+			<ondown>104</ondown>
+			<onright>108</onright>
+		</control>
+
+		<control>
+			<description>Sort by Name Button</description>
+			<type>button</type>
+			<id>104</id>
+			<posX>50</posX>
+			<posY>160</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>10</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>103</onup>
+			<ondown>105</ondown>
+			<onright>108</onright>
+		</control>
+
+		<control>
+			<description>Sort by Size Button</description>
+			<type>button</type>
+			<id>105</id>
+			<posX>50</posX>
+			<posY>180</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>11</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>104</onup>
+			<ondown>106</ondown>
+			<onright>108</onright>
+		</control>
+
+		<control>
+			<description>Sort by Type Button</description>
+			<type>button</type>
+			<id>106</id>
+			<posX>50</posX>
+			<posY>200</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>12</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>105</onup>
+			<ondown>1</ondown>
+			<onright>108</onright>
+		</control>
+
+		<control>
+			<description>Go Back Button</description>
+			<type>button</type>
+			<id>1</id>
+			<posX>50</posX>
+			<posY>220</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>13</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onup>106</onup>
+			<onright>108</onright>
+			<ondown>101</ondown>
+		</control>
+
+		<control>
+			<description>Thumbnail Panel</description>
+			<type>thumbnailpanel</type>
+			<id>108</id>
+			<posX>215</posX>
+			<posY>60</posY>
+			<width>400</width>
+			<height>400</height>
+			<itemtexture>itemtexture.png</itemtexture>
+			<itemtexturefocus>itemtexturefocus.png</itemtexturefocus>
+			<itemwidth>100</itemwidth>
+			<itemheight>100</itemheight>
+			<texturewidth>80</texturewidth>
+			<textureheight>80</textureheight>
+			<paddingx>20</paddingx>
+			<paddingy>20</paddingy>
+			<thumbwidth>64</thumbwidth>
+			<thumbheight>64</thumbheight>
+			<thumbalign>center</thumbalign>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<texturedown>scrolldown.png</texturedown>
+			<scrolldownposx>380</scrolldownposx>
+			<scrolldownposy>380</scrolldownposy>
+			<textureup>scrollup.png</textureup>
+			<scrollupposx>360</scrollupposx>
+			<scrollupposy>380</scrollupposy>
+			<onleft>1</onleft>
+		</control>
+
+		<control>
+			<description>important must have this</description>
+			<type>image</type>
+			<id>109</id>
+			<texture>errorthumb.png</texture>
+		</control>
+
+		<control>
+			<description>important must have this</description>
+			<type>image</type>
+			<id>110</id>
+			<texture>dirthumb.png</texture>
+		</control>
+
+		<control>
+			<description>music icon</description>
+			<id>5</id>
+			<type>image</type>
+			<posX>80</posX>
+			<posY>420</posY>
+			<width>32</width>
+			<height>32</height>
+			<texture>music.png</texture>
+		</control>
+
+		<control>
+			<description>mp3 time label</description>
+			<id>2</id>
+			<type>label</type>
+			<posX>75</posX>
+			<posY>460</posY>
+			<width>80</width>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+	</controls>
+</window>

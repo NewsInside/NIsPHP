@@ -1,0 +1,77 @@
+//main menu
+LNG_MENU_MAIN_NAME="Menu principal"
+LNG_MENU_MAIN_START="Lancer un jeu"
+LNG_MENU_MAIN_OPENIMAGE="Ouvrir une image disque"
+LNG_MENU_MAIN_OPENEXE="Ouvrir un programme PSX"
+LNG_MENU_MAIN_OPTIONS="Parametres"
+
+//configuration
+LNG_MENU_OPTIONS_NAME="Configuration"
+LNG_MENU_OPTIONS_SYSTEM="Systeme"
+LNG_MENU_OPTIONS_VIDEO="Video"
+LNG_MENU_OPTIONS_AUDIO="Audio"
+LNG_MENU_OPTIONS_INPUT="Option manette"
+LNG_MENU_OPTIONS_SAVEDEFAULT="Sauvegarder la config"
+LNG_MENU_OPTIONS_LOADDEFAULT="Charger la config"
+LNG_MENU_OPTIONS_SAVEIMAGE="Sauvegarder la config du jeu"
+LNG_MENU_OPTIONS_DELETECONF="Supprimer la config du jeu"
+
+//system
+LNG_MENU_SYSTEM_NAME="Système"
+LNG_MENU_SYSTEM_EMU="emplacement de PS2PSXe.elf"
+LNG_MENU_SYSTEM_BIOS="Selectionner le BIOS"
+LNG_MENU_SYSTEM_PERGAME="Config par jeu"
+LNG_MENU_SYSTEM_SPFIX="Correction d indicateur"
+LNG_MENU_SYSTEM_EXCEP="Traitement alternatif de donnes."
+LNG_MENU_SYSTEM_LOOP="Controle de boucle"
+LNG_MENU_SYSTEM_FPS="Afficher FPS"
+LNG_MENU_SYSTEM_INTER="Mode interprete"
+
+//video
+LNG_MENU_VIDEO_NAME="Video"
+LNG_MENU_VIDEO_SIGNAL="Type de signal"
+LNG_MENU_VIDEO_LIMITER="Limiteur de frame"
+LNG_MENU_VIDEO_DEPTH="Texture"
+LNG_MENU_VIDEO_DITHERING="Ameliorer textures 16 bit"
+LNG_MENU_VIDEO_POLYFILTER="Filtre polygone"
+LNG_MENU_VIDEO_SPRITEFILTER="Filtre de lissage"
+LNG_MENU_VIDEO_XOFF="Decaler l ecran (X)"
+LNG_MENU_VIDEO_YOFF="Decaler l ecran (Y)"
+
+//audio
+LNG_MENU_AUDIO_NAME="Audio"
+LNG_MENU_AUDIO_ENABLED="Emuler le son"
+LNG_MENU_AUDIO_NOTHREAD="emulation alternative"
+LNG_MENU_AUDIO_WAITIRQ="emulation rapide"
+
+//input
+LNG_MENU_INPUT_NAME="Controleurs"
+LNG_MENU_INPUT_DIGITIZE="Pad analogique"
+
+//all
+LNG_MENU_PATH="Choisir dossier..."
+LNG_GLOB_UNKNOWNPATH="Chemin d acces au PS2PSXe incorrect. Raisons communes:\n—Fakehost a ete utilise par le hdd,\n—pfs mountpoint specifie et pas de chemin pour aller reellement dans le dossier/partition,\n—Un dispositif inconnu a ete utilise.\nEntrez s il vous plait le chemin d acces dans la configuration -> Systeme."
+LNG_GLOB_UNKNOWNWRITEPATH="Impossible d ecrire a l emplacement \"{PATH}\".\nDispositif inconnu, Le dispositif est en lecture seule ou ne peut pas obtenir d info sur la partition. Choisissez s il vous plait le chemin d acces"
+LNG_GLOB_UNKNOWNLOADPATH="Impossible de charger a l emplacement \"{PATH}\".\nDispositif inconnu ou ne peut pas obtenir d info sur la partition. Choisissez s il vous plait le chemin d acces."
+LNG_WRONG_PATHS="Impossible d ouvrir les dossiers:\n\n"
+LNG_WRONG_PATHS_BIOS="—dossier du BIOS\n"
+LNG_WRONG_PATHS_EMU="—Dossier du PS2PSXe\n"
+LNG_WRONG_PATHS_IMG="—Dossier de l image disque ou exe\n"
+
+LNG_OPER_YES="Oui"
+LNG_OPER_NO="Non"
+LNG_OPER_QUESTION_OVERWRITE="Le fichier choisi existe deja ! Etes vous sur de vouloir l ecraser ? \n\nSauvegarder par dessus supprimera toutes les donnees."
+LNG_WARN_CAP="Attention..."
+LNG_PROGRESS_SUCCESS="\nOperation reussie\n\nAppuyez sur X pour continuer"
+LNG_PROGRESS_FAIL="\n\nOperation echouee\n\nAppuyez sur X pour continuer"
+LNG_FILE_CHOOSE_FILE_READ="Choisir le fichier a lire"
+LNG_FILE_CHOOSE_FILE_SAVE="Choisir le fichier a ecrire"
+LNG_INFO_THX_TXT="\nNotez s il vous plait, qu il s agit ici d un loader provisoire. Il contient probablement beaucoup de bugs. Ainsi que PS2PSXE lui meme. Leutilisation est a votre risque et peril."
+LNG_INFO_THX_CAP="Information:"
+LNG_TIP_VKBD_MASK="Demarrer - Creer un nouveau fichier\nL2/R2 - Activer/Desactiver le filtre d extension"
+LNG_TIP_MASK_ENABLED="Filtre active"
+LNG_TIP_MASK_DISABLED="Filtre desactive"
+LNG_VKBD_WARN_WRONG_NAME="Le nom du fichier indique contient des caracteres invalides. Changez le nom du fichier pour continuer.\n\n\nAppuyez sur une touche pour continuer"
+LNG_EXIT_SELECT_ELF="Selectionnez un fichier a executer..."
+LNG_EXIT_INVALID="\n\nLe fichier selectionne n est pas un ELF"
+LNG_EXIT_FAILED="\n\nLe fichier selectionner n a pas pu s ouvrir"

@@ -1,0 +1,61 @@
+<fonts>
+	<!-- this is the default latin-1 encoding. every skin should have a fontset entry with this charset -->
+	<fontset charset="ISO-8859-1">
+		<font>
+			<name>arial_10</name>
+			<file>arial_10.png</file>
+		</font>
+
+		<font>
+			<name>arial_20</name>
+			<file>arial_20.png</file>
+		</font>
+	</fontset>
+
+
+	<!-- all of the following are optional -->
+	<!-- you can supply different fontsets to support languages that -->
+	<!-- can not be represented by the default latin-1 character set -->
+
+	<!-- this is for modern greek -->
+	<fontset charset="ISO-8859-7"> 
+		<font>
+			<name>arial_10</name>
+			<file>arial_10_greek.png</file>
+		</font>
+
+		<font>
+			<name>arial_20</name>
+			<file>arial_20_greek.png</file>
+		</font>
+	</fontset>
+
+	<!-- this is for languages using the cyrillic alphabet -->
+	<fontset charset="ISO-8859-5">
+		<font>
+			<name>arial_10</name>
+			<file>arial_10_cyrillic.png</file>
+		</font>
+
+		<font>
+			<name>arial_20</name>
+			<file>arial_20_cyrillic.png</file>
+		</font>
+	</fontset>
+
+	<!-- this covers central european languages -->
+	<fontset charset="ISO-8859-2">
+		<font>
+			<name>arial_10</name>
+			<file>arial_10_central_european.png</file>
+		</font>
+
+		<font>
+			<name>arial_20</name>
+			<file>arial_20_central_european.png</file>
+		</font>
+	</fontset>
+
+	<!-- etc. -->
+
+</fonts>

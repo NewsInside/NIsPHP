@@ -1,0 +1,6 @@
+Coloque o arquivo "lang.lng" na mesma pasta do emulador e ele carregará o idioma PORTUGUÊS DO BRASIL automaticamente.
+
+Para voltar ao idioma padrão, apague o arquivo.
+
+
+Tradução por X001.

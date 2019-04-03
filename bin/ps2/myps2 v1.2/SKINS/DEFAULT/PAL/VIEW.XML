@@ -1,0 +1,10 @@
+<window>
+	<defaultcontrol>1</defaultcontrol>
+	<controls>
+		<control>
+			<description>just leave this file as is</description>
+			<type>image</type>
+			<id>100</id>
+		</control>	
+	</controls>
+</window>

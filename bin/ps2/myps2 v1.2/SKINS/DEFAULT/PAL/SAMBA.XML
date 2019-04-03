@@ -1,0 +1,108 @@
+<window>
+	<defaultcontrol>1</defaultcontrol>
+	<controls>
+
+		<control>
+			<description>background image</description>
+			<type>image</type>
+			<posX>0</posX>
+			<posY>0</posY>
+			<width>640</width>
+			<height>512</height>
+			<texture>background.png</texture>
+		</control>	
+
+		<control>
+			<description>samba settings image</description>
+			<type>image</type>
+			<posX>50</posX>
+			<posY>20</posY>
+			<width>64</width>
+			<height>64</height>
+			<texture>samba.png</texture>
+		</control>
+
+		<control>
+			<description>samba settings Label</description>
+			<type>label</type>
+			<posX>120</posX>
+			<posY>60</posY>
+			<label>153</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>Go Back Button</description>
+			<type>button</type>
+			<id>1</id>
+			<posX>50</posX>
+			<posY>140</posY>
+			<width>200</width>
+			<height>20</height>
+			<texturefocus>select.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<texturewidth>20</texturewidth>
+			<textureheight>20</textureheight>
+			<texturealign>left</texturealign>
+			<label>13</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onright>100</onright>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>140</posY>
+			<label>150</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>workgroup configure button</description>
+			<type>button</type>
+			<id>100</id>
+			<posX>500</posX>
+			<posY>140</posY>
+			<width>100</width>
+			<height>20</height>
+			<align>center</align>
+			<label>113</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onleft>1</onleft>
+			<ondown>101</ondown>
+		</control>
+
+		<control>
+			<type>label</type>
+			<posX>250</posX>
+			<posY>160</posY>
+			<label>151</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<font>arial_10</font>
+		</control>
+
+		<control>
+			<description>wins server configure button</description>
+			<type>button</type>
+			<id>101</id>
+			<posX>500</posX>
+			<posY>160</posY>
+			<width>100</width>
+			<height>20</height>
+			<align>center</align>
+			<label>113</label>
+			<textcolor>0x80FFFFFF</textcolor>
+			<selectedcolor>0x8000FF00</selectedcolor>
+			<font>arial_10</font>
+			<onleft>1</onleft>
+			<onup>100</onup>
+		</control>
+
+	</controls>
+</window>
