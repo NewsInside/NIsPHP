@@ -10,53 +10,53 @@ Idealizado por @NewsInside , @requeijaum e @stjimmy74
 
 ### PS2
 
-argon v0.7.1
+- argon xcxczx v0.7.1
 
-codebreaker
+- codebreaker
 
-ESR beta r9b
+- ESR beta r9b
 
-fceumm-ps2-0.90i
+- fceumm-ps2-0.90i
 
-gsm v0.23u
+- gsm v0.23u
 
-mc annihilator v2.0
+- mc annihilator v2.0
 
-mc killer
+- mc killer
 
-mc manager v1.0
+- mc manager v1.0
 
-myps2 v1.2
+- myps2 v1.2
 
-naplink
+- naplink
 
-openps2loader v0.7
+- openps2loader v0.7
 
-pgen (patched)
+- pgen (patched)
 
-ps2doom v1.0.5.0 (+wads)
+- ps2doom v1.0.5.0 (+wads)
 
-ps2dumper v2.0
+- ps2dumper v2.0
 
-ps2infogb r6c
+- ps2infogb r6c
 
-ps2link
+- ps2link
 
-ps2psxe r202 (+gui)
+- ps2psxe r202 (+gui)
 
-ps2quake (+pak)
+- ps2quake (+pak)
 
-psms v0.4
+- psms v0.4
 
-pvcs v0.3
+- pvcs v0.3
 
-SCUMMVM
+- SCUMMVM
 
-SMS
+- SMS
 
-snesstation
+- snesstation
 
-vba-m
+- vba-m
 
 ### Windows
 
