@@ -1,8 +1,6 @@
-## Welcome to GitHub Pages
+## Bem Vindo ao NIsPHP (NewsInside's PlayStation 2 Homebrew Pack)
 
-You can use the [editor on GitHub](https://github.com/NewsInside/NIsPHP/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+A intenção é criar um pacote com os homebrews mais atualizados para PS2, varios antigos pacotes já não são mais atualizados e muitas coisas novas vieram depois, agora você poderá manter seu PS2 ainda funcionando!
 
 ### Markdown
 
