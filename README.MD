@@ -60,22 +60,37 @@ Idealizado por @NewsInside , @requeijaum e @stjimmy74
 
 ### Windows
 
-cdgenps2 v3.0
-devilmaycry3-savegameeditor-v1.1
-dvdscan v3.7
-esr disc patcher v0.24a
-god of war 2 ripkit
-inlink v1.3.2
-napclient v1.0.2
-power defragmenter gui v2.0.125
-ps2 yfix v1.03 beta
-ps2client + gui v1.0
-ps2savebuilder v0.8
-rad host client v1.8a
-smartftp v1.5.991.22
-usb games loader
-usbutil v2.1, maio 2010
-windip v1.7
+-cdgenps2 v3.0
+
+-devilmaycry3-savegameeditor-v1.1
+
+-dvdscan v3.7
+
+-esr disc patcher v0.24a
+
+-god of war 2 ripkit
+
+-inlink v1.3.2
+
+-napclient v1.0.2
+
+-power defragmenter gui v2.0.125
+
+-ps2 yfix v1.03 beta
+
+-ps2client + gui v1.0
+
+-ps2savebuilder v0.8
+
+-rad host client v1.8a
+
+-smartftp v1.5.991.22
+
+-usb games loader
+
+-usbutil v2.1, maio 2010
+
+-windip v1.7
 
 ### POSIX
 
