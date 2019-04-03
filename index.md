@@ -2,12 +2,12 @@
 
 A intenção é criar um pacote com os homebrews mais atualizados para PS2, varios antigos pacotes já não são mais atualizados e muitas coisas novas vieram depois, agora você poderá manter seu PS2 ainda funcionando!
 
-### Markdown
+### Este Pacote contem:
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
 ```markdown
-Syntax highlighted code block
+Retroarch
 
 # Header 1
 ## Header 2
