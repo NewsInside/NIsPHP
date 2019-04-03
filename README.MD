@@ -11,28 +11,51 @@ Idealizado por @NewsInside , @requeijaum e @stjimmy74
 ### PS2
 
 argon v0.7.1
+
 codebreaker
+
 ESR beta r9b
+
 fceumm-ps2-0.90i
+
 gsm v0.23u
+
 mc annihilator v2.0
+
 mc killer
+
 mc manager v1.0
+
 myps2 v1.2
+
 naplink
+
 openps2loader v0.7
+
 pgen (patched)
+
 ps2doom v1.0.5.0 (+wads)
+
 ps2dumper v2.0
+
 ps2infogb r6c
+
 ps2link
+
 ps2psxe r202 (+gui)
+
 ps2quake (+pak)
+
 psms v0.4
+
 pvcs v0.3
+
 SCUMMVM
+
 SMS
+
 snesstation
+
 vba-m
 
 ### Windows
