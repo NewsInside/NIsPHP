@@ -10,7 +10,7 @@ Idealizado por @NewsInside , @requeijaum e @stjimmy74
 
 ### PS2
 
-- argon xcxczx v0.7.1
+- argon v0.7.1
 
 - codebreaker
 
