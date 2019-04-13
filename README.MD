@@ -104,13 +104,13 @@ sei lá
 - melhorar documentação
 - gerar BETA em .ISO
 - adicionar aplicativos que faltam...
-	> RetroArch do @fjtryjy
-	> OPL Manager do Daniel
-	> Coisas da PS2-Home
-	> Coisas da PSX-Scene
-	> Coisas da PSX-Place	
+* RetroArch do @fjtryjy
+* OPL Manager do Daniel
+* Coisas da PS2-Home
+* Coisas da PSX-Scene
+* Coisas da PSX-Place	
 	
 	
-- verificar licenças de distribuição dos binários... pra não dá merda
+- verificar licenças de distribuição dos binários... pra não dar merda
 
 	
