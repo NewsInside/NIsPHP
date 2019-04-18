@@ -93,16 +93,16 @@ Idealizado por @NewsInside , @requeijaum e @stjimmy74
 
 ## TODO
 
-- [] atualizar aplicativos
-- [] criar temas para OPL e u/wLaunchElf
-- [] melhorar documentação
-- [] gerar BETA em .ISO
-- [] adicionar aplicativos que faltam:
-    - [] RetroArch do @fjtryjy
-    - [] OPL Manager do Daniel
-    - [] Coisas da PS2-Home
-    - [] Coisas da PSX-Scene
-    - [] Coisas da PSX-Place	
-- [] verificar licenças de distribuição dos binários
+- [ ] atualizar aplicativos
+- [ ] criar temas para OPL e u/wLaunchElf
+- [ ] melhorar documentação
+- [ ] gerar BETA em .ISO
+- [ ] adicionar aplicativos que faltam:
+    - [ ] RetroArch do @fjtryjy
+    - [ ] OPL Manager do Daniel
+    - [ ] Coisas da PS2-Home
+    - [ ] Coisas da PSX-Scene
+    - [ ] Coisas da PSX-Place	
+- [ ] verificar licenças de distribuição dos binários
 
 	
