@@ -2,9 +2,8 @@
 
 ## Sobre
 
-Pacote de aplicativos para Playstation 2 aos moldes do MegaPackBR DVD.
+Pacote de aplicativos e ferramentas para Playstation 2 aos moldes do MegaPackBR DVD.
 Idealizado por @NewsInside , @requeijaum e @stjimmy74
-
 
 ## Conteúdo
 
@@ -92,25 +91,18 @@ Idealizado por @NewsInside , @requeijaum e @stjimmy74
 
 - windip v1.7
 
-### POSIX
+## TODO
 
-sei lá
-
-
-## A fazer
-
-- atualizar aplicativos
-- criar temas para OPL e u/wLaunchElf
-- melhorar documentação
-- gerar BETA em .ISO
-- adicionar aplicativos que faltam...
-* RetroArch do @fjtryjy
-* OPL Manager do Daniel
-* Coisas da PS2-Home
-* Coisas da PSX-Scene
-* Coisas da PSX-Place	
-	
-	
-- verificar licenças de distribuição dos binários... pra não dar merda
+- [] atualizar aplicativos
+- [] criar temas para OPL e u/wLaunchElf
+- [] melhorar documentação
+- [] gerar BETA em .ISO
+- [] adicionar aplicativos que faltam:
+    - [] RetroArch do @fjtryjy
+    - [] OPL Manager do Daniel
+    - [] Coisas da PS2-Home
+    - [] Coisas da PSX-Scene
+    - [] Coisas da PSX-Place	
+- [] verificar licenças de distribuição dos binários
 
 	
