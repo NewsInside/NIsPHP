@@ -1,0 +1,48 @@
+[submodule "src/uLaunchELF"]
+	path = src/uLaunchELF
+	url = https://github.com/AKuHAK/uLaunchELF.git
+[submodule "src/hdl-dump"]
+	path = src/hdl-dump
+	url = https://github.com/AKuHAK/hdl-dump.git
+[submodule "src/pgen"]
+	path = src/pgen
+	url = https://github.com/AKuHAK/pgen.git
+[submodule "src/Fceumm-PS2"]
+	path = src/Fceumm-PS2
+	url = https://github.com/AKuHAK/Fceumm-PS2.git
+[submodule "src/scummvm"]
+	path = src/scummvm
+	url = https://github.com/scummvm/scummvm.git
+[submodule "src/cdb-util"]
+	path = src/cdb-util
+	url = https://github.com/root670/cdb-util.git
+[submodule "src/CheatDevicePS2"]
+	path = src/CheatDevicePS2
+	url = https://github.com/root670/CheatDevicePS2.git
+[submodule "src/FMCBInstaller"]
+	path = src/FMCBInstaller
+	url = https://github.com/requeijaum/FMCBInstaller.git
+[submodule "src/OPL-Daily-Builds"]
+	path = src/OPL-Daily-Builds
+	url = https://github.com/Jay-Jay-OPL/OPL-Daily-Builds.git
+[submodule "src/Mass-Format-Utility-PS2"]
+	path = src/Mass-Format-Utility-PS2
+	url = https://github.com/Based-Skid/Mass-Format-Utility-PS2.git
+[submodule "src/iLaunchELF"]
+	path = src/iLaunchELF
+	url = https://github.com/Based-Skid/iLaunchELF.git
+[submodule "src/ps2rd"]
+	path = src/ps2rd
+	url = https://github.com/mlafeldt/ps2rd.git
+[submodule "src/CB2crypt"]
+	path = src/CB2crypt
+	url = https://github.com/mlafeldt/CB2crypt.git
+[submodule "src/ps2logo"]
+	path = src/ps2logo
+	url = https://github.com/mlafeldt/ps2logo.git
+[submodule "src/PS2SaveUtility"]
+	path = src/PS2SaveUtility
+	url = https://github.com/root670/PS2SaveUtility.git
+[submodule "src/mymc"]
+	path = src/mymc
+	url = https://github.com/requeijaum/mymc.git

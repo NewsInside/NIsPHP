@@ -17,7 +17,9 @@
 #include <fileio.h>
 #include <string.h>
 #include <libmc.h>
-#include "cdvd_rpc.h"
+//#include "cdvd_rpc.h"
+#include <libcdvd-rpc.h>
+
 
 #include <sys/fcntl.h>
 #include <sys/stat.h>
@@ -180,8 +182,8 @@ void carregaModulos(void) {
    mcInit(MC_TYPE_MC);
    
    // Modulos para acesso ao DVD-ROM
-   SifExecModuleBuffer(&cdvd_irx, size_cdvd_irx, 0, NULL, &ret);
-   CDVD_Init();
+   //SifExecModuleBuffer(&cdvd_irx, size_cdvd_irx, 0, NULL, &ret);
+   //sceCdInit(1);
    
    // Modulos para acesso ao Disco Rigido
    //hddSetUserPoweroffCallback((void *)poweroffHandler, (void *)i);
