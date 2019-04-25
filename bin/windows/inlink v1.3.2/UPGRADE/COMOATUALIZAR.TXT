@@ -1,2 +1,0 @@
-Substitua o arquivo "InLink.exe" desta pasta na pasta em que o InLink 1.3.2 foi instalado
-para passar a utilizar a versão 1.3.7
