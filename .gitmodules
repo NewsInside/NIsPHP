@@ -46,3 +46,6 @@
 [submodule "src/mymc"]
 	path = src/mymc
 	url = https://github.com/requeijaum/mymc.git
+[submodule "src/rockbot"]
+	path = src/rockbot
+	url = https://github.com/protoman/rockbot.git
