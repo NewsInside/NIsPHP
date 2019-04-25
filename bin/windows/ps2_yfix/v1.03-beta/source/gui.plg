@@ -1,0 +1,85 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: gui - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x816 /fo"Release/gui.res" /d "NDEBUG" /d "_AFXDLL" "C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\gui.rc"" 
+Creating temporary file "C:\DOCUME~1\Brittany\LOCALS~1\Temp\RSP1E.tmp" with contents
+[
+/nologo /MD /w /W0 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "GUI" /Fp"Release/gui.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\cd\CDVDbin.c"
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\cd\CDVDedit.cpp"
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\cd\CDVDiso.c"
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\cd\CDVDisodrv.c"
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\cd\ecc.c"
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\cd\edc.c"
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\cd\Misc.c"
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\pnselector\loadelf.c"
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\pnselector\pn_sel1.cpp"
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\pnselector\sjcrunch_pack.cpp"
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\Elfheader.cpp"
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\gui.cpp"
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\guiDlg.cpp"
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Brittany\LOCALS~1\Temp\RSP1E.tmp" 
+Creating temporary file "C:\DOCUME~1\Brittany\LOCALS~1\Temp\RSP1F.tmp" with contents
+[
+/nologo /MD /w /W0 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "GUI" /Fp"Release/gui.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\Brittany\Desktop\ps2yfix\source\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Brittany\LOCALS~1\Temp\RSP1F.tmp" 
+Creating temporary file "C:\DOCUME~1\Brittany\LOCALS~1\Temp\RSP20.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/ps2_yfix.pdb" /machine:I386 /out:"Release/ps2_yfix.exe" 
+".\Release\CDVDbin.obj"
+".\Release\CDVDedit.obj"
+".\Release\CDVDiso.obj"
+".\Release\CDVDisodrv.obj"
+".\Release\ecc.obj"
+".\Release\edc.obj"
+".\Release\Misc.obj"
+".\Release\loadelf.obj"
+".\Release\pn_sel1.obj"
+".\Release\sjcrunch_pack.obj"
+".\Release\Elfheader.obj"
+".\Release\gui.obj"
+".\Release\guiDlg.obj"
+".\Release\main.obj"
+".\Release\StdAfx.obj"
+".\Release\gui.res"
+".\pnselector\libpack.lib"
+]
+Creating command line "link.exe @C:\DOCUME~1\Brittany\LOCALS~1\Temp\RSP20.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+CDVDbin.c
+CDVDedit.cpp
+CDVDiso.c
+CDVDisodrv.c
+ecc.c
+edc.c
+Misc.c
+loadelf.c
+pn_sel1.cpp
+sjcrunch_pack.cpp
+Elfheader.cpp
+gui.cpp
+guiDlg.cpp
+main.cpp
+Linking...
+LINK : warning LNK4098: defaultlib "LIBC" conflicts with use of other libs; use /NODEFAULTLIB:library
+
+
+
+<h3>Results</h3>
+ps2_yfix.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>
