@@ -1,1 +1,0 @@
-pegue o arquivo IOPRP300.img e jogue nesta pasta, e execute o removetoxicpatch.bat, depois coloque o arquivo devolta pra pasta GOW2

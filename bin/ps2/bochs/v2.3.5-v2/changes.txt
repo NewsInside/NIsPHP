@@ -1,0 +1,17 @@
+Changes history:
+
+Bochs 2.3.5-v1:
+	- Initial version, basic port
+
+Bochs 2.3.5-v2:
+	- compilation with all optimisation options
+	- fixed SDL bug: fullscreen option at startup crashes emulation
+	- changes in default configuration file to make it more stable (less RAM) and
+	  faster (fullscreen option by default)
+
+In v1, changing screen mode on the fly by SCROLL LOCK hangs emulator, but
+please notice it's not a bug. It's caused by lack of memory to
+reallocate screen. To fix this, you should change amount of memory
+in bochsrc.txt to smaller value (less than 20 MB). In v2 memory is defaultly
+set to 18 MB because of this issue and because of optimisations options
+which take some more memory.

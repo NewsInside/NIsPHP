@@ -1,0 +1,10 @@
+Version 0.6b (11/01/09):
+------------------------
+- Fixed sound problem in Fruit Panic
+- Correct support for up & down in virtual keyboardgen
+- Support for in emulation menu (SELECT)
+- Support for emulator snapshots
+- Support for second joystick button
+- Support for R2 as CTRL MSX key for improved compatibility with DSK loading
+- New options functions: save state, clear rom and dsk and reset MSX.
+- Included support for L1 & R1 as fast navigating through rom and dsk pages

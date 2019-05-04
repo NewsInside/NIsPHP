@@ -1,0 +1,1595 @@
+diff -ruNwb dosbox-0.74/Makefile.eeglobal ps2-dosbox-0.74/Makefile.eeglobal
+--- dosbox-0.74/Makefile.eeglobal	Thu Jan  1 00:00:00 1970
++++ ps2-dosbox-0.74/Makefile.eeglobal	Fri Jun 10 12:26:18 2011
+@@ -0,0 +1,61 @@
++# _____     ___ ____     ___ ____
++#  ____|   |    ____|   |        | |____|
++# |     ___|   |____ ___|    ____| |    \    PS2DEV Open Source Project.
++#-----------------------------------------------------------------------
++# Copyright 2001-2004, ps2dev - http://www.ps2dev.org
++# Licenced under Academic Free License version 2.0
++# Review ps2sdk README & LICENSE files for further details.
++#
++# $Id$
++
++# Include directories
++EE_INCS := -I$(PS2SDK)/ee/include -I$(PS2SDK)/common/include -I. $(EE_INCS)
++
++# C compiler flags
++EE_CFLAGS := -D_EE -Wall -g -O2 -G0 $(EE_CFLAGS)
++
++# C++ compiler flags
++EE_CXXFLAGS := -D_EE -Wall -g -O2 -G0 $(EE_CXXFLAGS)
++
++# Linker flags
++EE_LDFLAGS := -L$(PS2SDK)/ee/lib $(EE_LDFLAGS)
++
++# Assembler flags
++EE_ASFLAGS := -G0 $(EE_ASFLAGS)
++
++# Link with following libraries.  This is a special case, and instead of
++# allowing the user to override the library order, we always make sure
++# libkernel is the last library to be linked.
++EE_LIBS += -lc -lstdc++ -ln -lkernel
++
++# Externally defined variables: EE_BIN, EE_OBJS, EE_LIB
++
++# These macros can be used to simplify certain build rules.
++EE_C_COMPILE = $(EE_CC) $(EE_CFLAGS) $(EE_INCS)
++EE_CXX_COMPILE = $(EE_CXX) $(EE_CXXFLAGS) $(EE_INCS)
++
++%.o : %.c
++	$(EE_CC) $(EE_CFLAGS) $(EE_INCS) -c $< -o $@
++
++%.o : %.cc
++	$(EE_CXX) $(EE_CXXFLAGS) $(EE_INCS) -c $< -o $@
++
++%.o : %.cpp
++	$(EE_CXX) $(EE_CXXFLAGS) $(EE_INCS) -c $< -o $@
++
++%.o : %.S
++	$(EE_CC) $(EE_CFLAGS) $(EE_INCS) -c $< -o $@
++
++%.o : %.s
++	$(EE_AS) $(EE_ASFLAGS) $< -o $@
++
++$(EE_BIN) : $(EE_OBJS) $(PS2SDK)/ee/startup/crt0.o
++	$(EE_CC) -mno-crt0 -T$(PS2SDK)/ee/startup/linkfile $(EE_CFLAGS) \
++		-o $(EE_BIN) $(PS2SDK)/ee/startup/crt0.o $(EE_OBJS) $(EE_LDFLAGS) $(EE_LIBS)
++
++$(EE_ERL) : $(EE_OBJS)
++	$(EE_CC) -mno-crt0 -o $(EE_ERL) $(EE_OBJS) $(EE_CFLAGS) $(EE_LDFLAGS) -Wl,-r -Wl,-d
++	$(EE_STRIP) --strip-unneeded -R .mdebug.eabi64 -R .reginfo -R .comment $(EE_ERL)
++
++$(EE_LIB) : $(EE_OBJS)
++	$(EE_AR) cru $(EE_LIB) $(EE_OBJS)
+diff -ruNwb dosbox-0.74/Makefile.ps2 ps2-dosbox-0.74/Makefile.ps2
+--- dosbox-0.74/Makefile.ps2	Thu Jan  1 00:00:00 1970
++++ ps2-dosbox-0.74/Makefile.ps2	Fri Jun 10 12:28:40 2011
+@@ -0,0 +1,37 @@
++# Makefile DOSBox 0.74 port by KarasQ <k4rasq@gmail.com>
++# Build makefile for PlayStaion 2
++
++SRC_DIRS = src src/cpu src/debug src/dos src/fpu src/gui src/hardware src/hardware/serialport \
++		   src/ints src/misc src/shell src/ps2
++
++IRX_DIRS = src/ps2/irx
++
++EE_BIN 	= PS2DOSBox.elf
++EE_IRX 	= $(foreach dir,$(IRX_DIRS),$(wildcard $(dir)/*.irx))
++
++SRC_FILES_C = $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
++SRC_FILES_CPP = $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.cpp))
++
++EE_OBJS = $(EE_IRX:.irx=.o) $(SRC_FILES_C:.c=.o) $(SRC_FILES_CPP:.cpp=.o)
++EE_LIBS = -lsdl -lsdlmain -lm
++
++EE_INCS = -I$(PS2DEV)/SDL/include -I./src/ps2 -I./include -I./src
++EE_LDFLAGS += -L$(PS2DEV)/SDL/lib
++
++all: $(EE_BIN) pack
++	@echo "Sucessfully compiled!"
++
++$(EE_IRX:.irx=.s):
++	bin2s $(@:.s=.irx) $@ $(notdir $(@:.s=_irx))
++
++pack:
++	ps2-packer-lite $(EE_BIN) $(EE_BIN:.elf=-packed.elf)
++
++test:
++	echo $(IRX_OBJS)
++
++clean:
++	rm -f $(EE_BIN) $(EE_BIN:.elf=-packed.elf) $(EE_OBJS) $(EE_IRX:.irx=.s)
++
++include $(PS2SDK)/samples/Makefile.pref
++include Makefile.eeglobal
+diff -ruNwb dosbox-0.74/config-ps2.h ps2-dosbox-0.74/config-ps2.h
+--- dosbox-0.74/config-ps2.h	Thu Jan  1 00:00:00 1970
++++ ps2-dosbox-0.74/config-ps2.h	Fri Jun 10 12:09:21 2011
+@@ -0,0 +1,307 @@
++/* config.h.in.  Generated from configure.in by autoheader.  */
++
++
++/*
++ *  Copyright (C) 2002-2010  The DOSBox Team
++ *
++ *  This program is free software; you can redistribute it and/or modify
++ *  it under the terms of the GNU General Public License as published by
++ *  the Free Software Foundation; either version 2 of the License, or
++ *  (at your option) any later version.
++ *
++ *  This program is distributed in the hope that it will be useful,
++ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *  GNU Library General Public License for more details.
++ *
++ *  You should have received a copy of the GNU General Public License
++ *  along with this program; if not, write to the Free Software
++ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
++ */
++
++/* Define if building universal (internal helper macro) */
++#define AC_APPLE_UNIVERSAL_BUILD 1
++
++/* Compiling on BSD */
++/* #undef BSD */
++
++/* Determines if the compilers supports always_inline attribute. */
++/* #undef C_ATTRIBUTE_ALWAYS_INLINE */
++
++/* Determines if the compilers supports fastcall attribute. */
++/* #undef C_ATTRIBUTE_FASTCALL */
++
++/* Define to 1 to use inlined memory functions in cpu core */
++/* #undef C_CORE_INLINE */
++
++/* Define to 1 to enable internal debugger, requires libcurses */
++/* #undef C_DEBUG */
++
++/* Define to 1 if you want serial passthrough support (Win32, Posix and OS/2).
++   */
++/* #undef C_DIRECTSERIAL */
++
++/* Define to 1 to use x86 dynamic cpu core */
++/* #undef C_DYNAMIC_X86 */
++
++/* Define to 1 to use recompiling cpu core. Can not be used together with the
++   dynamic-x86 core */
++/* #undef #undef C_DYNREC 0 */
++
++/* Define to 1 to enable floating point emulation */
++#define C_FPU 1
++
++/* Define to 1 to use a x86 assembly fpu core */
++/* #undef C_FPU_X86 */
++
++/* Determines if the compilers supports attributes for structures. */
++#define C_HAS_ATTRIBUTE 1
++
++/* Determines if the compilers supports __builtin_expect for branch
++   prediction. */
++#define C_HAS_BUILTIN_EXPECT 1
++
++/* Define to 1 if you have the mprotect function */
++/* #undef C_HAVE_MPROTECT */
++
++/* Define to 1 to enable heavy debugging, also have to enable C_DEBUG */
++/* #undef C_HEAVY_DEBUG */
++
++/* Define to 1 to enable IPX over Internet networking, requires SDL_net */
++/* #undef C_IPX */
++
++/* Define to 1 to enable internal modem support, requires SDL_net */
++/* #undef C_MODEM */
++
++/* Define to 1 to use opengl display output support */
++/* #undef C_OPENGL */
++
++/* Define to 1 to enable SDL_sound support */
++/* #undef C_SDL_SOUND */
++
++/* Define to 1 if you have setpriority support */
++/* #undef C_SET_PRIORITY */
++
++/* Define to 1 to enable screenshots, requires libpng */
++/* #undef C_SSHOT */
++
++/* The type of cpu this target has */
++#define C_TARGETCPU MIPS
++
++/* Define to 1 to use a unaligned memory access */
++#define C_UNALIGNED_MEMORY 1
++
++/* define to 1 if you have XKBlib.h and X11 lib */
++/* #undef C_X11_XKB */
++
++/* libm doesn't include powf */
++/* #undef DB_HAVE_NO_POWF */
++
++/* struct dirent has d_type */
++/* #undef DIRENT_HAS_D_TYPE */
++
++/* environ can be included */
++/* #undef ENVIRON_INCLUDED */
++
++/* environ can be linked */
++/* #undef ENVIRON_LINKED */
++
++/* Define to 1 to use ALSA for MIDI */
++/* #undef HAVE_ALSA */
++
++/* Define to 1 if you have the <ddraw.h> header file. */
++/* #undef HAVE_DDRAW_H */
++
++/* Define to 1 if you have the <inttypes.h> header file. */
++/* #undef HAVE_INTTYPES_H */
++
++/* Define to 1 if you have the `asound' library (-lasound). */
++/* #undef HAVE_LIBASOUND */
++
++/* Define to 1 if you have the <memory.h> header file. */
++/* #undef HAVE_MEMORY_H */
++
++/* Define to 1 if you have the <netinet/in.h> header file. */
++/* #undef HAVE_NETINET_IN_H */
++
++/* Define to 1 if you have the <pwd.h> header file. */
++/* #undef HAVE_PWD_H */
++
++/* Define to 1 if you have the <stdint.h> header file. */
++/* #undef HAVE_STDINT_H */
++
++/* Define to 1 if you have the <stdlib.h> header file. */
++#define HAVE_STDLIB_H 1
++
++/* Define to 1 if you have the <strings.h> header file. */
++/* #undef HAVE_STRINGS_H */
++
++/* Define to 1 if you have the <string.h> header file. */
++#define HAVE_STRING_H 1
++
++/* Define to 1 if you have the <sys/socket.h> header file. */
++/* #undef HAVE_SYS_SOCKET_H */
++
++/* Define to 1 if you have the <sys/stat.h> header file. */
++#define HAVE_SYS_STAT_H 1
++
++/* Define to 1 if you have the <sys/types.h> header file. */
++#define HAVE_SYS_TYPES_H 1
++
++/* Define to 1 if you have the <unistd.h> header file. */
++#define HAVE_UNISTD_H 1
++
++/* Compiling on GNU/Linux */
++/* #undef LINUX */
++
++/* Compiling on Mac OS X */
++/* #undef MACOSX */
++
++/* Compiling on OS/2 EMX */
++/* #undef OS2 */
++
++/* Name of package */
++#define PACKAGE "dosbox"
++
++/* Define to the address where bug reports for this package should be sent. */
++#define PACKAGE_BUGREPORT ""
++
++/* Define to the full name of this package. */
++#define PACKAGE_NAME "PS2-DOSBox by KarasQ"
++
++/* Define to the full name and version of this package. */
++#define PACKAGE_STRING "PS2-DOSBox 0.74 by KarasQ"
++
++/* Define to the one symbol short name of this package. */
++#define PACKAGE_TARNAME "dosbox"
++
++/* Define to the home page for this package. */
++#define PACKAGE_URL ""
++
++/* Define to the version of this package. */
++#define PACKAGE_VERSION "0.74"
++
++/* The size of `int *', as computed by sizeof. */
++#define SIZEOF_INT_P 4
++
++/* The size of `unsigned char', as computed by sizeof. */
++#define SIZEOF_UNSIGNED_CHAR 1
++
++/* The size of `unsigned int', as computed by sizeof. */
++#define SIZEOF_UNSIGNED_INT 4
++
++/* The size of `unsigned long', as computed by sizeof. */
++#define SIZEOF_UNSIGNED_LONG 8
++
++/* The size of `unsigned long long', as computed by sizeof. */
++#define SIZEOF_UNSIGNED_LONG_LONG 8
++
++/* The size of `unsigned short', as computed by sizeof. */
++#define SIZEOF_UNSIGNED_SHORT 2
++
++/* Define to 1 if you have the ANSI C header files. */
++#define STDC_HEADERS 1
++
++/* Define to 1 if your <sys/time.h> declares `struct tm'. */
++/* #undef TM_IN_SYS_TIME */
++
++/* Version number of package */
++#define VERSION "0.74"
++
++/* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
++   significant byte first (like Motorola and SPARC, unlike Intel). */
++#if defined AC_APPLE_UNIVERSAL_BUILD
++# if defined __BIG_ENDIAN__
++#  define WORDS_BIGENDIAN 1
++# endif
++#else
++# ifndef WORDS_BIGENDIAN
++#  undef WORDS_BIGENDIAN
++# endif
++#endif
++
++/* Define to empty if `const' does not conform to ANSI C. */
++#undef const
++
++/* Define to `__inline__' or `__inline' if that's what the C compiler
++   calls it, or to nothing if 'inline' is not supported under any name.  */
++#ifndef __cplusplus
++/* #undef inline */
++#endif
++
++/* Define to `unsigned int' if <sys/types.h> does not define. */
++/* #undef size_t */
++
++/* Define to `int` if you don't have socklen_t */
++#define socklen_t int
++
++#if C_ATTRIBUTE_ALWAYS_INLINE
++#define INLINE inline __attribute__((always_inline))
++#else
++#define INLINE inline
++#endif
++
++#if C_ATTRIBUTE_FASTCALL
++#define DB_FASTCALL __attribute__((fastcall))
++#else
++#define DB_FASTCALL
++#endif
++
++#if C_HAS_ATTRIBUTE
++#define GCC_ATTRIBUTE(x) __attribute__ ((x))
++#else
++#define GCC_ATTRIBUTE(x) /* attribute not supported */
++#endif
++
++#if C_HAS_BUILTIN_EXPECT
++#define GCC_UNLIKELY(x) __builtin_expect((x),0)
++#define GCC_LIKELY(x) __builtin_expect((x),1)
++#else
++#define GCC_UNLIKELY(x) (x)
++#define GCC_LIKELY(x) (x)
++#endif
++
++
++typedef         double     Real64;
++
++#if SIZEOF_UNSIGNED_CHAR != 1
++#  error "sizeof (unsigned char) != 1"
++#else
++  typedef unsigned char Bit8u;
++  typedef   signed char Bit8s;
++#endif
++
++#if SIZEOF_UNSIGNED_SHORT != 2
++#  error "sizeof (unsigned short) != 2"
++#else
++  typedef unsigned short Bit16u;
++  typedef   signed short Bit16s;
++#endif
++
++#if SIZEOF_UNSIGNED_INT == 4
++  typedef unsigned int Bit32u;
++  typedef   signed int Bit32s;
++#elif SIZEOF_UNSIGNED_LONG == 4
++  typedef unsigned long Bit32u;
++  typedef   signed long Bit32s;
++#else
++#  error "can't find sizeof(type) of 4 bytes!"
++#endif
++
++#if SIZEOF_UNSIGNED_LONG == 8
++  typedef unsigned long Bit64u;
++  typedef   signed long Bit64s;
++#elif SIZEOF_UNSIGNED_LONG_LONG == 8
++  typedef unsigned long long Bit64u;
++  typedef   signed long long Bit64s;
++#else
++#  error "can't find data type of 8 bytes"
++#endif
++
++#if SIZEOF_INT_P == 4
++  typedef Bit32u Bitu;
++  typedef Bit32s Bits;
++#else
++  typedef Bit64u Bitu;
++  typedef Bit64s Bits;
++#endif
+diff -ruNwb dosbox-0.74/include/dos_system.h ps2-dosbox-0.74/include/dos_system.h
+--- dosbox-0.74/include/dos_system.h	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/include/dos_system.h	Fri Jun 10 12:09:21 2011
+@@ -121,7 +121,7 @@
+ /* The following variable can be lowered to free up some memory.
+  * The negative side effect: The stored searches will be turned over faster.
+  * Should not have impact on systems with few directory entries. */
+-#define MAX_OPENDIRS 2048
++#define MAX_OPENDIRS 256
+ //Can be high as it's only storage (16 bit variable)
+ 
+ class DOS_Drive_Cache {
+diff -ruNwb dosbox-0.74/include/dosbox.h ps2-dosbox-0.74/include/dosbox.h
+--- dosbox-0.74/include/dosbox.h	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/include/dosbox.h	Fri Jun 10 12:09:21 2011
+@@ -21,7 +21,15 @@
+ #ifndef DOSBOX_DOSBOX_H
+ #define DOSBOX_DOSBOX_H
+ 
++#ifndef _EE
+ #include "config.h"
++#else
++// KarasQ: Use specific config file
++#include "config-ps2.h"
++#endif
++
++typedef struct { Bit32u val __attribute__((packed)); } unaligned_dword;
++typedef struct { Bit16u val __attribute__((packed)); } unaligned_word;
+ 
+ void E_Exit(const char * message,...) GCC_ATTRIBUTE( __format__(__printf__, 1, 2));
+ 
+@@ -41,7 +49,17 @@
+ class Config;
+ extern Config * control;
+ 
+-enum MachineType {
++// KarasQ: name "MachineType" is changed to "DB_MACHINE_TYPE"
++// because in PS2SDK there is function u32 MachineType()
++// (in kernel.h), so there are name conflicts in some files
++
++#ifdef _EE
++   #define DB_MACHINE_TYPE DosBoxMachineType
++#else
++   #define DB_MACHINE_TYPE MachineType
++#endif
++
++enum DB_MACHINE_TYPE {
+ 	MCH_HERC,
+ 	MCH_CGA,
+ 	MCH_TANDY,
+@@ -59,7 +77,7 @@
+ }; 
+ 
+ extern SVGACards svgaCard;
+-extern MachineType machine;
++extern DB_MACHINE_TYPE machine;
+ extern bool SDLNetInited;
+ 
+ #define IS_TANDY_ARCH ((machine==MCH_TANDY) || (machine==MCH_PCJR))
+diff -ruNwb dosbox-0.74/include/mem.h ps2-dosbox-0.74/include/mem.h
+--- dosbox-0.74/include/mem.h	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/include/mem.h	Fri Jun 10 12:09:21 2011
+@@ -84,23 +84,30 @@
+ 
+ #else
+ 
++#include <stdio.h>
++
+ static INLINE Bit8u host_readb(HostPt off) {
+ 	return *(Bit8u *)off;
+ }
+ static INLINE Bit16u host_readw(HostPt off) {
+-	return *(Bit16u *)off;
++	//return *(Bit16u *)off;
++	return ((unaligned_word *)(off))->val;
+ }
+ static INLINE Bit32u host_readd(HostPt off) {
+-	return *(Bit32u *)off;
++	//return *(Bit32u *)off;
++	return ((unaligned_dword *)(off))->val;
+ }
+ static INLINE void host_writeb(HostPt off,Bit8u val) {
+ 	*(Bit8u *)(off)=val;
+ }
++
+ static INLINE void host_writew(HostPt off,Bit16u val) {
+-	*(Bit16u *)(off)=val;
++	//*(Bit16u *)(off)=val;
++	((unaligned_word *)(off))->val=val;
+ }
+ static INLINE void host_writed(HostPt off,Bit32u val) {
+-	*(Bit32u *)(off)=val;
++	//*(Bit32u *)(off)=val;
++	((unaligned_dword *)(off))->val=val;
+ }
+ 
+ #endif
+diff -ruNwb dosbox-0.74/include/paging.h ps2-dosbox-0.74/include/paging.h
+--- dosbox-0.74/include/paging.h	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/include/paging.h	Fri Jun 10 12:09:21 2011
+@@ -30,7 +30,7 @@
+ 
+ // disable this to reduce the size of the TLB
+ // NOTE: does not work with the dynamic core (dynrec is fine)
+-#define USE_FULL_TLB
++//#define USE_FULL_TLB
+ 
+ class PageDirectory;
+ 
+diff -ruNwb dosbox-0.74/include/render.h ps2-dosbox-0.74/include/render.h
+--- dosbox-0.74/include/render.h	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/include/render.h	Fri Jun 10 12:09:21 2011
+@@ -23,7 +23,7 @@
+ // 1: complex scalers off, scaler cache off, all simple scalers on
+ // 2: complex scalers off, scaler cache on
+ // 3: complex scalers on
+-#define RENDER_USE_ADVANCED_SCALERS 3
++#define RENDER_USE_ADVANCED_SCALERS 0
+ 
+ #include "../src/gui/render_scalers.h"
+ 
+diff -ruNwb dosbox-0.74/src/cpu/core_full.cpp ps2-dosbox-0.74/src/cpu/core_full.cpp
+--- dosbox-0.74/src/cpu/core_full.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/cpu/core_full.cpp	Fri Jun 10 12:09:21 2011
+@@ -24,7 +24,12 @@
+ #include "lazyflags.h"
+ #include "paging.h"
+ #include "fpu.h"
++#ifdef _EE
++// KarasQ: avoid header conflicts with PS2SDK debug.h
++#include "include/debug.h"
++#else
+ #include "debug.h"
++#endif
+ #include "inout.h"
+ #include "callback.h"
+ 
+diff -ruNwb dosbox-0.74/src/cpu/cpu.cpp ps2-dosbox-0.74/src/cpu/cpu.cpp
+--- dosbox-0.74/src/cpu/cpu.cpp	Wed May 12 09:57:31 2010
++++ ps2-dosbox-0.74/src/cpu/cpu.cpp	Fri Jun 10 12:09:21 2011
+@@ -22,7 +22,8 @@
+ #include <sstream>
+ #include "dosbox.h"
+ #include "cpu.h"
+-#include "memory.h"
++// KarasQ: there is no such file
++// #include "memory.h"
+ #include "debug.h"
+ #include "mapper.h"
+ #include "setup.h"
+@@ -44,8 +45,8 @@
+ #endif
+ #endif
+ 
+-CPU_Regs cpu_regs;
+-CPUBlock cpu;
++CPU_Regs cpu_regs __attribute__((aligned(64)));
++CPUBlock cpu __attribute__((aligned(64)));
+ Segments Segs;
+ 
+ Bit32s CPU_Cycles = 0;
+diff -ruNwb dosbox-0.74/src/dos/dos.cpp ps2-dosbox-0.74/src/dos/dos.cpp
+--- dosbox-0.74/src/dos/dos.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/dos/dos.cpp	Fri Jun 10 12:09:21 2011
+@@ -18,6 +18,10 @@
+ 
+ /* $Id: dos.cpp,v 1.121 2009-10-28 21:45:12 qbix79 Exp $ */
+ 
++#ifdef _EE
++#include "PS2Time.h"
++#endif
++
+ #include <stdlib.h>
+ #include <string.h>
+ #include <ctype.h>
+@@ -1169,8 +1173,12 @@
+ 	
+ 		/* Setup time and date */
+ 		time_t curtime;struct tm *loctime;
++#ifndef _EE
+ 		curtime = time (NULL);loctime = localtime (&curtime);
+-	
++#else
++      curtime = PS2Time::Instance()->getTime(NULL);
++      loctime = PS2Time::Instance()->getLocaltime(&curtime);
++#endif
+ 		dos.date.day=(Bit8u)loctime->tm_mday;
+ 		dos.date.month=(Bit8u)loctime->tm_mon+1;
+ 		dos.date.year=(Bit16u)loctime->tm_year+1900;
+diff -ruNwb dosbox-0.74/src/dos/drive_local.cpp ps2-dosbox-0.74/src/dos/drive_local.cpp
+--- dosbox-0.74/src/dos/drive_local.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/dos/drive_local.cpp	Fri Jun 10 12:09:21 2011
+@@ -18,6 +18,10 @@
+ 
+ /* $Id: drive_local.cpp,v 1.82 2009-07-18 18:42:55 c2woody Exp $ */
+ 
++#ifdef _EE
++#include "PS2Time.h"
++#endif
++
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+@@ -273,7 +277,11 @@
+ 
+ 	find_size=(Bit32u) stat_block.st_size;
+ 	struct tm *time;
++#ifdef _EE
++   if((time=PS2Time::Instance()->getLocaltime(&stat_block.st_mtime))!=0){
++#else
+ 	if((time=localtime(&stat_block.st_mtime))!=0){
++#endif
+ 		find_date=DOS_PackDate((Bit16u)(time->tm_year+1900),(Bit16u)(time->tm_mon+1),(Bit16u)time->tm_mday);
+ 		find_time=DOS_PackTime((Bit16u)time->tm_hour,(Bit16u)time->tm_min,(Bit16u)time->tm_sec);
+ 	} else {
+@@ -306,7 +314,7 @@
+ 	strcpy(newdir,basedir);
+ 	strcat(newdir,dir);
+ 	CROSS_FILENAME(newdir);
+-#if defined (WIN32)						/* MS Visual C++ */
++#if defined (WIN32) || defined (_EE) /* MS Visual C++; KarasQ: or PS2SDK */
+ 	int temp=mkdir(dirCache.GetExpandName(newdir));
+ #else
+ 	int temp=mkdir(dirCache.GetExpandName(newdir),0700);
+@@ -355,10 +363,15 @@
+ 	strcpy(newnew,basedir);
+ 	strcat(newnew,newname);
+ 	CROSS_FILENAME(newnew);
++#ifdef _EE
++	int temp=0;
++   printf("PS2 WARNING: calling unimplemented function (rename)!! File: %s:%i\n",
++      __FILE__, __LINE__);
++#else
+ 	int temp=rename(newold,dirCache.GetExpandName(newnew));
++#endif
+ 	if (temp==0) dirCache.CacheOut(newnew);
+ 	return (temp==0);
+-
+ }
+ 
+ bool localDrive::AllocationInfo(Bit16u * _bytes_sector,Bit8u * _sectors_cluster,Bit16u * _total_clusters,Bit16u * _free_clusters) {
+@@ -393,7 +406,11 @@
+ 	if(stat(newname,&temp_stat)!=0) return false;
+ 	/* Convert the stat to a FileStat */
+ 	struct tm *time;
++#ifdef _EE
++   if((time=PS2Time::Instance()->getLocaltime(&temp_stat.st_mtime))!=0){
++#else
+ 	if((time=localtime(&temp_stat.st_mtime))!=0) {
++#endif
+ 		stat_block->time=DOS_PackTime((Bit16u)time->tm_hour,(Bit16u)time->tm_min,(Bit16u)time->tm_sec);
+ 		stat_block->date=DOS_PackDate((Bit16u)(time->tm_year+1900),(Bit16u)(time->tm_mon+1),(Bit16u)time->tm_mday);
+ 	} else {
+@@ -459,7 +476,15 @@
+ 	if (last_action==READ) fseek(fhandle,ftell(fhandle),SEEK_SET);
+ 	last_action=WRITE;
+ 	if(*size==0){  
++      #ifndef _EE
+         return (!ftruncate(fileno(fhandle),ftell(fhandle)));
++      #else
++         // KarasQ: There is no ftruncate() in PS2SDK, so I don't know if this
++         // will be harmful if it stay omit here
++         printf("PS2 WARNING: calling unimplemented function (ftruncate)!! File: %s:%i\n",
++               __FILE__, __LINE__);
++         return false;
++      #endif
+     }
+     else 
+     {
+@@ -532,7 +557,11 @@
+ 	struct stat temp_stat;
+ 	fstat(fileno(fhandle),&temp_stat);
+ 	struct tm * ltime;
++#ifdef _EE
++   if((ltime=PS2Time::Instance()->getLocaltime(&temp_stat.st_mtime))!=0){
++#else
+ 	if((ltime=localtime(&temp_stat.st_mtime))!=0) {
++#endif
+ 		time=DOS_PackTime((Bit16u)ltime->tm_hour,(Bit16u)ltime->tm_min,(Bit16u)ltime->tm_sec);
+ 		date=DOS_PackDate((Bit16u)(ltime->tm_year+1900),(Bit16u)(ltime->tm_mon+1),(Bit16u)ltime->tm_mday);
+ 	} else {
+diff -ruNwb dosbox-0.74/src/dosbox.cpp ps2-dosbox-0.74/src/dosbox.cpp
+--- dosbox-0.74/src/dosbox.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/dosbox.cpp	Fri Jun 10 12:09:21 2011
+@@ -32,7 +32,12 @@
+ #include "callback.h"
+ #include "inout.h"
+ #include "mixer.h"
++#ifdef _EE
++// KarasQ: avoid header conflicts with PS2SDK timer.h
++#include "include/timer.h"
++#else
+ #include "timer.h"
++#endif
+ #include "dos_inc.h"
+ #include "setup.h"
+ #include "control.h"
+@@ -44,7 +49,10 @@
+ #include "render.h"
+ 
+ Config * control;
+-MachineType machine;
++// KarasQ: name "MachineType" is changed to "DB_MACHINE_TYPE"
++// because in PS2SDK there is function u32 MachineType()
++// (in kernel.h), so there are name conflicts in some files
++DB_MACHINE_TYPE machine;
+ SVGACards svgaCard;
+ 
+ /* The whole load of startups for all the subfunctions */
+diff -ruNwb dosbox-0.74/src/gui/dosbox_logo.h ps2-dosbox-0.74/src/gui/dosbox_logo.h
+--- dosbox-0.74/src/gui/dosbox_logo.h	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/gui/dosbox_logo.h	Fri Jun 10 12:09:21 2011
+@@ -21,7 +21,7 @@
+ /* DOSBox icon designed by Ido Beeri */
+ 
+ /* Select only one logo at the time */
+-#define LOGO_1 1
++#define LOGO_2
+ //#define LOGO_2 1
+ #ifdef LOGO_1
+   65, 44, 25,0, 65, 44, 25,0, 93, 58, 30,0, 93, 58, 30,0
+diff -ruNwb dosbox-0.74/src/gui/sdlmain.cpp ps2-dosbox-0.74/src/gui/sdlmain.cpp
+--- dosbox-0.74/src/gui/sdlmain.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/gui/sdlmain.cpp	Fri Jun 10 12:09:21 2011
+@@ -40,7 +40,12 @@
+ #include "video.h"
+ #include "mouse.h"
+ #include "pic.h"
++#ifdef _EE
++// KarasQ: avoid header conflicts with PS2SDK timer.h
++#include "include/timer.h"
++#else
+ #include "timer.h"
++#endif
+ #include "setup.h"
+ #include "support.h"
+ #include "debug.h"
+@@ -51,6 +56,10 @@
+ #include "cross.h"
+ #include "control.h"
+ 
++#ifdef _EE
++#include "PS2Init.h"
++#endif
++
+ #define MAPPERFILE "mapper-" VERSION ".map"
+ //#define DISABLE_JOYSTICK
+ 
+@@ -1565,6 +1574,7 @@
+ }
+    
+ static void launcheditor() {
++#ifndef _EE
+ 	std::string path,file;
+ 	Cross::CreatePlatformConfigDir(path);
+ 	Cross::GetPlatformConfigName(file);
+@@ -1585,8 +1595,15 @@
+ 	//if you get here the launching failed!
+ 	printf("can't find editor(s) specified at the command line.\n");
+ 	exit(1);
++#else
++   // KarasQ: not supported
++   printf("PS2 WARNING: not supported function called (launcheditor())!! File: %s:%i\n",
++          __FILE__, __LINE__);
++   return;
++#endif
+ }
+ static void launchcaptures(std::string const& edit) {
++#ifndef _EE
+ 	std::string path,file;
+ 	Section* t = control->GetSection("dosbox");
+ 	if(t) file = t->GetPropValue("captures");
+@@ -1611,6 +1628,12 @@
+ 	//if you get here the launching failed!
+ 	printf("can't find filemanager %s\n",edit.c_str());
+ 	exit(1);
++#else
++   // KarasQ: not supported
++   printf("PS2 WARNING: not supported function called (launchcaptures())!! File: %s:%i\n",
++          __FILE__, __LINE__);
++   return;
++#endif
+ }
+ 
+ static void printconfiglocation() {
+@@ -1668,6 +1691,7 @@
+ 
+ //extern void UI_Init(void);
+ int main(int argc, char* argv[]) {
++   PS2_Init();
+ 	try {
+ 		CommandLine com_line(argc,argv);
+ 		Config myconf(&com_line);
+@@ -1740,20 +1764,21 @@
+ 	LOG_MSG("---");
+ 
+ 	/* Init SDL */
+-#if SDL_VERSION_ATLEAST(1, 2, 14)
++#if SDL_VERSION_ATLEAST(1, 2, 14) && !defined(_EE)
+ 	putenv(const_cast<char*>("SDL_DISABLE_LOCK_KEYS=1"));
+ #endif
+-	if ( SDL_Init( SDL_INIT_AUDIO|SDL_INIT_VIDEO|SDL_INIT_TIMER|SDL_INIT_CDROM
+-		|SDL_INIT_NOPARACHUTE
++	if ( SDL_Init( SDL_INIT_AUDIO|SDL_INIT_VIDEO|SDL_INIT_TIMER/*|SDL_INIT_CDROM*/
++		/*|SDL_INIT_NOPARACHUTE*/
+ 		) < 0 ) E_Exit("Can't init SDL %s",SDL_GetError());
+ 	sdl.inited = true;
+ 
+ #ifndef DISABLE_JOYSTICK
+ 	//Initialise Joystick seperately. This way we can warn when it fails instead
+ 	//of exiting the application
++	#ifndef _EE
+ 	if( SDL_InitSubSystem(SDL_INIT_JOYSTICK) < 0 ) LOG_MSG("Failed to init joystick support");
+ #endif
+-
++#endif
+ 	sdl.laltstate = SDL_KEYUP;
+ 	sdl.raltstate = SDL_KEYUP;
+ 
+@@ -1796,7 +1821,9 @@
+ 		config_file.clear();
+ 		Cross::GetPlatformConfigDir(config_path);
+ 		Cross::GetPlatformConfigName(config_file);
++
+ 		config_path += config_file;
++
+ 		if(control->ParseConfigFile(config_path.c_str())) parsed_anyconfigfile = true;
+ 		if(!parsed_anyconfigfile) {
+ 			//Try to create the userlevel configfile.
+@@ -1843,7 +1870,6 @@
+ 			LOG_MSG("CONFIG: Using default settings. Create a configfile to change them");
+ 		}
+ 	}
+-
+ 
+ #if (ENVIRON_LINKED)
+ 		control->ParseEnv(environ);
+diff -ruNwb dosbox-0.74/src/hardware/cmos.cpp ps2-dosbox-0.74/src/hardware/cmos.cpp
+--- dosbox-0.74/src/hardware/cmos.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/hardware/cmos.cpp	Fri Jun 10 12:09:21 2011
+@@ -22,7 +22,12 @@
+ #include <math.h>
+ 
+ #include "dosbox.h"
++#ifdef _EE
++// KarasQ: avoid header conflicts with PS2SDK timer.h
++#include "include/timer.h"
++#else
+ #include "timer.h"
++#endif
+ #include "pic.h"
+ #include "inout.h"
+ #include "mem.h"
+diff -ruNwb dosbox-0.74/src/hardware/dma.cpp ps2-dosbox-0.74/src/hardware/dma.cpp
+--- dosbox-0.74/src/hardware/dma.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/hardware/dma.cpp	Fri Jun 10 12:09:21 2011
+@@ -22,7 +22,12 @@
+ #include "dosbox.h"
+ #include "mem.h"
+ #include "inout.h"
++#ifdef _EE
++// KarasQ: avoid header conflicts with PS2SDK debug.h
++#include "include/dma.h"
++#else
+ #include "dma.h"
++#endif
+ #include "pic.h"
+ #include "paging.h"
+ #include "setup.h"
+diff -ruNwb dosbox-0.74/src/hardware/gus.cpp ps2-dosbox-0.74/src/hardware/gus.cpp
+--- dosbox-0.74/src/hardware/gus.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/hardware/gus.cpp	Fri Jun 10 12:09:21 2011
+@@ -24,7 +24,12 @@
+ #include "dosbox.h"
+ #include "inout.h"
+ #include "mixer.h"
++#ifdef _EE
++// KarasQ: avoid header conflicts with PS2SDK dma.h
++#include "include/dma.h"
++#else
+ #include "dma.h"
++#endif
+ #include "pic.h"
+ #include "setup.h"
+ #include "shell.h"
+diff -ruNwb dosbox-0.74/src/hardware/keyboard.cpp ps2-dosbox-0.74/src/hardware/keyboard.cpp
+--- dosbox-0.74/src/hardware/keyboard.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/hardware/keyboard.cpp	Fri Jun 10 12:09:21 2011
+@@ -24,7 +24,12 @@
+ #include "pic.h"
+ #include "mem.h"
+ #include "mixer.h"
++#ifdef _EE
++// KarasQ: avoid header conflicts with PS2SDK timer.h
++#include "include/timer.h"
++#else
+ #include "timer.h"
++#endif
+ 
+ #define KEYBUFSIZE 32
+ #define KEYDELAY 0.300f			//Considering 20-30 khz serial clock and 11 bits/char
+diff -ruNwb dosbox-0.74/src/hardware/memory.cpp ps2-dosbox-0.74/src/hardware/memory.cpp
+--- dosbox-0.74/src/hardware/memory.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/hardware/memory.cpp	Fri Jun 10 12:09:21 2011
+@@ -427,12 +427,12 @@
+ 
+ 
+ /* Memory access functions */
+-Bit16u mem_unalignedreadw(PhysPt address) {
++Bit16u __attribute__((noinline)) mem_unalignedreadw(PhysPt address) {
+ 	return mem_readb_inline(address) |
+ 		mem_readb_inline(address+1) << 8;
+ }
+ 
+-Bit32u mem_unalignedreadd(PhysPt address) {
++Bit32u __attribute__((noinline)) mem_unalignedreadd(PhysPt address) {
+ 	return mem_readb_inline(address) |
+ 		(mem_readb_inline(address+1) << 8) |
+ 		(mem_readb_inline(address+2) << 16) |
+@@ -440,12 +440,12 @@
+ }
+ 
+ 
+-void mem_unalignedwritew(PhysPt address,Bit16u val) {
++void __attribute__((noinline)) mem_unalignedwritew(PhysPt address,Bit16u val) {
+ 	mem_writeb_inline(address,(Bit8u)val);val>>=8;
+ 	mem_writeb_inline(address+1,(Bit8u)val);
+ }
+ 
+-void mem_unalignedwrited(PhysPt address,Bit32u val) {
++void __attribute__((noinline)) mem_unalignedwrited(PhysPt address,Bit32u val) {
+ 	mem_writeb_inline(address,(Bit8u)val);val>>=8;
+ 	mem_writeb_inline(address+1,(Bit8u)val);val>>=8;
+ 	mem_writeb_inline(address+2,(Bit8u)val);val>>=8;
+@@ -453,7 +453,7 @@
+ }
+ 
+ 
+-bool mem_unalignedreadw_checked(PhysPt address, Bit16u * val) {
++bool __attribute__((noinline)) mem_unalignedreadw_checked(PhysPt address, Bit16u * val) {
+ 	Bit8u rval1,rval2;
+ 	if (mem_readb_checked(address+0, &rval1)) return true;
+ 	if (mem_readb_checked(address+1, &rval2)) return true;
+@@ -461,7 +461,7 @@
+ 	return false;
+ }
+ 
+-bool mem_unalignedreadd_checked(PhysPt address, Bit32u * val) {
++bool __attribute__((noinline)) mem_unalignedreadd_checked(PhysPt address, Bit32u * val) {
+ 	Bit8u rval1,rval2,rval3,rval4;
+ 	if (mem_readb_checked(address+0, &rval1)) return true;
+ 	if (mem_readb_checked(address+1, &rval2)) return true;
+@@ -471,13 +471,13 @@
+ 	return false;
+ }
+ 
+-bool mem_unalignedwritew_checked(PhysPt address,Bit16u val) {
++bool __attribute__((noinline)) mem_unalignedwritew_checked(PhysPt address,Bit16u val) {
+ 	if (mem_writeb_checked(address,(Bit8u)(val & 0xff))) return true;val>>=8;
+ 	if (mem_writeb_checked(address+1,(Bit8u)(val & 0xff))) return true;
+ 	return false;
+ }
+ 
+-bool mem_unalignedwrited_checked(PhysPt address,Bit32u val) {
++bool __attribute__((noinline)) mem_unalignedwrited_checked(PhysPt address,Bit32u val) {
+ 	if (mem_writeb_checked(address,(Bit8u)(val & 0xff))) return true;val>>=8;
+ 	if (mem_writeb_checked(address+1,(Bit8u)(val & 0xff))) return true;val>>=8;
+ 	if (mem_writeb_checked(address+2,(Bit8u)(val & 0xff))) return true;val>>=8;
+diff -ruNwb dosbox-0.74/src/hardware/mixer.cpp ps2-dosbox-0.74/src/hardware/mixer.cpp
+--- dosbox-0.74/src/hardware/mixer.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/hardware/mixer.cpp	Fri Jun 10 12:09:21 2011
+@@ -41,7 +41,12 @@
+ #include "pic.h"
+ #include "dosbox.h"
+ #include "mixer.h"
++#ifdef _EE
++// KarasQ: avoid header conflicts with PS2SDK timer.h
++#include "include/timer.h"
++#else
+ #include "timer.h"
++#endif
+ #include "setup.h"
+ #include "cross.h"
+ #include "support.h"
+diff -ruNwb dosbox-0.74/src/hardware/opl.cpp ps2-dosbox-0.74/src/hardware/opl.cpp
+--- dosbox-0.74/src/hardware/opl.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/hardware/opl.cpp	Fri Jun 10 12:09:21 2011
+@@ -29,7 +29,8 @@
+ #include <stdlib.h> // rand()
+ #include "dosbox.h"
+ #include "opl.h"
+-
++// KarasQ: missing header
++#include <string.h>
+ 
+ static fltype recipsamp;	// inverse of sampling rate
+ static Bit16s wavtable[WAVEPREC*3];	// wave form table
+diff -ruNwb dosbox-0.74/src/hardware/pcspeaker.cpp ps2-dosbox-0.74/src/hardware/pcspeaker.cpp
+--- dosbox-0.74/src/hardware/pcspeaker.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/hardware/pcspeaker.cpp	Fri Jun 10 12:09:21 2011
+@@ -21,7 +21,12 @@
+ #include <math.h>
+ #include "dosbox.h"
+ #include "mixer.h"
++#ifdef _EE
++// KarasQ: avoid header conflicts with PS2SDK timer.h
++#include "include/timer.h"
++#else
+ #include "timer.h"
++#endif
+ #include "setup.h"
+ #include "pic.h"
+ 
+diff -ruNwb dosbox-0.74/src/hardware/pic.cpp ps2-dosbox-0.74/src/hardware/pic.cpp
+--- dosbox-0.74/src/hardware/pic.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/hardware/pic.cpp	Fri Jun 10 12:09:21 2011
+@@ -25,7 +25,12 @@
+ #include "cpu.h"
+ #include "callback.h"
+ #include "pic.h"
++#ifdef _EE
++// KarasQ: avoid header conflicts with PS2SDK timer.h
++#include "include/timer.h"
++#else
+ #include "timer.h"
++#endif
+ #include "setup.h"
+ 
+ #define PIC_QUEUESIZE 512
+diff -ruNwb dosbox-0.74/src/hardware/sblaster.cpp ps2-dosbox-0.74/src/hardware/sblaster.cpp
+--- dosbox-0.74/src/hardware/sblaster.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/hardware/sblaster.cpp	Fri Jun 10 12:09:21 2011
+@@ -25,7 +25,12 @@
+ #include "dosbox.h"
+ #include "inout.h"
+ #include "mixer.h"
++#ifdef _EE
++// KarasQ: avoid header conflicts with PS2SDK dma.h
++#include "include/dma.h"
++#else
+ #include "dma.h"
++#endif
+ #include "pic.h"
+ #include "hardware.h"
+ #include "setup.h"
+diff -ruNwb dosbox-0.74/src/hardware/serialport/libserial.cpp ps2-dosbox-0.74/src/hardware/serialport/libserial.cpp
+--- dosbox-0.74/src/hardware/serialport/libserial.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/hardware/serialport/libserial.cpp	Fri Jun 10 12:09:21 2011
+@@ -20,7 +20,11 @@
+ 
+ #include "libserial.h"
+ 
++#ifndef _EE
+ #include "config.h"
++#else
++#include "config-ps2.h"
++#endif
+ 
+ #ifdef WIN32
+ 
+diff -ruNwb dosbox-0.74/src/hardware/serialport/misc_util.cpp ps2-dosbox-0.74/src/hardware/serialport/misc_util.cpp
+--- dosbox-0.74/src/hardware/serialport/misc_util.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/hardware/serialport/misc_util.cpp	Fri Jun 10 12:09:21 2011
+@@ -19,7 +19,11 @@
+ /* $Id $ */
+ 
+ 
++#ifndef _EE
+ #include "config.h"
++#else
++#include "config-ps2.h"
++#endif
+ 
+ #if C_MODEM
+ 
+diff -ruNwb dosbox-0.74/src/hardware/tandy_sound.cpp ps2-dosbox-0.74/src/hardware/tandy_sound.cpp
+--- dosbox-0.74/src/hardware/tandy_sound.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/hardware/tandy_sound.cpp	Fri Jun 10 12:09:21 2011
+@@ -26,7 +26,12 @@
+ #include "mem.h"
+ #include "setup.h"
+ #include "pic.h"
++#ifdef _EE
++// KarasQ: avoid header conflicts with PS2SDK dma.h
++#include "include/dma.h"
++#else
+ #include "dma.h"
++#endif
+ #include "hardware.h"
+ #include <cstring>
+ #include <math.h>
+diff -ruNwb dosbox-0.74/src/hardware/timer.cpp ps2-dosbox-0.74/src/hardware/timer.cpp
+--- dosbox-0.74/src/hardware/timer.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/hardware/timer.cpp	Fri Jun 10 12:09:21 2011
+@@ -24,7 +24,12 @@
+ #include "pic.h"
+ #include "mem.h"
+ #include "mixer.h"
++#ifdef _EE
++// KarasQ: avoid header conflicts with PS2SDK timer.h
++#include "include/timer.h"
++#else
+ #include "timer.h"
++#endif
+ #include "setup.h"
+ 
+ static INLINE void BIN2BCD(Bit16u& val) {
+diff -ruNwb dosbox-0.74/src/misc/cross.cpp ps2-dosbox-0.74/src/misc/cross.cpp
+--- dosbox-0.74/src/misc/cross.cpp	Mon May 10 17:43:54 2010
++++ ps2-dosbox-0.74/src/misc/cross.cpp	Fri Jun 10 12:09:21 2011
+@@ -92,8 +92,12 @@
+ #else
+ 	in = "~/.dosbox";
+ 	ResolveHomedir(in);
++	#ifdef _EE
++      mkdir(in.c_str());
++   #else
+ 	mkdir(in.c_str(),0700);
+ #endif
++#endif
+ 	in += CROSS_FILESPLIT;
+ }
+ 
+@@ -115,7 +119,7 @@
+ }
+ 
+ void Cross::CreateDir(std::string const& in) {
+-#ifdef WIN32
++#if defined(WIN32) || defined(_EE)
+ 	mkdir(in.c_str());
+ #else
+ 	mkdir(in.c_str(),0700);
+diff -ruNwb dosbox-0.74/src/ps2/PS2Init.cpp ps2-dosbox-0.74/src/ps2/PS2Init.cpp
+--- dosbox-0.74/src/ps2/PS2Init.cpp	Thu Jan  1 00:00:00 1970
++++ ps2-dosbox-0.74/src/ps2/PS2Init.cpp	Fri Jun 10 12:09:21 2011
+@@ -0,0 +1,87 @@
++#include <kernel.h>
++#include <sifrpc.h>
++#include <stdio.h>
++#include <loadfile.h>
++#include <iopcontrol.h>
++#include <iopheap.h>
++#include <sbv_patches.h>
++
++#include "PS2Init.h"
++
++static const unsigned int ModulesNum = 5;
++static char *ModulesList[ModulesNum] =
++{
++   "rom0:XSIO2MAN",
++   "rom0:XMCMAN",
++   "rom0:XMCSERV",
++   "rom0:PADMAN",
++   "rom0:LIBSD"
++};
++
++void PS2_Delay(unsigned int count)
++{
++   for ( unsigned int i = 0; i < count; i++ )
++   {
++      unsigned int ret = 0x1000000;
++      do
++      {
++         asm("nop\n"
++             "nop\n"
++             "nop\n"
++             "nop\n"
++            );
++      } while ( ret-- );
++   }
++}
++
++void PS2_LoadModules(void)
++{
++   int result = 0;
++
++   for ( unsigned int i = 0; i < ModulesNum; i++ )
++   {
++      result = SifLoadModule(ModulesList[i], 0, NULL);
++      printf( result >= 0 ?
++             "Module %s: successfully loaded\n" :
++             "Module %s: failed to load module\n",
++             ModulesList[i] );
++   }
++
++   SifExecModuleBuffer(&usbd_irx, size_usbd_irx, 0, NULL, &result);
++   printf( result >= 0 ?
++          "Module usbd.irx: successfully loaded\n" :
++          "Module usbd.irx: failed to load module\n" );
++
++   SifExecModuleBuffer(&usbhdfsd_irx, size_usbhdfsd_irx, 0, NULL, &result);
++   printf( result < 0 ?
++          "Module usbhdfsd.irx: successfully loaded\n" :
++          "Module usbhdfsd.irx: failed to load module\n" );
++}
++
++void PS2_Init(void)
++{
++   // KarasQ: If you run through ps2client.exe you should
++   // disable this section
++#if 1
++   SifIopReset("rom0:UDNL rom0:EELOADCNF",0);
++   while(!SifIopSync());
++#endif
++
++   fioExit();
++   SifExitIopHeap();
++   SifLoadFileExit();
++   SifExitRpc();
++   SifExitCmd();
++
++   SifInitRpc(0);
++   FlushCache(0);
++   FlushCache(2);
++
++   sbv_patch_enable_lmb();
++   sbv_patch_disable_prefix_check();
++
++   PS2_LoadModules();
++   PS2_Delay(5);
++
++   printf("\n\n----->PS2 INITED<-----\n\n");
++}
+diff -ruNwb dosbox-0.74/src/ps2/PS2Init.h ps2-dosbox-0.74/src/ps2/PS2Init.h
+--- dosbox-0.74/src/ps2/PS2Init.h	Thu Jan  1 00:00:00 1970
++++ ps2-dosbox-0.74/src/ps2/PS2Init.h	Fri Jun 10 12:09:21 2011
+@@ -0,0 +1,18 @@
++#ifndef __PLAYSTATION2_H_
++#define __PLAYSTATION2_H_
++
++extern void *cdvd_irx;
++extern int size_cdvd_irx;
++
++extern void *usbd_irx;
++extern int size_usbd_irx;
++
++extern void *usbhdfsd_irx;
++extern int size_usbhdfsd_irx;
++
++void PS2_LoadModules(void);
++void PS2_Delay(unsigned int count);
++void PS2_Init(void);
++
++#endif
++
+diff -ruNwb dosbox-0.74/src/ps2/PS2Time.cpp ps2-dosbox-0.74/src/ps2/PS2Time.cpp
+--- dosbox-0.74/src/ps2/PS2Time.cpp	Thu Jan  1 00:00:00 1970
++++ ps2-dosbox-0.74/src/ps2/PS2Time.cpp	Fri Jun 10 12:09:21 2011
+@@ -0,0 +1,228 @@
++/*
++ *  Copyright (C) 2010  Krystian Karas <k4rasq@gmail.com>
++ *
++ *  I release it for fully free use by anyone, anywhere, for any purpose.
++ *  But I still retain the copyright, so no one else can limit this release.
++ */
++
++#include <libcdvd.h>
++#include <osd_config.h>
++
++#include "PS2Time.h"
++
++// Static data
++const unsigned int PS2Time::MonthsTable[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
++const unsigned int PS2Time::MonthsTableDays[12] = { 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334 };
++
++PS2Time *PS2Time::m_Instance = 0;
++
++PS2Time::PS2Time() :
++   m_LeapYearsNum(0),
++   m_GMTOffset(0),
++   m_DaylightSaving(-1)
++{
++   if ( UpdatePS2Clock() )
++   {
++      // Set GMT and Daylight Saving
++      m_GMTOffset = configGetTimezone() / 60;
++      m_DaylightSaving = configIsDaylightSavingEnabled();
++
++      // It's necessary to init valid value to get valid time
++      m_PS2Clock.is_leap_year = isLeapYear(m_PS2Clock.year);
++
++      // It's necessary to set leap years value to get valid time
++      setLeapYearsNum(UNIX_START_YEAR, m_PS2Clock.year);
++   }
++}
++
++PS2Time::~PS2Time()
++{
++   if ( m_Instance )
++      delete m_Instance;
++
++   m_Instance = 0;
++}
++
++PS2Time *PS2Time::Instance()
++{
++   if ( !m_Instance )
++      m_Instance = new PS2Time;
++
++   return m_Instance;
++}
++
++bool PS2Time::setLeapYearsNum(int startYear, int endYear)
++{
++   int i = 0;
++
++   if ( startYear > endYear )
++      return false;
++
++   for (i = startYear; i < endYear; i++)
++      if ( isLeapYear(i) ) m_LeapYearsNum++;
++
++   return true;
++}
++
++int PS2Time::getSecFromData(TimeData &date)
++{
++   unsigned int seconds = 0;
++
++   if ( date.month > 1 && date.is_leap_year )
++      seconds += 86400; // 24 hours
++
++   seconds += MonthsTableDays[date.month] * 86400;
++   seconds += (date.day - 1) * 86400;
++   seconds += date.hour * 3600;
++   seconds += date.minute * 60;
++   seconds += date.second;
++
++   return seconds;
++}
++
++time_t PS2Time::getTime(time_t *timer)
++{
++   if ( timer )
++   {
++      *timer = UpdatePS2Clock() ? ((m_PS2Clock.year * 365 - UNIX_START_YEAR * 365) +
++         getLeapYearsNum()) * 24 * 60 * 60 + getSecFromData(m_PS2Clock) : -1;
++      return *timer;
++   }
++   else
++   {
++      return UpdatePS2Clock() ? ((m_PS2Clock.year * 365 - UNIX_START_YEAR * 365) +
++         getLeapYearsNum()) * 24 * 60 * 60 + getSecFromData(m_PS2Clock) : -1;
++   }
++}
++
++
++struct tm *PS2Time::getLocaltime(time_t *timer) {
++   static struct tm PS2_Date;
++
++   if ( UpdatePS2Clock() && !timer )
++   {
++      PS2_Date.tm_sec   = m_PS2Clock.second;
++      PS2_Date.tm_min   = m_PS2Clock.minute;
++      PS2_Date.tm_hour  = m_PS2Clock.hour;
++      PS2_Date.tm_mday  = m_PS2Clock.day;
++      PS2_Date.tm_mon   = m_PS2Clock.month;
++      PS2_Date.tm_year  = m_PS2Clock.year; // !: years since 1900 required
++      PS2_Date.tm_wday  = getWeekDay(PS2_Date.tm_mday, PS2_Date.tm_mon, PS2_Date.tm_year);
++      PS2_Date.tm_yday  = MonthsTableDays[PS2_Date.tm_mon] + PS2_Date.tm_mday;
++      PS2_Date.tm_isdst = m_DaylightSaving;
++
++      // Fixing values
++      PS2_Date.tm_year -= 1900;
++
++      if ( PS2_Date.tm_mon > 1 && m_PS2Clock.is_leap_year )
++         ++PS2_Date.tm_yday;
++   }
++   else if ( timer )
++   {
++      int i;
++      register time_t work = *timer % (24 * 60 * 60);
++
++      PS2_Date.tm_sec   = work % 60; work /= 60;
++      PS2_Date.tm_min   = work % 60;
++      PS2_Date.tm_hour  = work / 60;
++
++      work = *timer / (24 * 60 * 60);
++
++      PS2_Date.tm_wday = (work + 4) % 7;
++
++      for ( i = UNIX_START_YEAR; ; ++i ) {
++         register time_t k = isLeapYear(i) ? 366 : 365;
++
++         if ( work >= k )
++            work -= k;
++         else
++            break;
++      }
++
++      PS2_Date.tm_year = i - 1900;
++      PS2_Date.tm_yday = work;
++      PS2_Date.tm_mday = 1;
++
++      if ( isLeapYear(i) && (work > 58) ) {
++         if ( work == 59 )
++            PS2_Date.tm_mday = 2;
++
++         work -= 1;
++      }
++
++      for ( i = 11; i && (MonthsTableDays[i] > work); --i );
++
++      PS2_Date.tm_mon = i;
++      PS2_Date.tm_mday += work - MonthsTableDays[i];
++   }
++
++   return &PS2_Date;
++}
++
++bool PS2Time::UpdatePS2Clock() {
++   CdvdClock_t Clock;
++
++   if ( !cdReadClock(&Clock) ) {
++      return false;
++   }
++
++   m_PS2Clock.year   = BCD2DEC(Clock.year);         // Warning!: RTC returns year less 2000
++   m_PS2Clock.month  = BCD2DEC(Clock.month) & 0x0F; // Warning!: RTC return month values 1 - 12
++   m_PS2Clock.day    = BCD2DEC(Clock.day) & 0x1F;
++   m_PS2Clock.hour   = BCD2DEC(Clock.hour);         // Warning!: Hour in Japan (GMT + 9)
++   m_PS2Clock.minute = BCD2DEC(Clock.minute);
++   m_PS2Clock.second = BCD2DEC(Clock.second);
++
++   // Fixing warnings
++   m_PS2Clock.hour = (m_PS2Clock.hour - 9) + m_GMTOffset + m_DaylightSaving;
++   m_PS2Clock.year += 2000;
++   m_PS2Clock.month--;
++
++   if ( m_PS2Clock.hour < 0 ) // is day changed?
++   {
++      m_PS2Clock.hour += 24;
++
++      if ( --m_PS2Clock.day == 0 ) // is month changed?
++      {
++         if ( --m_PS2Clock.month < 0 ) // is year changed?
++         {
++            m_PS2Clock.month = 11;
++
++            // So, now we have to fix leap years number and year...
++            if ( m_PS2Clock.is_leap_year || !isLeapYear(m_PS2Clock.year - 1) ) {
++               m_PS2Clock.year--;
++               m_PS2Clock.is_leap_year = false;
++            } else {
++               m_LeapYearsNum--;
++               m_PS2Clock.year--;
++               m_PS2Clock.is_leap_year = true;
++            }
++         }
++
++         // Change day to last day of previous month
++         m_PS2Clock.day = MonthsTable[m_PS2Clock.month];
++
++         // Check if the changed month is not February and it haven't extra day
++         if ( m_PS2Clock.month == 1 && m_PS2Clock.is_leap_year )
++            ++m_PS2Clock.day;
++      }
++   }
++
++   return true;
++}
++
++int PS2Time::getWeekDay(int day, int month, int year)
++{
++   if ( month > 2 )
++      month -= 2;
++   else
++   {
++      month += 10;
++      year--;
++   }
++
++   int w = year / 100;
++   year %= 100;
++
++   return (day + (13 * month - 1) / 5 + year + year / 4 + w / 4 + 5 * w) % 7;
++}
+diff -ruNwb dosbox-0.74/src/ps2/PS2Time.h ps2-dosbox-0.74/src/ps2/PS2Time.h
+--- dosbox-0.74/src/ps2/PS2Time.h	Thu Jan  1 00:00:00 1970
++++ ps2-dosbox-0.74/src/ps2/PS2Time.h	Fri Jun 10 12:09:21 2011
+@@ -0,0 +1,94 @@
++/*
++ *  Copyright (C) 2010  Krystian Karas <k4rasq@gmail.com>
++ *
++ *  I release it for fully free use by anyone, anywhere, for any purpose.
++ *  But I still retain the copyright, so no one else can limit this release.
++ */
++
++#ifndef _LIB_TIME_H_
++#define _LIB_TIME_H_
++
++#include <time.h>
++
++#define UNIX_START_YEAR  1970
++
++#define BCD2DEC(bcd)     ( ((((bcd) >> 4) & 0x0F) * 10) + ((bcd) & 0x0F) )
++
++// Singleton class!
++// use: PS2Time::FunctionName(); or PS2Time::Instance->FunctionName();
++class PS2Time
++{
++   public:
++      static const unsigned int MonthsTable[];
++      static const unsigned int MonthsTableDays[];
++
++      typedef struct {
++         int year;
++         int month;
++         int day;
++         int hour;
++         int minute;
++         int second;
++         bool is_leap_year;
++      } TimeData;
++
++      /* Function isLeapYear(); checks if year is leap */
++
++      bool isLeapYear(int Year) {
++         return ((Year % 4 == 0 && Year % 100 != 0) || Year % 400 == 0) ? true : false;
++      }
++
++      /* Function setLeapYearsNum() sets numbers of leap years since
++       * startYear to endYear and return false if startYear > endYear
++       * otherwise returns true
++       */
++
++      bool setLeapYearsNum(int startYear, int endYear);
++
++      /* Function getSecFromData() returns number of seconds
++       * since new year to current data.
++       * date need to be set before you call this function!
++       */
++
++      int getSecFromData(TimeData &date);
++
++      /* Function getLeapYearsNum() returns current value of
++       * leap years.
++       */
++
++      int getLeapYearsNum() {
++         return m_LeapYearsNum;
++      }
++
++      /* Function getTime() returns UNIX time (number of seconds
++       * since 1 January of 1970 or other defined in UNIX_START_YEAR)
++       */
++
++      time_t getTime(time_t *t);
++
++      /* Function getLocaltime() fill tm struct with
++       * date values and return address to this structure
++       */
++
++      struct tm *getLocaltime(time_t *t);
++
++      static PS2Time *Instance();
++
++   protected:
++      PS2Time();
++     ~PS2Time();
++
++   private:
++      static PS2Time *m_Instance;
++
++      int m_LeapYearsNum;
++      int m_GMTOffset;
++      int m_DaylightSaving;
++
++      TimeData m_PS2Clock;
++
++      bool UpdatePS2Clock();
++      int getWeekDay(int day, int month, int year);
++};
++
++#endif
+Binary files dosbox-0.74/src/ps2/irx/cdvd.irx and ps2-dosbox-0.74/src/ps2/irx/cdvd.irx differ
+Binary files dosbox-0.74/src/ps2/irx/usbd.irx and ps2-dosbox-0.74/src/ps2/irx/usbd.irx differ
+Binary files dosbox-0.74/src/ps2/irx/usbhdfsd.irx and ps2-dosbox-0.74/src/ps2/irx/usbhdfsd.irx differ

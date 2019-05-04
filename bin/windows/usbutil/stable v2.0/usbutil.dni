@@ -1,0 +1,50 @@
+//Programado por ISEKO mayo 2009 
+//Archivo: usbutil.dni (indice para usbutil.dna)
+//Configure su propio paquete aqui, para ser usado con USBUtil.exe
+//Sintaxis:   DNAS#[tamaño del archivo en bytes]
+//Este archivo es el indice para el paquete usbutil.dna el cual contendra
+//los archivos agregados consecutivamente en el orden fijado aqui en el indice.
+//Como hacer un usbutil.dna?
+//simplemente cree un archivo autoexec.bat con el contenido siguiente:
+//   copy /b IOPRP16.IMG+IOPRP165.IMG+.....IOPRP#.IMG  usbutil.dna
+//deposite(autoexec.bat)dentro de una carpeta junto con todos los IOPRP a agregar.
+//ejecutelo y listo!, ahora solo pongalo junto a USBUtil.exe
+
+//Aqui todas las DNAS para la primera versión de mi paquete.
+//AH! recordemos que todos los IOPRP no son compatible.
+
+// Paquete V1.0 
+  
+DNAS16[91909];
+DNAS165[98901];
+DNAS20[109809];
+DNAS202[110993];
+DNAS23[230329];
+DNAS242[278353];
+DNAS250[278353];
+DNAS270[278353];
+DNAS271[278353];
+DNAS280[278353];
+DNAS300[278353];
+DNAS310[278353];
+
+// Paquete v1.1 (Agregado en esta versión desde el generador IOPRPGen v1.0 )  
+
+DNAS[278353];
+DNAS22[278353];
+DNAS214[278353];
+DNAS234[278353];
+DNAS241[278353];
+DNAS242[278353];
+DNAS243[278353];
+DNAS252[278353];
+DNAS253[278353];
+DNAS255[278353];
+
+// Paquete v2.0 
+// Se han cambiado los IOPRP/DNAS271..300 por IOPRPGen v1.0 
+// por demostrar compatibilidad
+
+// Paquete v2.1
+//Se han cambiado IOPRP/DNAS 242,250,270 por IOPRPGen v1.0
+// por demostrar compatibilidad

@@ -1,0 +1,73 @@
+#------------------------------------------------------------------
+# Under PS2, display library should be always set to "sdl" because 
+# there is any no other interface implemented.
+#------------------------------------------------------------------
+display_library: sdl, options="fullscreen"
+
+#------------------------------------------------------------------
+# Memory setting
+#------------------------------------------------------------------
+# Should be:
+# - up to 20 MB for PS2-Bochs-2.3.5-v1
+# - up to 18 MB for PS2-Bochs-2.3.5-v2
+#
+# anything above will be unstable or won't run at all (crash on 
+# the startup)
+# However if it still works unstable you can try to decrease
+# memory value (e.g. to 16 MB)
+#------------------------------------------------------------------
+megs: 18
+
+#------------------------------------------------------------------
+# CPU and VGA options.
+# You can try to manipulate with those options. It may speed up 
+# or slow down emulation.
+# CPU IPS cannot be less than 200000 until you recompile Bochs 
+# with other limit. (see ps2-config.h)
+#------------------------------------------------------------------
+cpu: count=1, ips=250000
+vga_update_interval: 500000
+
+#------------------------------------------------------------------
+# BIOS images. 
+# Both VGA and Motherboatd BIOS Have to be loaded to run Bochs.
+#------------------------------------------------------------------
+romimage: file="mass0:/BOCHS/BIOS/BIOS-bochs-latest.bin"
+vgaromimage: file="mass0:/BOCHS/BIOS/VGABIOS-lgpl-latest.bin"
+
+#------------------------------------------------------------------
+# Boot device sequence
+#------------------------------------------------------------------
+boot: disk, cdrom
+
+#------------------------------------------------------------------
+# ATA channels and diveces
+#------------------------------------------------------------------
+ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14
+
+ata0-master: type=disk, mode=flat, translation=auto, path="mass0:/BOCHS/DISK/hdd.img", cylinders=0, biosdetect=auto
+ata0-slave: type=cdrom, path="mass0:/BOCHS/ISO/cdimage.iso", status=inserted, biosdetect=auto, model="PS2CDVD Driver"
+
+# Other examples
+# ata0-master: type=disk, path="mass0:/BOCHS/DISK/linux-minibootable.img", cylinders=900, heads=15, spt=17
+# ata0-master: type=disk, path="mass0:/BOCHS/DISK/freedos.img", cylinders=306, heads=4, spt=17
+
+#------------------------------------------------------------------
+# Other options
+# mouse is not working, but you should leave
+# it turned on to avoid SDL mouse cursor.
+#------------------------------------------------------------------
+mouse: enabled=1
+floppy_bootsig_check: disabled=1
+private_colormap: enabled=0
+keyboard_serial_delay: 250
+keyboard_paste_delay: 100000
+
+#------------------------------------------------------------------
+# Debug messages. 
+# Useless for ps2 users, so just ignore them.
+#------------------------------------------------------------------
+info:  action=ignore
+debug: action=ignore
+panic: action=ignore
+error: action=ignore

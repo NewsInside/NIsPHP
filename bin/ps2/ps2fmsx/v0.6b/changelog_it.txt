@@ -1,0 +1,12 @@
+Versión 0.6b (01/11/09):
+------------------------
+- Soporte de segundo botón de joystick (CIRCULO)
+- Soporte de salvado y cargado de estado de emulación (incluye captura de pantalla)
+- Reparado un problema en el mezclado de los canales de sonido que hacía que juegos
+como el Fruit Panic no tuvieran el sonido correcto
+- Mejorado el teclado virtual para funcionamiento al subir y bajar de fila de teclado
+- Añadido soporte (SELECT) de menú sin perder el estado de emulación
+- La tecla R2 mientras carga la BIOS del MSX emula la tecla CTRL para poder cargar 
+determinados DSK que requieren más memoria
+- Añadidas las opciones de reset MSX y de limipieza de ROM y DSK
+- L1 y R1 en el menú de selección de ROMs y DSK desplaza rápidamente por las pantallas
