@@ -1,4 +1,4 @@
-**/.DS_Store
+**/*DS_Store*
 **/.vscode
 **/*.orig
 **/backup
@@ -6,3 +6,4 @@
 **/*.o
 **/AutomaticConversion.log
 **/ConverterBackup
+**/._*
