@@ -1,0 +1,12 @@
+All types was changes from time_t to int
+ee-g++ compiler give time_t 8 bajts we need 4 bajts
+
+// (time_t) => int
+
+files changed:
+gb/gbMemory.cpp - initalizations of structs MBC3 and TAMA5
+gb/gbMemory.h  - definitions of structs MBC3 and TAMA5
+gb/GB.cpp - functions with save and read battery files of MBC3 and TAMA5 and
+         functions memoryUpdateTAMA5Clock() and memoryUpdateMBC3Clock()
+
+gba/RTC.cpp

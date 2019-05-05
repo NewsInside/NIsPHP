@@ -1,0 +1,188 @@
+                               Virtual VCS
+                                v0.60
+
+    copyright 1996 by Daniel Boris (dboris@home.com)
+   ported from X2600 by Alex Hornbey copyright 1996 GNU Public Licence.
+
+I would like to thank Alex Hornby (W.A.Hornby@dcs.warwick.ac.uk for his
+assistance and for the original source code. I could have never gotten this
+far without the work he did.
+
+The current version of Virtual VCS along with the source code can be found
+at:
+        http://atarihq.com/danb
+
+Usage:
+
+vcs file -[options]
+
+        file - vcs file to load. This must be a raw binary file. The emulator
+               will also work with Activision Action-Pack images. For
+               copyright reasons I have not included any images with this
+               file, but they can be found in various places on the internet.
+
+        -r=# - Sets frame skip rate. The higher the number, the faster the
+               emulation, but more frames are skipped. -r=3 or -r=4 works good
+               for most games.
+
+        -debug  - Start emulator in debug mode.
+
+        -bank=# - Sets the bank switch scheme:
+                        F6 = Atari 16K
+                        F8 = Atari 8K
+                        E0 = Parker Brothers (8K)
+                        FA = CBS Ram Plus (12K)
+                                (Used in Mountain King, Tunnel Runner) 
+                        F6SC = Atari F6 + Super Chip RAM
+                (Used in Dig Dug, Crystal Castles, Mystic Quest, etc.)
+
+           The bank switch scheme used for each cartridge can be found in the
+           file 2600bank.txt included with this program.
+
+        -left=(stick,paddle,keypad) - Sets the left controller
+                stick = joystick emulated from keyboard
+                paddle = paddle emulated from mouse
+                keypad = keypad emulated from keyboard
+
+        -right=(stick,paddle,keypad) - Sets the right controller
+                stick = joystick emulated from keyboard
+                paddle = paddle emulated from mouse
+                keypad = keypad emulated from keyboard
+         (Note: At this point you cannot mix controllers)
+
+        -auto      - Auto configure emulator (See below).
+
+        -sens=(1-9)    - Set sensitivity of mouse for paddle emulation 
+
+        -swap       -Swap keys used for left and right joysticks.
+                    (Someone informed me that some laptops don't have
+                     right ALT keys. This will fix that until I can
+                     implement fully configurable keys).
+
+Controls:
+        Arrow keys = Joystick 1
+        Right Alt  = Fire 1
+        W,Z,A,S    = Joystick 2
+        Left Alt   = Fire 2
+
+        ESC        = Leave the emulator
+        F2         = Game select
+        F1         = Reset game
+        F5         = Enter debugger
+        F7         = Set BW/Color switch to B/W
+        F8         = Set BW/Color switch to Color
+        F9         = Set player 0 difficulty to amateur
+        F10        = Set player 0 difficulty to pro
+        F11        = Set player 1 difficulty to amateur
+        F12        = Set player 1 difficulty to pro
+
+        Left Keypad:            Right Keypad:
+
+        1   2   3               4   5   6
+
+        Q   W   E               R   T   Y
+
+        A   S   D               F   G   H
+
+        Z   X   C               V   B   N
+
+
+Auto Configure:
+    Virtual VCS now has the ability to autoconfigure it self from a
+    configuration file. When you run the program with the -A option
+    the emulator will load the file you specify, and calculate a
+    checksum for the cartridge. It will then lookup the checksum in a
+    file called vcscfg.dat. If it find the checksum it will display
+    the name of the cartridge, it's manufacturer, and an indication
+    of how well the emulator runs this cartridge. It will also
+    automatically configure the bank select mode, controller setup, and
+    frame rate for that cartridge.  If the emulator does not find and
+    entry in that cartridge in the configuration file it will use
+    default configurations, or the configurations you specified on
+    the command line. You can add cartridge to the configuration file
+    by editing vcscfg.dat with a text editor. The field in vcscfg.dat
+    are as follows:
+
+    CHECKSUM= The checksum of the cartridge. This is displayed when ever
+       you load a cartridge image into the emulator.
+
+    NAME= The name of the cartridge.
+
+    MAKER= The manufacturer of the cartridge.
+
+    FRAMERATE= The frame rate set with the -R option.
+
+    TYPE= The size and bank switch mode of the cartridge:
+        2K = standard 2K cart.
+        4K = standard 4K cart.
+        F6 = Atari 16K bank switching.
+        F8 = Atari 8K bank switching.
+        E0 = Parker Brothers 8K bank switching.
+                FA = CBS Ram Plus 12K
+                F6SC = Atari 16K bank switching with Superchip RAM.
+
+        RIGHT= The type of the left game controller to emulate:
+        STICK = Joystick.
+        KEYPAD = Keypad controller.
+        PADDLE = Paddler controller.
+                
+        LEFT= The type of the left game controller to emulate:
+        STICK = Joystick.
+        KEYPAD = Keypad controller.
+        PADDLE = Paddler controller.
+
+    EMULATION= How good this cartridge is emulated.
+
+Debugger:
+        D   =   Display VCS screen. Press any key to return to debugger.
+        S   =   Step to next instruction.
+        Q   =   Quit emulator.
+        M   =   Display a location in memory. Address must be in hex.
+        G   =   Run to a specific address. Address must be in hex.
+        up arrow = Scroll up disassembly.
+        down arrow = Scroll down disassembly.
+
+Limitations:
+        - Does not support E7 or FE bank switching
+        - No sound emulation
+        - Does not support 2 different controllers at the same time
+
+Version History:
+
+v0.52: First Public Release
+V0.54: 6/18/96
+        - Filename can now be anywhere on command line
+        - Fixed bugs in debugger disassembler
+        - Reading from timer set registers return $FF (Space Attack)
+        - Cleaned up address decoding
+        - Various cleanups of the source code
+v0.56 6/25/96
+        - Fixed major bug in address decoding that occured in V0.54
+        - Parker Brother bank switch support added.
+        - Atari Super Chip ram emulation added.
+        - RIOT timer now decrements instead of incrementing.
+        - Fixed problem when sprites run off the edge of the screen Video
+            Pinball won't crash now.
+        - Screen colors are now correct in when using debugger.
+        - Various bugs in debugger fixed.
+        - Opcode fetches now go through faster non-decoded read.
+v0.60 7//96
+        - Added support for VDELAY registers (Fixes Activision logo and score
+                line in Pitfall among others)
+        - Added support for SCORE bit in CTRLPF (ColorDemo)
+        - Fixed problem with BRK opcode (Kangaroo)
+                - Removed extra command line option for SuperChip and made it part of -bank
+        - Added keypad controller support.
+        - Added paddle support through mouse.
+        - Added BW/Color switch support.
+        - Added Dificulty switch support.
+        - Initilize stack pointer to $FF (Midnight Magic)
+        - Fixed a problem with timer emulation (Checkers)
+                - Do bounds checking and wrap around on all sprites.
+        - Added autoconfigure capability
+                - Location 0x0F (which is undecoded in the TIA) should return
+                  0x0F (Haunted House).
+                - Changed handling of command line and some option names.
+                - Multiple copies of missiles are now displayed
+                - Added CBS Ram Plus emulation (Omega Race, Mountain King, Tunnerl Runner)
+

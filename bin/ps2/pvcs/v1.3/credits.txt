@@ -1,0 +1,31 @@
+Daniel Boris
+------------
+Ported Virtual VCS from X2600
+
+
+Alex Hornby
+-----------
+Original author and maintainer.
+
+
+Jarkko Sonninen, 
+Teemu Rantanen,
+Jouko Valta 
+and Ettore Perazzoli.
+---------------------
+The x64 team. Alex based the CPU emulation on their 6510 emulation.
+
+
+Lee Hamel
+hamell@cs.pdx.edu
+---------------------------
+Keyboard interrupt handler
+
+
+Bo Krogsgaard (therion23)
+Dave W. (Conjurer)
+Keita Iida (Keita/Fygar/Pooka)
+----------------------------
+The Beta testers from IRC (#emulate and #rgvc)
+
+

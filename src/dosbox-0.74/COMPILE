@@ -1,0 +1,24 @@
+PlayStation 2 DOSBox 0.74 Port by KarasQ
+My e-mail: <k4rasq@gmail.com>
+
+to compile DOSBox 0.74 you have to have SDL library IN your $PS2DEV folder
+In SDL library should be "include" folder with all SDL headers and "lib"
+folder with already compiled "libsdl.a" and "libsdlmain.a" libraries.
+
+Now you have to run makefile by typeing "make" command.
+Those steps will be done automatically
+
+1. Download DOSBox 0.74 source code
+2. Extract source code to "dosbox-0.74"
+3. Apply patch "patch/ps2-dosbox-0.74.patch"
+4. Start compilation (make -f dosbox-0.74/Makefile.ps2)
+
+If linker throw "cannot find -ln" error then follow this step:
+
+Go to $PS2DEV/ee/ee/lib (default /usr/local/ps2dev/ee/ee/lib) and
+rename file libc.a to libn.a (explanation you can find here:
+http://psx-scene.com/forums/f176/snes9x-ps2-58208/index44.html#post482179).
+
+If your evnrionment is set up properly everything should compile
+successfully. I compiled PS2 Toolchain uder Windows MinGW port 
+with MSYS.

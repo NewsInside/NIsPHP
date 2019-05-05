@@ -1,0 +1,57 @@
+NOTE:
+v1.5 release of psms does not contain a CD version of psms.
+If you want to boot psms from CD please use the previously
+released version (don't worry, not much has changed in this
+version).  This file is included with CD information simply
+because MC version still requires FILES.TXT and I don't have
+time to rewrite it to be MC specific ;)
+
+When PSMS boots, its looks for a file called "FILES.TXT". This
+file contains a list of all the roms on the MC, and the actual
+game names for each of the roms. In order for PSMS to work
+correctly, FILES.TXT must be made correctly - dont expect PSMS
+to work right if you mess something up. You have two choices
+when it comes to making your FILES.TXT file: You can use a nice
+GUI app coded by Justice, or you can create it manually. If you
+want to use the GUI app, download from http://psms.gamebase.ca and 
+follow the instructions included in the archive. If you want to
+create your FILES.TXT manually, follow the instructions below.
+
+----------------------------------------------------------------
+
+   Filenames must be in 8.3 format - ########.### (ALEXKIDD.SMS
+   or SONIC.GG are valid 8.3 filenames). You may not have more
+   than 30 files per directory, so if you have more than 30 roms
+   you must span them accross several directories (ie, ROMS1\
+   ROMS2\ ROMS3\ - each of these dirs can hold up to 30 roms).
+
+   Create the "FILES.TXT" file. This file accociates actual game
+   names with filenames. You must use the full filenames realative
+   to the BADATA-SYSTEM directory of the MC (as long as all your
+   roms are in the Your System Configuration save as suggested,
+   just use the filename and ignore the path)
+
+   The text file is set out as follows:
+
+   Alex the Kidd,ALEXKIDD.SMS
+   Asterix,ASTERIX.SMS
+   California Games,CALIFGAM.SMS
+
+   ... and so on.
+
+   There must be a comma in-between the game name and filename.
+   Make sure you press enter after the last entry (there must be a
+   newline character after the last entry).
+
+   There is currently a "bug" in the file reading code that PSMS
+   uses - it can only read 16 bytes from a file at a time. If your
+   file is NOT a multiple of 16 bytes, the last few characters will
+   not be read. To fix this, pad the end of the file with spaces
+   until it is a multiple of 16 bytes.
+
+   NOTE: This "bug" should no longer be a problem, but if you are
+   having problems and are in doubt, padd to 16 bytes.
+
+   NOTE: If you are a Linux user, make sure to create the FILES.TXT
+   as a DOS format text file, as the current version seems to have
+   issues if the file is not DOS format.
