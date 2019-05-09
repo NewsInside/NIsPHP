@@ -49,3 +49,6 @@
 [submodule "src/rockbot"]
 	path = src/rockbot
 	url = https://github.com/protoman/rockbot.git
+[submodule "src/memcardrex"]
+	path = src/memcardrex
+	url = https://github.com/NewsInside/memcardrex.git
