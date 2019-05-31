@@ -25,7 +25,7 @@ SOFTWARE.
 program HDDMPBRAppInstall;
 
 uses
-  Forms,
+  Forms, Interfaces,
   uPrincipal in 'uPrincipal.pas' {FrmPrincipal},
   uAppList in 'uAppList.pas',
   uInstallCnf in 'uInstallCnf.pas',

@@ -41,52 +41,52 @@
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="uPrincipal.pas"/>
+        <Filename Value="uAppList.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="FrmPrincipal"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
       </Unit1>
       <Unit2>
-        <Filename Value="uAppList.pas"/>
+        <Filename Value="uInstallCnf.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit2>
       <Unit3>
-        <Filename Value="uInstallCnf.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit3>
-      <Unit4>
         <Filename Value="uFrmDetalhePrograma.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmDetalhePrograma"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit4>
-      <Unit5>
+      </Unit3>
+      <Unit4>
         <Filename Value="uFrmInstalaExploit.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmInstalaExploit"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit5>
-      <Unit6>
+      </Unit4>
+      <Unit5>
         <Filename Value="uFrmSobre.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmSobre"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit6>
-      <Unit7>
+      </Unit5>
+      <Unit6>
         <Filename Value="uFrmInstalaDEV1.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmInstalaDEV1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit7>
-      <Unit8>
+      </Unit6>
+      <Unit7>
         <Filename Value="uMiniFTP.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmMiniFTP"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="uPrincipal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmPrincipal"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit8>

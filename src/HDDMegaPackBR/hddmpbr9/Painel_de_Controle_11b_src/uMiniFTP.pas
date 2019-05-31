@@ -28,7 +28,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, FileCtrl, StdCtrls, Buttons, ComCtrls, IdFTP, IdAllFTPListParsers, IdFTPList, IdReplyRFC,
+  Dialogs, FileCtrl, StdCtrls, Buttons, ComCtrls, IdFTP, IdFTPList, IdReplyRFC,
   IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient,
   IdExplicitTLSClientServerBase;
 
@@ -36,8 +36,8 @@ type
   TFrmMiniFTP = class(TForm)
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
-    DriveComboBox1: TDriveComboBox;
-    DirectoryListBox1: TDirectoryListBox;
+    DriveComboBox1: TComboBox;
+    DirectoryListBox1: TListBox;
     FileListBox1: TFileListBox;
     BitBtn1: TBitBtn;
     BitBtn2: TBitBtn;
@@ -192,12 +192,12 @@ end;
 
 procedure TFrmMiniFTP.DirectoryListBox1Change(Sender: TObject);
 begin
-   FileListBox1.Directory := DirectoryListBox1.Directory;
+   //FileListBox1.Directory := DirectoryListBox1.Directory;
 end;
 
 procedure TFrmMiniFTP.DriveComboBox1Change(Sender: TObject);
 begin
-   DirectoryListBox1.Drive := DriveComboBox1.Drive;
+   //DirectoryListBox1.Drive := DriveComboBox1.Drive;
 end;
 
 procedure TFrmMiniFTP.AtualizaListaArquivos;

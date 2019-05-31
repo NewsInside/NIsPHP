@@ -32,7 +32,7 @@ uses
   IdTCPConnection, IdTCPClient, IdExplicitTLSClientServerBase, IdFTP, Menus,
   ComCtrls,
   // Colocados manualmente
-  IdAllFTPListParsers, IdFTPList, IdReplyRFC,
+  IdFTPList, IdReplyRFC,
   ExtCtrls, ImgList, ShellAPI;
 
 type

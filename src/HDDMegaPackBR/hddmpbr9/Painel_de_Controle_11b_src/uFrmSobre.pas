@@ -28,7 +28,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, RxGIF, jpeg, ExtCtrls, StdCtrls, Buttons, ShellAPI;
+  Dialogs, ExtCtrls, StdCtrls, Buttons, ShellAPI;
 
 type
   TFrmSobre = class(TForm)
