@@ -24,15 +24,27 @@ SOFTWARE.
 
 unit uMiniFTP;
 
+{$IFDEF FPC}
+  {$MODE Delphi}
+{$ENDIF}
+
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+{$IFnDEF FPC}
+  Windows,
+{$ELSE}
+  LCLIntf, LCLType, LMessages,
+{$ENDIF}
+  Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, FileCtrl, StdCtrls, Buttons, ComCtrls, IdFTP, IdFTPList, IdReplyRFC,
   IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient,
   IdExplicitTLSClientServerBase;
 
 type
+
+  { TFrmMiniFTP }
+
   TFrmMiniFTP = class(TForm)
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
@@ -68,7 +80,11 @@ var
 
 implementation
 
-{$R *.dfm}
+{$IFnDEF FPC}
+  {$R *.dfm}
+{$ELSE}
+  {$R *.lfm}
+{$ENDIF}
 
 procedure DesabilitaBotoes;
 var
@@ -100,7 +116,7 @@ begin
 
    if q <= 0 then Exit;
 
-   if Application.MessageBox(PChar('Deseja transferir ' + IntToStr(q) + ' arquivo(s) selecionado(s) no PC para o PS2?'), 'ConfirmaÁ„o', MB_YESNO) <> MRYES then Exit;
+   if Application.MessageBox(PChar('Deseja transferir ' + IntToStr(q) + ' arquivo(s) selecionado(s) no PC para o PS2?'), 'Confirma√ß√£o', MB_YESNO) <> MRYES then Exit;
 
    Screen.Cursor := crHourGlass;
    DesabilitaBotoes;
@@ -131,7 +147,7 @@ begin
 
    if q <= 0 then Exit;
 
-   if Application.MessageBox(PChar('Deseja transferir ' + IntToStr(q) + ' arquivo(s) selecionado(s) no PS2 para o PC?'), 'ConfirmaÁ„o', MB_YESNO) <> MRYES then Exit;
+   if Application.MessageBox(PChar('Deseja transferir ' + IntToStr(q) + ' arquivo(s) selecionado(s) no PS2 para o PC?'), 'Confirma√ß√£o', MB_YESNO) <> MRYES then Exit;
 
    Screen.Cursor := crHourGlass;
    DesabilitaBotoes;
@@ -165,7 +181,7 @@ var
 begin
    if ListBox1.SelCount <= 0 then Exit;
 
-   if Application.MessageBox(PChar('Confirma a remoÁ„o do(s) arquivo(s) selecionados?'), 'ConfirmaÁ„o', MB_YESNO) <> MRYES then Exit;
+   if Application.MessageBox(PChar('Confirma a remo√ß√£o do(s) arquivo(s) selecionados?'), 'Confirma√ß√£o', MB_YESNO) <> MRYES then Exit;
 
    Screen.Cursor := crHourGlass;
    BitBtn4.Enabled := False;
@@ -208,7 +224,7 @@ begin
       FTP.ChangeDir('/pfs/0/MISC');
       FTP.List;
    except
-      Application.MessageBox('N„o foi possÌvel acessar o conte˙do de "hdd0:__boot/MISC/"', 'Erro', 0);
+      Application.MessageBox('N√£o foi poss√≠vel acessar o conte√∫do de "hdd0:__boot/MISC/"', 'Erro', 0);
       Close;
       Exit;
    end;

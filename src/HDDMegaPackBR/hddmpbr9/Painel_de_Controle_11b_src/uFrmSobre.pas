@@ -24,11 +24,20 @@ SOFTWARE.
 
 unit uFrmSobre;
 
+{$IFDEF FPC}
+  {$MODE Delphi}
+{$ENDIF}
+
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, Buttons, ShellAPI;
+{$IFnDEF FPC}
+  ShellAPI, Windows,
+{$ELSE}
+  LCLIntf, LCLType, LMessages,
+{$ENDIF}
+  Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, Buttons;
 
 type
   TFrmSobre = class(TForm)
@@ -63,7 +72,11 @@ var
 
 implementation
 
-{$R *.dfm}
+{$IFnDEF FPC}
+  {$R *.dfm}
+{$ELSE}
+  {$R *.lfm}
+{$ENDIF}
 
 procedure TFrmSobre.BitBtn1Click(Sender: TObject);
 begin
@@ -77,7 +90,7 @@ end;
 
 procedure TFrmSobre.Label6Click(Sender: TObject);
 begin
-   ShellExecute(Application.MainForm.Handle, Nil, PChar(Label6.Caption), '', '', SW_SHOWMAXIMIZED);
+    OpenDocument(PChar(Label6.Caption)); { *Converted from ShellExecute* }
 end;
 
 end.

@@ -24,16 +24,25 @@ SOFTWARE.
 
 unit uPrincipal;
 
+{$IFDEF FPC}
+  {$MODE Delphi}
+{$ENDIF}
+
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+{$IFnDEF FPC}
+  ShellAPI, Windows,
+{$ELSE}
+  LCLIntf, LCLType, LMessages,
+{$ENDIF}
+  Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, CheckLst, IdBaseComponent, IdComponent,
   IdTCPConnection, IdTCPClient, IdExplicitTLSClientServerBase, IdFTP, Menus,
   ComCtrls,
   // Colocados manualmente
   IdFTPList, IdReplyRFC,
-  ExtCtrls, ImgList, ShellAPI;
+  ExtCtrls, ImgList;
 
 type
   TFrmPrincipal = class(TForm)
@@ -127,7 +136,11 @@ var
    Instalando: Boolean;
    boot_encontrada: Boolean;
 
-{$R *.dfm}
+{$IFnDEF FPC}
+  {$R *.dfm}
+{$ELSE}
+  {$R *.lfm}
+{$ENDIF}
 
 procedure AtualizaListaInstalados;
 var
@@ -195,7 +208,7 @@ begin
             NomeArquivo := IncludeTrailingBackslash(ExtractFilePath(FrmPrincipal.OpenDialog1.FileName)) + 'APPS\' + Item.Diretorio + '\' + Item.ListaArquivos[j];
 
             if not FileExists(NomeArquivo) then begin
-               Application.MessageBox(PChar('O arquivo: '#13#10#13#10 + NomeArquivo + #13#10#13#10' n„o foi encontrado! Processo de instalaÁ„o abortado!'), 'Erro', 0);
+               Application.MessageBox(PChar('O arquivo: '#13#10#13#10 + NomeArquivo + #13#10#13#10' n√£o foi encontrado! Processo de instala√ß√£o abortado!'), 'Erro', 0);
                Result := False;
                Exit;
             end;
@@ -320,11 +333,9 @@ begin
 end;
 
 function TempPath: String;
-var
-   path: array[0..MAX_PATH] of Char;
+const tempDirGlobal = false;
 begin
-   GetTempPath(SizeOf(path), @path);
-   Result := StrPas(path);
+   Result := GetTempDir( tempDirGlobal );
 end;
 
 procedure InstalaProgramas(FTP: TIdFTP; AtualizaInstalados: Boolean);
@@ -399,7 +410,7 @@ begin
       BitBtn4.Enabled := False;
       //BitBtn5.Enabled := False;
       BitBtn7.Enabled := False;
-      // Habilita digitaÁ„o de novo IP
+      // Habilita digita√ß√£o de novo IP
       Edit1.Enabled := True;
       // Menus
       InstalaroDMSHDDExplorernoMemoryCard1.Enabled := False;
@@ -420,7 +431,7 @@ begin
       BitBtn4.Enabled := True;
       //BitBtn5.Enabled := True;
       BitBtn7.Enabled := True;
-      // Desabilita digitaÁ„o de novo IP
+      // Desabilita digita√ß√£o de novo IP
       Edit1.Enabled := False;
       // Menus
       InstalaroDMSHDDExplorernoMemoryCard1.Enabled := True;
@@ -447,14 +458,14 @@ begin
    DiretoriosRaiz := TStringList.Create;
    ArquivosRaiz := TStringList.Create;
 
-   FrmPrincipal.StatusBar1.SimpleText := 'Acessando partiÁ„o __boot...';
+   FrmPrincipal.StatusBar1.SimpleText := 'Acessando parti√ß√£o __boot...';
    FrmPrincipal.StatusBar1.Repaint;
 
    try
       FTP.ChangeDir('/pfs/0');
       FTP.List;
    except
-      Application.MessageBox('N„o foi possÌvel acessar a partiÁ„o __boot', 'Erro', 0);
+      Application.MessageBox('N√£o foi poss√≠vel acessar a parti√ß√£o __boot', 'Erro', 0);
       FrmPrincipal.StatusBar1.SimpleText := 'Pronto!';
       FrmPrincipal.StatusBar1.Repaint;
       Exit;
@@ -516,7 +527,7 @@ begin
    if Instalando then Exit;
 
    if Trim(Edit1.Text) = '' then begin
-      Application.MessageBox('Informe um endereÁo IP v·lido!', 'AtenÁ„o', 0);
+      Application.MessageBox('Informe um endere√ßo IP v√°lido!', 'Aten√ß√£o', 0);
       Edit1.SetFocus;
       Exit;
    end;
@@ -529,7 +540,7 @@ begin
          FTP.Connect;
       Except
          on E: Exception do begin
-            Application.MessageBox('N„o foi possÌvel conectar ao PS2! Verifique as conexıes de rede, bem como as configuraÁıes!', 'Erro', 0);
+            Application.MessageBox('N√£o foi poss√≠vel conectar ao PS2! Verifique as conex√µes de rede, bem como as configura√ß√µes!', 'Erro', 0);
             StatusBar1.SimpleText := 'Pronto!';
             StatusBar1.Repaint;
             Exit;
@@ -539,7 +550,7 @@ begin
       boot_encontrada := True;
 
       try
-         StatusBar1.SimpleText := 'Montando partiÁ„o __boot...';
+         StatusBar1.SimpleText := 'Montando parti√ß√£o __boot...';
          StatusBar1.Repaint;
 
          FTP.SendCmd('SITE UMNT /pfs/0/');
@@ -549,7 +560,7 @@ begin
          FTP.List;
       Except
          on E: Exception do begin
-            Application.MessageBox('N„o foi possÌvel acessar a partiÁ„o __boot! Verifique se o HDD est· conectado e formatado adequadamente!'+#13#10#13#10+'Algumas funcionalidades estar„o indisponÌveis!', 'AtenÁ„o', 0);
+            Application.MessageBox('N√£o foi poss√≠vel acessar a parti√ß√£o __boot! Verifique se o HDD est√° conectado e formatado adequadamente!'+#13#10#13#10+'Algumas funcionalidades estar√£o indispon√≠veis!', 'Aten√ß√£o', 0);
             //StatusBar1.SimpleText := 'Pronto!';
             //StatusBar1.Repaint;
             //FTP.Quit;
@@ -566,7 +577,7 @@ begin
          AtualizaListaInstalados;
       Except
          //on E: Exception do begin
-         //   Application.MessageBox('N„o foi possÌvel obter a lista de programas instalados (APPLIST.DAT)!', 'Erro', 0);
+         //   Application.MessageBox('N√£o foi poss√≠vel obter a lista de programas instalados (APPLIST.DAT)!', 'Erro', 0);
          //   StatusBar1.SimpleText := 'Pronto!';
          //   StatusBar1.Repaint;
          //   FTP.Quit;
@@ -623,13 +634,13 @@ begin
    if Instalando then Exit;
 
    if CheckListBox1.Count < 1 then begin
-      Application.MessageBox('VocÍ precisa, primeiramente, abrir uma lista de arquivos a serem instalados (INSTALL.CNF)!', 'AtenÁ„o', 0);
+      Application.MessageBox('Voc√™ precisa, primeiramente, abrir uma lista de arquivos a serem instalados (INSTALL.CNF)!', 'Aten√ß√£o', 0);
       BitBtn2.SetFocus;
       Exit;
    end;
 
    if NumItensSelecionados < 1 then begin
-      Application.MessageBox('VocÍ precisa selecionar, pelo menos, um programa para ser instalado!', 'AtenÁ„o', 0);
+      Application.MessageBox('Voc√™ precisa selecionar, pelo menos, um programa para ser instalado!', 'Aten√ß√£o', 0);
       CheckListBox1.SetFocus;
       Exit;
    end;
@@ -638,13 +649,13 @@ begin
 
    AtualizarJaInstalados := False;
    if ListaJaInstalados <> '' then begin
-      if Application.MessageBox(PChar('Os seguintes programas j· est„o instalados:'#13#10#13#10 + ListaJaInstalados + #13#10'Deseja atualiz·-los para os programas selecionados?'), 'AtenÁ„o', MB_YESNO + MB_DEFBUTTON2) = MRYES then
+      if Application.MessageBox(PChar('Os seguintes programas j√° est√£o instalados:'#13#10#13#10 + ListaJaInstalados + #13#10'Deseja atualiz√°-los para os programas selecionados?'), 'Aten√ß√£o', MB_YESNO + MB_DEFBUTTON2) = MRYES then
          AtualizarJaInstalados := True;
    end;
 
    if not VerificaListaArquivosInstalar(AtualizarJaInstalados) then Exit;
 
-   if Application.MessageBox('Confirma a instalaÁ„o dos programas selecionados?', 'ConfirmaÁ„o', MB_YESNO + MB_DEFBUTTON2) <> MRYES then Exit;
+   if Application.MessageBox('Confirma a instala√ß√£o dos programas selecionados?', 'Confirma√ß√£o', MB_YESNO + MB_DEFBUTTON2) <> MRYES then Exit;
 
    Screen.Cursor := crHourGlass;
    BitBtn3.Enabled := False;
@@ -662,7 +673,7 @@ begin
    CheckListBox1.Enabled := True;
    Instalando := False;
 
-   Application.MessageBox(PChar('Processo de instalaÁ„o concluÌdo com sucesso!' + #13#13 + 'Caso essa seja a primeira instalaÁ„o apÛs uma formataÁ„o do HDD ou uma remoÁ„o completa do HDD MegPack BR do PS2, n„o se esqueÁa de instalar o DMS HDD Explorer atravÈs da opÁ„o ''Instalar o DMS HDD Explorer no HDD (DEV2)'' no menu ''Ferramentas'''), 'Mensagem', 0);   
+   Application.MessageBox(PChar('Processo de instala√ß√£o conclu√≠do com sucesso!' + #13#13 + 'Caso essa seja a primeira instala√ß√£o ap√≥s uma formata√ß√£o do HDD ou uma remo√ß√£o completa do HDD MegPack BR do PS2, n√£o se esque√ßa de instalar o DMS HDD Explorer atrav√©s da op√ß√£o ''Instalar o DMS HDD Explorer no HDD (DEV2)'' no menu ''Ferramentas'''), 'Mensagem', 0);   
 end;
 
 procedure TFrmPrincipal.BitBtn4Click(Sender: TObject);
@@ -679,7 +690,7 @@ begin
       FrmDetalhePrograma.ShowModal;
 
       if FrmDetalhePrograma.ModalResult = MrOK then begin
-         // Envia atualizaÁıes
+         // Envia atualiza√ß√µes
          //AtualizaListaInstalados;
          BitBtn1.Enabled := False;
          Screen.Cursor := crHourGlass;
@@ -731,7 +742,7 @@ begin
    if Instalando then Exit;
 
    if ListBox1.ItemIndex > -1 then begin
-      if Application.MessageBox('Confirma a desinstalaÁ„o do programa selecionado?', 'ConfirmaÁ„o', MB_YESNO + MB_DEFBUTTON2) <> MRYES then Exit;
+      if Application.MessageBox('Confirma a desinstala√ß√£o do programa selecionado?', 'Confirma√ß√£o', MB_YESNO + MB_DEFBUTTON2) <> MRYES then Exit;
 
       Screen.Cursor := crHourGlass;
       BitBtn7.Enabled := False;
@@ -794,7 +805,7 @@ begin
       Exit;
    end;
 
-   if Application.MessageBox('Deseja mesmo sair do programa?', 'ConfirmaÁ„o', MB_YESNO + MB_DEFBUTTON2) = MRYES then
+   if Application.MessageBox('Deseja mesmo sair do programa?', 'Confirma√ß√£o', MB_YESNO + MB_DEFBUTTON2) = MRYES then
       CanClose := True
    else
       CanClose := False;
@@ -888,7 +899,7 @@ procedure TFrmPrincipal.InstalaroDMSHDDExplorernoPS21Click(Sender: TObject);
 begin
    if Instalando then Exit;
 
-   if Application.MessageBox('Confirma a instalaÁ„o do DMS HDD Explorer no HDD (DEV2)?', 'ConfirmaÁ„o', MB_YESNO + MB_DEFBUTTON2) <> MRYES then
+   if Application.MessageBox('Confirma a instala√ß√£o do DMS HDD Explorer no HDD (DEV2)?', 'Confirma√ß√£o', MB_YESNO + MB_DEFBUTTON2) <> MRYES then
       Exit;
 
    Screen.Cursor := crHourGlass;
@@ -933,12 +944,12 @@ end;
 
 procedure TFrmPrincipal.Label2Click(Sender: TObject);
 begin
-   ShellExecute(Application.MainForm.Handle, Nil, 'http://www.brunofreitas.com/', '', '', SW_SHOWMAXIMIZED);
+   OpenURL('http://www.brunofreitas.com/'); { *Converted from ShellExecute* }
 end;
 
 procedure TFrmPrincipal.Manualdousurio1Click(Sender: TObject);
 begin
-   ShellExecute(Application.MainForm.Handle, Nil, PChar(ExtractFilePath(Application.ExeName) + 'manual.pdf'), '', '', SW_SHOWMAXIMIZED);
+    OpenDocument(PChar(ExtractFilePath(Application.ExeName) + 'manual.pdf')); { *Converted from ShellExecute* }
 end;
 
 procedure TFrmPrincipal.MiniFTP1Click(Sender: TObject);
@@ -954,7 +965,7 @@ procedure TFrmPrincipal.RemoveroHDDMegaPackBRdoPS21Click(Sender: TObject);
 begin
    if Instalando then Exit;
 
-   if Application.MessageBox('Essa operaÁ„o ir· ELIMINAR TOTALMENTE o HDD MegaPack BR do seu PS2! Deseja prosseguir?', 'ATEN«√O!!!', MB_YESNO + MB_DEFBUTTON2) <> MRYES then
+   if Application.MessageBox('Essa opera√ß√£o ir√° ELIMINAR TOTALMENTE o HDD MegaPack BR do seu PS2! Deseja prosseguir?', 'ATEN√á√ÉO!!!', MB_YESNO + MB_DEFBUTTON2) <> MRYES then
       Exit;
 
    Instalando := True;

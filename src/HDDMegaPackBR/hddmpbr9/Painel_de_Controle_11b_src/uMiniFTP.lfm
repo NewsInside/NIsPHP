@@ -1,12 +1,12 @@
 object FrmMiniFTP: TFrmMiniFTP
-  Left = 695
-  Height = 586
-  Top = 196
+  Left = 637
+  Height = 610
+  Top = 232
   Width = 975
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'HDD MegaPack BR - Mini-FTP'
-  ClientHeight = 586
+  ClientHeight = 610
   ClientWidth = 975
   Color = clBtnFace
   DesignTimePPI = 144
@@ -19,11 +19,11 @@ object FrmMiniFTP: TFrmMiniFTP
   LCLVersion = '2.0.2.0'
   object GroupBox1: TGroupBox
     Left = 2
-    Height = 506
+    Height = 522
     Top = 0
     Width = 446
     Caption = 'Meu Computador'
-    ClientHeight = 480
+    ClientHeight = 496
     ClientWidth = 442
     Font.Color = clWindowText
     Font.Height = -17
@@ -31,9 +31,9 @@ object FrmMiniFTP: TFrmMiniFTP
     ParentFont = False
     TabOrder = 0
     object FileListBox1: TFileListBox
-      Left = 12
+      Left = 10
       Height = 314
-      Top = 180
+      Top = 166
       Width = 422
       Directory = 'D:\lazarus'
       Font.Color = clWindowText
@@ -46,14 +46,23 @@ object FrmMiniFTP: TFrmMiniFTP
       ParentFont = False
       TabOrder = 0
     end
+    object DriveComboBox1: TComboBox
+      Left = 10
+      Height = 29
+      Top = 10
+      Width = 422
+      ItemHeight = 21
+      TabOrder = 1
+      Text = 'DriveComboBox1'
+    end
   end
   object GroupBox2: TGroupBox
     Left = 526
-    Height = 506
+    Height = 522
     Top = 0
     Width = 446
     Caption = 'PlayStation 2'
-    ClientHeight = 480
+    ClientHeight = 496
     ClientWidth = 442
     Font.Color = clWindowText
     Font.Height = -17
@@ -61,11 +70,11 @@ object FrmMiniFTP: TFrmMiniFTP
     ParentFont = False
     TabOrder = 1
     object Label1: TLabel
-      Left = 12
+      Left = 10
       Height = 22
-      Top = 24
-      Width = 279
-      Caption = 'Conteúdo de ''hdd0:__boot/MISC/'':'
+      Top = 10
+      Width = 271
+      Caption = 'Conteúdo de hdd0:__boot/MISC/:'
       Font.Color = clWindowText
       Font.Height = -18
       Font.Name = 'Tahoma'
@@ -73,9 +82,9 @@ object FrmMiniFTP: TFrmMiniFTP
       ParentFont = False
     end
     object ListBox1: TListBox
-      Left = 12
+      Left = 10
       Height = 410
-      Top = 48
+      Top = 34
       Width = 422
       Font.Color = clWindowText
       Font.Height = -17
@@ -86,9 +95,9 @@ object FrmMiniFTP: TFrmMiniFTP
       TabOrder = 0
     end
     object BitBtn4: TBitBtn
-      Left = 12
+      Left = 10
       Height = 38
-      Top = 462
+      Top = 448
       Width = 422
       Caption = '&Deletar o(s) arquivo(s) selecionado(s) do PS2'
       Font.Color = clWindowText
@@ -220,7 +229,7 @@ object FrmMiniFTP: TFrmMiniFTP
   object BitBtn3: TBitBtn
     Left = 406
     Height = 38
-    Top = 514
+    Top = 528
     Width = 160
     Cancel = True
     Caption = '&Fechar'
@@ -278,7 +287,7 @@ object FrmMiniFTP: TFrmMiniFTP
   object StatusBar1: TStatusBar
     Left = 0
     Height = 36
-    Top = 550
+    Top = 574
     Width = 975
     Font.Color = clWindowText
     Font.Height = -17

@@ -1,13 +1,13 @@
 object FrmPrincipal: TFrmPrincipal
-  Left = 3924
-  Height = 580
-  Top = 582
-  Width = 928
+  Left = 53
+  Height = 678
+  Top = 106
+  Width = 952
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'HDD MegaPack BR - Painel de Controle - Versão 1.1b'
-  ClientHeight = 550
-  ClientWidth = 928
+  ClientHeight = 648
+  ClientWidth = 952
   Color = clBtnFace
   DesignTimePPI = 144
   Font.Color = clWindowText
@@ -24,9 +24,9 @@ object FrmPrincipal: TFrmPrincipal
   LCLVersion = '2.0.2.0'
   object Label2: TLabel
     Cursor = crHandPoint
-    Left = 282
+    Left = 288
     Height = 21
-    Top = 528
+    Top = 584
     Width = 371
     Caption = '©03/2007 - Bruno Freitas - bootsector@ig.com.br'
     Font.Color = clWindowText
@@ -38,12 +38,12 @@ object FrmPrincipal: TFrmPrincipal
     OnClick = Label2Click
   end
   object GroupBox1: TGroupBox
-    Left = 0
-    Height = 386
+    Left = 8
+    Height = 408
     Top = 0
     Width = 458
     Caption = 'Programas atualmente instalados:'
-    ClientHeight = 360
+    ClientHeight = 382
     ClientWidth = 454
     Font.Color = clWindowText
     Font.Height = -17
@@ -51,10 +51,10 @@ object FrmPrincipal: TFrmPrincipal
     ParentFont = False
     TabOrder = 1
     object SpeedButton1: TSpeedButton
-      Left = 354
+      Left = 352
       Height = 38
       Hint = 'Mover item para baixo'
-      Top = 342
+      Top = 328
       Width = 39
       Font.Color = clWindowText
       Font.Height = -17
@@ -107,10 +107,10 @@ object FrmPrincipal: TFrmPrincipal
       ParentShowHint = False
     end
     object SpeedButton2: TSpeedButton
-      Left = 405
+      Left = 403
       Height = 38
       Hint = 'Ordenar alfabeticamente'
-      Top = 342
+      Top = 328
       Width = 39
       Font.Color = clWindowText
       Font.Height = -17
@@ -169,10 +169,10 @@ object FrmPrincipal: TFrmPrincipal
       ParentShowHint = False
     end
     object SpeedButton3: TSpeedButton
-      Left = 303
+      Left = 301
       Height = 38
       Hint = 'Mover item para cima'
-      Top = 342
+      Top = 328
       Width = 39
       Font.Color = clWindowText
       Font.Height = -17
@@ -225,9 +225,9 @@ object FrmPrincipal: TFrmPrincipal
       ParentShowHint = False
     end
     object ListBox1: TListBox
-      Left = 12
+      Left = 10
       Height = 314
-      Top = 24
+      Top = 10
       Width = 434
       Font.Color = clWindowText
       Font.Height = -17
@@ -238,9 +238,9 @@ object FrmPrincipal: TFrmPrincipal
       TabOrder = 0
     end
     object BitBtn4: TBitBtn
-      Left = 12
+      Left = 10
       Height = 38
-      Top = 342
+      Top = 328
       Width = 134
       Caption = 'D&etalhes...'
       Font.Color = clWindowText
@@ -295,9 +295,9 @@ object FrmPrincipal: TFrmPrincipal
       TabOrder = 1
     end
     object BitBtn7: TBitBtn
-      Left = 158
-      Height = 38
-      Top = 342
+      Left = 156
+      Height = 36
+      Top = 328
       Width = 134
       Caption = '&Desinstalar'
       Font.Color = clWindowText
@@ -353,12 +353,12 @@ object FrmPrincipal: TFrmPrincipal
     end
   end
   object GroupBox2: TGroupBox
-    Left = 468
-    Height = 386
+    Left = 480
+    Height = 408
     Top = 0
     Width = 458
     Caption = 'Programas à instalar:'
-    ClientHeight = 360
+    ClientHeight = 382
     ClientWidth = 454
     Font.Color = clWindowText
     Font.Height = -17
@@ -366,10 +366,10 @@ object FrmPrincipal: TFrmPrincipal
     ParentFont = False
     TabOrder = 2
     object CheckListBox1: TCheckListBox
-      Left = 12
+      Left = 10
       Height = 314
       Hint = 'Dê um clique duplo sobre qualquer programa'#13#10'dessa lista para exibir seus detalhes!'
-      Top = 24
+      Top = 10
       Width = 434
       Font.Color = clWindowText
       Font.Height = -17
@@ -382,9 +382,9 @@ object FrmPrincipal: TFrmPrincipal
       TabOrder = 0
     end
     object BitBtn5: TBitBtn
-      Left = 12
+      Left = 10
       Height = 38
-      Top = 342
+      Top = 328
       Width = 214
       Caption = '&Selecionar todos'
       Font.Color = clWindowText
@@ -439,9 +439,9 @@ object FrmPrincipal: TFrmPrincipal
       TabOrder = 1
     end
     object BitBtn6: TBitBtn
-      Left = 231
+      Left = 229
       Height = 38
-      Top = 342
+      Top = 328
       Width = 214
       Caption = 'I&nverter seleção'
       Font.Color = clWindowText
@@ -497,12 +497,12 @@ object FrmPrincipal: TFrmPrincipal
     end
   end
   object GroupBox3: TGroupBox
-    Left = 0
-    Height = 132
-    Top = 386
+    Left = 8
+    Height = 152
+    Top = 424
     Width = 458
     Caption = 'Conexão com o PlayStation 2:'
-    ClientHeight = 106
+    ClientHeight = 126
     ClientWidth = 454
     Font.Color = clWindowText
     Font.Height = -17
@@ -510,9 +510,9 @@ object FrmPrincipal: TFrmPrincipal
     ParentFont = False
     TabOrder = 0
     object Label1: TLabel
-      Left = 12
+      Left = 10
       Height = 21
-      Top = 24
+      Top = 8
       Width = 150
       Caption = 'Endereço IP do PS2:'
       Font.Color = clWindowText
@@ -522,9 +522,9 @@ object FrmPrincipal: TFrmPrincipal
       ParentFont = False
     end
     object Edit1: TEdit
-      Left = 12
+      Left = 10
       Height = 29
-      Top = 48
+      Top = 40
       Width = 434
       Font.Color = clWindowText
       Font.Height = -17
@@ -534,9 +534,9 @@ object FrmPrincipal: TFrmPrincipal
       Text = '192.168.0.10'
     end
     object BitBtn1: TBitBtn
-      Left = 12
+      Left = 10
       Height = 38
-      Top = 84
+      Top = 80
       Width = 434
       Caption = '&Conectar'
       Default = True
@@ -593,12 +593,12 @@ object FrmPrincipal: TFrmPrincipal
     end
   end
   object GroupBox4: TGroupBox
-    Left = 468
-    Height = 132
-    Top = 386
+    Left = 480
+    Height = 152
+    Top = 424
     Width = 458
     Caption = 'Obter programas à instalar:'
-    ClientHeight = 106
+    ClientHeight = 126
     ClientWidth = 454
     Font.Color = clWindowText
     Font.Height = -17
@@ -606,9 +606,9 @@ object FrmPrincipal: TFrmPrincipal
     ParentFont = False
     TabOrder = 3
     object BitBtn2: TBitBtn
-      Left = 12
+      Left = 10
       Height = 38
-      Top = 36
+      Top = 31
       Width = 434
       Caption = '&Abrir arquivo INSTALL.CNF...'
       Font.Color = clWindowText
@@ -663,9 +663,9 @@ object FrmPrincipal: TFrmPrincipal
       TabOrder = 0
     end
     object BitBtn3: TBitBtn
-      Left = 12
+      Left = 16
       Height = 38
-      Top = 84
+      Top = 80
       Width = 434
       Caption = '&Instalar aplicativos selecionados'
       Enabled = False
@@ -724,8 +724,8 @@ object FrmPrincipal: TFrmPrincipal
   object StatusBar1: TStatusBar
     Left = 0
     Height = 36
-    Top = 514
-    Width = 928
+    Top = 612
+    Width = 952
     Font.Color = clWindowText
     Font.Height = -17
     Font.Name = 'Tahoma'
@@ -743,13 +743,13 @@ object FrmPrincipal: TFrmPrincipal
     NATKeepAlive.IntervalMS = 0
     ProxySettings.ProxyType = fpcmNone
     ProxySettings.Port = 0
-    left = 744
-    top = 420
+    left = 760
+    top = 472
   end
   object MainMenu1: TMainMenu
     Images = ImageList2
-    left = 840
-    top = 420
+    left = 504
+    top = 472
     object Ferramentas1: TMenuItem
       Caption = '&Ferramentas'
       object InstalaroDMSHDDExplorernoMemoryCard1: TMenuItem
@@ -815,12 +815,12 @@ object FrmPrincipal: TFrmPrincipal
     Title = 'Abrir arquivo INSTALL.CNF...'
     FileName = 'INSTALL.CNF'
     Filter = 'Arquivos CNF (*.CNF)|*.cnf|Todos os arquivos|*.*'
-    left = 792
-    top = 420
+    left = 816
+    top = 472
   end
   object ImageList1: TImageList
-    left = 660
-    top = 372
+    left = 648
+    top = 472
     Bitmap = {
       4C69020000001000000010000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -894,18 +894,18 @@ object FrmPrincipal: TFrmPrincipal
     FileName = 'APPLIST.DAT'
     Filter = 'APPLIST.DAT|APPLIST.DAT'
     Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
-    left = 564
-    top = 420
+    left = 600
+    top = 472
   end
   object OpenDialog2: TOpenDialog
     Title = 'Abrir APPLIST.DAT...'
     Filter = 'APPLIST.DAT|APPLIST.DAT'
-    left = 504
-    top = 420
+    left = 552
+    top = 472
   end
   object ImageList2: TImageList
-    left = 708
-    top = 372
+    left = 704
+    top = 472
     Bitmap = {
       4C69060000001000000010000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
