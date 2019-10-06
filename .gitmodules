@@ -55,3 +55,9 @@
 [submodule "src/mymcplus"]
 	path = src/mymcplus
 	url = https://github.com/thestr4ng3r/mymcplus.git
+[submodule "src/SaveIt-Manager"]
+	path = src/SaveIt-Manager
+	url = https://github.com/MasterTuto/SaveIt-Manager.git
+[submodule "src/Save2Me"]
+	path = src/Save2Me
+	url = https://github.com/MasterTuto/Save2Me.git
