@@ -1,0 +1,33 @@
+SNES Station 0.2.6c Mod by Pinguinoctis
+
+This mod is based on Megaman SNES Station extension, since the source code of SNES Station,
+as far as I know, has never been released.
+
+Many thanks go to:
+    Hiryu, he originally wrote the SNES Station PS2 emulator, and everyone behind it.
+    Megaman, for the SNES Station extension (which this mod is based on).
+    The PCSX2 guys for making a great work with the PCSX2 Debugger in the latest dev versions (I simply love it)!
+
+Big thanks even to people that pointed out bugs/issues or gave me suggestions!
+And especially to antonioks and Morpheus SD which made an impressive package full of covers
+(9372 of them) and cheats (784 of them) to use along this mod!
+You can find it here:
+https://docs.google.com/uc?id=0B_5i7Vb-NpxMV1VQQTBQam5fVFE&export=download
+
+Release notes:
++ Fixed the bug which caused ".zip" roms to not appear. The letter "z" was excluded
+  in the comparison function, but the big "Z" still worked. So ".ZIP" roms wouldn't cause the issue.
++ Added support to PNG images for covers! If no JPG is found a PNG will be searched,
+  this means JPGs will always have the highest priority. For PNG support I've used the uPNG library.
++ No more Cheat Mode option. Now to edit cheats it's enough to press the Select button.
++ Added the possibility to return one directory back by pressing the Circle button.
++ Added the possibility to have a custom background! Both JPG and PNG images are supported.
+  They must be sized 640x480, they must be copied where the emulator ELF resides
+  and they must be named "BG.JPG" or "BG.PNG" (both lower or uppercase are fine).
++ Added an option to enable/disable background music in MISC folder.
++ Added an option to enable/disable black border on covers in MISC folder.
++ Added some options to run an external BOOT/BOOT.ELF from mc0, mass and cdfs in MISC folder.
+  I don't know how much they are stable, since I had to tweak the loading process a bit.
++ Added an option to Save (they will be saved in mc0) and Load settings in MISC folder.
+
+For issues you can contact me on my blog: https://pinguinoctis.blogspot.com/

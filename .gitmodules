@@ -52,3 +52,6 @@
 [submodule "src/memcardrex"]
 	path = src/memcardrex
 	url = https://github.com/NewsInside/memcardrex.git
+[submodule "src/mymcplus"]
+	path = src/mymcplus
+	url = https://github.com/thestr4ng3r/mymcplus.git
