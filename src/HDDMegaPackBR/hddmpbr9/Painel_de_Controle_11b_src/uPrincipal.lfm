@@ -1,7 +1,7 @@
 object FrmPrincipal: TFrmPrincipal
-  Left = 53
+  Left = 3010
   Height = 678
-  Top = 106
+  Top = 145
   Width = 952
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
@@ -14,7 +14,7 @@ object FrmPrincipal: TFrmPrincipal
   Font.Height = -17
   Font.Name = 'Tahoma'
   KeyPreview = True
-  Menu = MainMenu1
+  Menu = MainMenu
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -22,7 +22,7 @@ object FrmPrincipal: TFrmPrincipal
   OnShow = FormShow
   Position = poScreenCenter
   LCLVersion = '2.0.2.0'
-  object Label2: TLabel
+  object lblAuthor: TLabel
     Cursor = crHandPoint
     Left = 288
     Height = 21
@@ -35,9 +35,9 @@ object FrmPrincipal: TFrmPrincipal
     Font.Style = [fsUnderline]
     ParentColor = False
     ParentFont = False
-    OnClick = Label2Click
+    OnClick = lblAuthorClick
   end
-  object GroupBox1: TGroupBox
+  object grpCurrentlyInstalledPrograms: TGroupBox
     Left = 8
     Height = 408
     Top = 0
@@ -50,7 +50,7 @@ object FrmPrincipal: TFrmPrincipal
     Font.Name = 'Tahoma'
     ParentFont = False
     TabOrder = 1
-    object SpeedButton1: TSpeedButton
+    object sbtnDown: TSpeedButton
       Left = 352
       Height = 38
       Hint = 'Mover item para baixo'
@@ -101,12 +101,12 @@ object FrmPrincipal: TFrmPrincipal
         1B000E0E0E0E001B1B1B1B1B1B000D0D0D0D001B1B1B1B1B1B000C0C0C0C001B
         1B1B1B1B1B000B0B0B0B001B1B1B1B1B1B0000000000001B1B1B
       }
-      OnClick = SpeedButton1Click
+      OnClick = sbtnDownClick
       ShowHint = True
       ParentFont = False
       ParentShowHint = False
     end
-    object SpeedButton2: TSpeedButton
+    object sbtnOrderBy: TSpeedButton
       Left = 403
       Height = 38
       Hint = 'Ordenar alfabeticamente'
@@ -163,12 +163,12 @@ object FrmPrincipal: TFrmPrincipal
         2373858585858585858585850000858585858563648585858585858585858585
         0000
       }
-      OnClick = SpeedButton2Click
+      OnClick = sbtnOrderByClick
       ShowHint = True
       ParentFont = False
       ParentShowHint = False
     end
-    object SpeedButton3: TSpeedButton
+    object sbtnUp: TSpeedButton
       Left = 301
       Height = 38
       Hint = 'Mover item para cima'
@@ -219,12 +219,12 @@ object FrmPrincipal: TFrmPrincipal
         1414141414141414001B1B1B00151515151515001B1B1B1B1B0016161616001B
         1B1B1B1B1B1B001818001B1B1B1B1B1B1B1B1B00001B1B1B1B1B
       }
-      OnClick = SpeedButton3Click
+      OnClick = sbtnUpClick
       ShowHint = True
       ParentFont = False
       ParentShowHint = False
     end
-    object ListBox1: TListBox
+    object lstbInstalledPrograms: TListBox
       Left = 10
       Height = 314
       Top = 10
@@ -233,11 +233,11 @@ object FrmPrincipal: TFrmPrincipal
       Font.Height = -17
       Font.Name = 'Tahoma'
       ItemHeight = 0
-      OnDblClick = BitBtn4Click
+      OnDblClick = btnDetailsClick
       ParentFont = False
       TabOrder = 0
     end
-    object BitBtn4: TBitBtn
+    object btnDetails: TBitBtn
       Left = 10
       Height = 38
       Top = 328
@@ -290,11 +290,11 @@ object FrmPrincipal: TFrmPrincipal
         FFFF090909FF09FFE4A4FFFFFFFFFFF509FFFF0909090909A4FFFFFFFFFFFFFF
         F509FFFF090909ECFFFFFFFFFFFFFFFFFFF5F5EC09F5A4FFFFFF
       }
-      OnClick = BitBtn4Click
+      OnClick = btnDetailsClick
       ParentFont = False
       TabOrder = 1
     end
-    object BitBtn7: TBitBtn
+    object btnUninstall: TBitBtn
       Left = 156
       Height = 36
       Top = 328
@@ -347,12 +347,12 @@ object FrmPrincipal: TFrmPrincipal
         FFFFFFFFFF5747FFFFFFFF4F474EFFFFFFFFFFFFFFFFFFFFFFFFFF4F4FFFFFFF
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       }
-      OnClick = BitBtn7Click
+      OnClick = btnUninstallClick
       ParentFont = False
       TabOrder = 2
     end
   end
-  object GroupBox2: TGroupBox
+  object grpProgramsToInstall: TGroupBox
     Left = 480
     Height = 408
     Top = 0
@@ -365,7 +365,7 @@ object FrmPrincipal: TFrmPrincipal
     Font.Name = 'Tahoma'
     ParentFont = False
     TabOrder = 2
-    object CheckListBox1: TCheckListBox
+    object chklstbProgramsToInstall: TCheckListBox
       Left = 10
       Height = 314
       Hint = 'Dê um clique duplo sobre qualquer programa'#13#10'dessa lista para exibir seus detalhes!'
@@ -375,13 +375,13 @@ object FrmPrincipal: TFrmPrincipal
       Font.Height = -17
       Font.Name = 'Tahoma'
       ItemHeight = 0
-      OnDblClick = CheckListBox1DblClick
+      OnDblClick = chklstbProgramsToInstallDblClick
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
     end
-    object BitBtn5: TBitBtn
+    object btnSelectAll: TBitBtn
       Left = 10
       Height = 38
       Top = 328
@@ -434,11 +434,11 @@ object FrmPrincipal: TFrmPrincipal
         F9FBFB4F0F010B0049FFFFFFFFFF00010E0E4F4F1501FFFFFFFFFFFFFFFF490C
         005B0E5BFF4952FFFFFFFFFFFFFF52FFFFFFA4FFFFFFFFFFFFFF
       }
-      OnClick = BitBtn5Click
+      OnClick = btnSelectAllClick
       ParentFont = False
       TabOrder = 1
     end
-    object BitBtn6: TBitBtn
+    object btnToogleSelection: TBitBtn
       Left = 229
       Height = 38
       Top = 328
@@ -491,12 +491,12 @@ object FrmPrincipal: TFrmPrincipal
         2F2F2F1F00FFFFFFFFFFFFFFFFFFFF002F2F1F00FFFFFFFFFFFFFFFFFFFFFFFF
         002F00FFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFFFFFFFFFFFF
       }
-      OnClick = BitBtn6Click
+      OnClick = btnToogleSelectionClick
       ParentFont = False
       TabOrder = 2
     end
   end
-  object GroupBox3: TGroupBox
+  object grpPS2Connection: TGroupBox
     Left = 8
     Height = 152
     Top = 424
@@ -509,7 +509,7 @@ object FrmPrincipal: TFrmPrincipal
     Font.Name = 'Tahoma'
     ParentFont = False
     TabOrder = 0
-    object Label1: TLabel
+    object lblPS2IP: TLabel
       Left = 10
       Height = 21
       Top = 8
@@ -521,7 +521,7 @@ object FrmPrincipal: TFrmPrincipal
       ParentColor = False
       ParentFont = False
     end
-    object Edit1: TEdit
+    object edtPS2IP: TEdit
       Left = 10
       Height = 29
       Top = 40
@@ -533,7 +533,7 @@ object FrmPrincipal: TFrmPrincipal
       TabOrder = 0
       Text = '192.168.0.10'
     end
-    object BitBtn1: TBitBtn
+    object btnConnect: TBitBtn
       Left = 10
       Height = 38
       Top = 80
@@ -587,12 +587,12 @@ object FrmPrincipal: TFrmPrincipal
         F6FFF608F6F607A4A4FD070707A49B07F6FFF608F6070707FDFDFDFDFD070707
         08F6070807FDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFDFD
       }
-      OnClick = BitBtn1Click
+      OnClick = btnConnectClick
       ParentFont = False
       TabOrder = 1
     end
   end
-  object GroupBox4: TGroupBox
+  object grpGetProgramsToInstall: TGroupBox
     Left = 480
     Height = 152
     Top = 424
@@ -605,7 +605,7 @@ object FrmPrincipal: TFrmPrincipal
     Font.Name = 'Tahoma'
     ParentFont = False
     TabOrder = 3
-    object BitBtn2: TBitBtn
+    object btnOpenCNFFile: TBitBtn
       Left = 10
       Height = 38
       Top = 31
@@ -658,11 +658,11 @@ object FrmPrincipal: TFrmPrincipal
         FF2E2E2E2E2E2EFFFFFFFF6EFFFFFFFF2EFFFFFFFFFFFFFFFFFFFFFF6E6E6E6E
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       }
-      OnClick = BitBtn2Click
+      OnClick = btnOpenCNFFileClick
       ParentFont = False
       TabOrder = 0
     end
-    object BitBtn3: TBitBtn
+    object btnInstallSelectedPrograms: TBitBtn
       Left = 16
       Height = 38
       Top = 80
@@ -716,12 +716,12 @@ object FrmPrincipal: TFrmPrincipal
         EDED07F6F69BFFFFFFFF070809090909090909F6F65B52FFFFFF070909090909
         0909EDF6FF0707FFFFFF070707070707070707070707FFFFFFFF
       }
-      OnClick = BitBtn3Click
+      OnClick = btnInstallSelectedProgramsClick
       ParentFont = False
       TabOrder = 1
     end
   end
-  object StatusBar1: TStatusBar
+  object StatusBar: TStatusBar
     Left = 0
     Height = 36
     Top = 612
@@ -746,11 +746,11 @@ object FrmPrincipal: TFrmPrincipal
     left = 760
     top = 472
   end
-  object MainMenu1: TMainMenu
+  object MainMenu: TMainMenu
     Images = ImageList2
     left = 504
     top = 472
-    object Ferramentas1: TMenuItem
+    object menuTools: TMenuItem
       Caption = '&Ferramentas'
       object InstalaroDMSHDDExplorernoMemoryCard1: TMenuItem
         Caption = 'Instalar DEV1 no Memory Card'
@@ -791,27 +791,27 @@ object FrmPrincipal: TFrmPrincipal
       object N1: TMenuItem
         Caption = '-'
       end
-      object Sair1: TMenuItem
+      object menuExit: TMenuItem
         Caption = 'Sair'
         ImageIndex = 0
-        OnClick = Sair1Click
+        OnClick = menuExitClick
       end
     end
-    object Sobre1: TMenuItem
+    object menuHelp: TMenuItem
       Caption = '&Ajuda'
-      object Manualdousurio1: TMenuItem
+      object menuUserManual: TMenuItem
         Caption = 'Manual do usuário'
         ImageIndex = 4
-        OnClick = Manualdousurio1Click
+        OnClick = menuUserManualClick
       end
-      object Sobreoprograma1: TMenuItem
+      object menuAbout: TMenuItem
         Caption = 'Sobre o programa...'
         ImageIndex = 3
-        OnClick = Sobreoprograma1Click
+        OnClick = menuAboutClick
       end
     end
   end
-  object OpenDialog1: TOpenDialog
+  object OpenDialogCNF: TOpenDialog
     Title = 'Abrir arquivo INSTALL.CNF...'
     FileName = 'INSTALL.CNF'
     Filter = 'Arquivos CNF (*.CNF)|*.cnf|Todos os arquivos|*.*'
@@ -889,7 +889,7 @@ object FrmPrincipal: TFrmPrincipal
       0000000000000000000000000000
     }
   end
-  object SaveDialog1: TSaveDialog
+  object SaveDialogAppListDat: TSaveDialog
     Title = 'Salvar APPLIST.DAT...'
     FileName = 'APPLIST.DAT'
     Filter = 'APPLIST.DAT|APPLIST.DAT'
@@ -897,7 +897,7 @@ object FrmPrincipal: TFrmPrincipal
     left = 600
     top = 472
   end
-  object OpenDialog2: TOpenDialog
+  object OpenDialogAppListDat: TOpenDialog
     Title = 'Abrir APPLIST.DAT...'
     Filter = 'APPLIST.DAT|APPLIST.DAT'
     left = 552

@@ -11,16 +11,15 @@
         <EditorIndex Value="8"/>
         <TopLine Value="27"/>
         <CursorPos X="42" Y="4"/>
-        <UsageCount Value="166"/>
+        <UsageCount Value="186"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
         <Filename Value="uAppList.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="123"/>
-        <CursorPos X="31" Y="144"/>
-        <UsageCount Value="166"/>
+        <CursorPos Y="69"/>
+        <UsageCount Value="186"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit1>
@@ -30,7 +29,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="98"/>
         <CursorPos X="31" Y="6"/>
-        <UsageCount Value="166"/>
+        <UsageCount Value="186"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit2>
@@ -43,7 +42,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="19"/>
         <CursorPos X="10" Y="29"/>
-        <UsageCount Value="166"/>
+        <UsageCount Value="186"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
@@ -56,7 +55,7 @@
         <EditorIndex Value="3"/>
         <TopLine Value="23"/>
         <CursorPos X="3" Y="43"/>
-        <UsageCount Value="166"/>
+        <UsageCount Value="186"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit4>
@@ -69,7 +68,7 @@
         <EditorIndex Value="4"/>
         <TopLine Value="29"/>
         <CursorPos X="12" Y="40"/>
-        <UsageCount Value="166"/>
+        <UsageCount Value="186"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
@@ -82,7 +81,7 @@
         <EditorIndex Value="5"/>
         <TopLine Value="44"/>
         <CursorPos X="67" Y="30"/>
-        <UsageCount Value="166"/>
+        <UsageCount Value="186"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit6>
@@ -95,9 +94,8 @@
         <EditorIndex Value="6"/>
         <TopLine Value="44"/>
         <CursorPos Y="49"/>
-        <UsageCount Value="166"/>
+        <UsageCount Value="186"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit7>
       <Unit8>
@@ -108,8 +106,9 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
-        <CursorPos X="31" Y="5"/>
-        <UsageCount Value="164"/>
+        <TopLine Value="960"/>
+        <CursorPos X="4" Y="989"/>
+        <UsageCount Value="184"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -117,7 +116,7 @@
       <Unit9>
         <Filename Value="uMiniFTP.lfm"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="2"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit9>
       <Unit10>
@@ -125,14 +124,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="418"/>
         <CursorPos X="31" Y="424"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="34"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit10>
       <Unit11>
         <Filename Value="uPrincipal.lfm"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="11" Y="2"/>
-        <UsageCount Value="14"/>
+        <UsageCount Value="12"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit11>
       <Unit12>
@@ -140,127 +139,131 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="961"/>
         <CursorPos Y="971"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="2"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit12>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="205" Column="45" TopLine="186"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="4" Column="19"/>
       </Position1>
       <Position2>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="44" Column="19" TopLine="33"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="35" Column="3" TopLine="24"/>
       </Position2>
       <Position3>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="54" Column="29" TopLine="35"/>
+        <Filename Value="uFrmInstalaExploit.pas"/>
+        <Caret Line="34" Column="3" TopLine="23"/>
       </Position3>
       <Position4>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="203" Column="37" TopLine="34"/>
+        <Filename Value="uFrmSobre.pas"/>
+        <Caret Line="31" Column="12" TopLine="20"/>
       </Position4>
       <Position5>
         <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="44" Column="35" TopLine="43"/>
+        <Caret Line="31" Column="58" TopLine="20"/>
       </Position5>
       <Position6>
         <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="45" Column="24" TopLine="38"/>
+        <Caret Line="40" Column="25" TopLine="28"/>
       </Position6>
       <Position7>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="44" Column="39" TopLine="39"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="34" Column="46" TopLine="32"/>
       </Position7>
       <Position8>
         <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="46" Column="50" TopLine="39"/>
+        <Caret Line="49" Column="32" TopLine="40"/>
       </Position8>
       <Position9>
         <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="50" Column="43" TopLine="39"/>
+        <Caret Line="53" Column="32" TopLine="40"/>
       </Position9>
       <Position10>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="45" Column="7" TopLine="33"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="9" Column="18" TopLine="28"/>
       </Position10>
       <Position11>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="205" Column="6" TopLine="189"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="150" Column="32" TopLine="139"/>
       </Position11>
       <Position12>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="33" Column="22" TopLine="19"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="158" Column="41" TopLine="126"/>
       </Position12>
       <Position13>
-        <Filename Value="uAppList.pas"/>
-        <Caret Line="140" Column="31" TopLine="129"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="477" Column="27" TopLine="448"/>
       </Position13>
       <Position14>
-        <Filename Value="uFrmInstalaExploit.pas"/>
-        <Caret Line="34" Column="3" TopLine="23"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="515" Column="27" TopLine="45"/>
       </Position14>
       <Position15>
-        <Filename Value="uFrmSobre.pas"/>
-        <Caret Line="31" Column="12" TopLine="20"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="361" Column="20" TopLine="337"/>
       </Position15>
       <Position16>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="31" Column="58" TopLine="20"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="394" Column="17" TopLine="370"/>
       </Position16>
       <Position17>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="42" Column="34" TopLine="38"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="402" Column="17" TopLine="378"/>
       </Position17>
       <Position18>
-        <Filename Value="uFrmInstalaExploit.pas"/>
-        <Caret Line="34" Column="3" TopLine="23"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="30" Column="41"/>
       </Position18>
       <Position19>
         <Filename Value="uPrincipal.pas"/>
-        <Caret Line="133" Column="11" TopLine="124"/>
+        <Caret Line="968" Column="23" TopLine="951"/>
       </Position19>
       <Position20>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="247" TopLine="227"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="208" Column="171" TopLine="184"/>
       </Position20>
       <Position21>
         <Filename Value="uPrincipal.pas"/>
-        <Caret Line="4" Column="19"/>
+        <Caret Line="382" Column="72" TopLine="359"/>
       </Position21>
       <Position22>
         <Filename Value="uPrincipal.pas"/>
-        <Caret Line="35" Column="3" TopLine="24"/>
+        <Caret Line="65" Column="5" TopLine="65"/>
       </Position22>
       <Position23>
-        <Filename Value="uFrmInstalaExploit.pas"/>
-        <Caret Line="34" Column="3" TopLine="23"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="963" Column="5" TopLine="960"/>
       </Position23>
       <Position24>
-        <Filename Value="uFrmSobre.pas"/>
-        <Caret Line="31" Column="12" TopLine="20"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="996" Column="4" TopLine="960"/>
       </Position24>
       <Position25>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="31" Column="58" TopLine="20"/>
+        <Filename Value="uAppList.pas"/>
+        <Caret Line="130" Column="25" TopLine="113"/>
       </Position25>
       <Position26>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="40" Column="25" TopLine="28"/>
+        <Filename Value="uAppList.pas"/>
+        <Caret Line="132" Column="42" TopLine="123"/>
       </Position26>
       <Position27>
-        <Filename Value="uPrincipal.pas"/>
-        <Caret Line="34" Column="46" TopLine="32"/>
+        <Filename Value="uAppList.pas"/>
+        <Caret Line="131" Column="18" TopLine="107"/>
       </Position27>
       <Position28>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="49" Column="32" TopLine="40"/>
+        <Filename Value="uAppList.pas"/>
+        <Caret Line="124" Column="16" TopLine="107"/>
       </Position28>
       <Position29>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="53" Column="32" TopLine="40"/>
+        <Filename Value="uAppList.pas"/>
+        <Caret Line="69" TopLine="45"/>
       </Position29>
+      <Position30>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="996" Column="4" TopLine="960"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

@@ -46,72 +46,83 @@ uses
 
 type
   TFrmPrincipal = class(TForm)
-    GroupBox1: TGroupBox;
-    GroupBox2: TGroupBox;
-    CheckListBox1: TCheckListBox;
-    ListBox1: TListBox;
-    GroupBox3: TGroupBox;
-    Label1: TLabel;
-    Edit1: TEdit;
-    BitBtn1: TBitBtn;
-    GroupBox4: TGroupBox;
-    BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
-    Label2: TLabel;
-    BitBtn4: TBitBtn;
-    BitBtn5: TBitBtn;
-    BitBtn6: TBitBtn;
-    FTP: TIdFTP;
-    MainMenu1: TMainMenu;
-    Ferramentas1: TMenuItem;
-    Sobre1: TMenuItem;
-    Sobreoprograma1: TMenuItem;
-    InstalaroDMSHDDExplorernoPS21: TMenuItem;
-    N1: TMenuItem;
-    Sair1: TMenuItem;
-    StatusBar1: TStatusBar;
-    OpenDialog1: TOpenDialog;
-    BitBtn7: TBitBtn;
-    ImageList1: TImageList;
-    InstalaroDMSHDDExplorernoMemoryCard1: TMenuItem;
-    InstalaroEXPLOIT1: TMenuItem;
-    SaveDialog1: TSaveDialog;
-    OpenDialog2: TOpenDialog;
-    N2: TMenuItem;
-    RemoveroHDDMegaPackBRdoPS21: TMenuItem;
-    ImageList2: TImageList;
-    SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
-    Manualdousurio1: TMenuItem;
-    N3: TMenuItem;
-    MiniFTP1: TMenuItem;
+    grpCurrentlyInstalledPrograms                              : TGroupBox;
+    grpProgramsToInstall                                       : TGroupBox;
+    grpPS2Connection                                           : TGroupBox;
+    grpGetProgramsToInstall                                    : TGroupBox;
+
+    chklstbProgramsToInstall                                   : TCheckListBox;
+
+    lstbInstalledPrograms                                      : TListBox;
+
+    btnOpenCNFFile                                             : TBitBtn;
+    btnInstallSelectedPrograms                                 : TBitBtn;
+    btnDetails                                                 : TBitBtn;
+    btnSelectAll                                               : TBitBtn;
+    btnToogleSelection                                         : TBitBtn;
+    btnConnect                                                 : TBitBtn;
+    btnUninstall                                               : TBitBtn;
+    sbtnDown                                                   : TSpeedButton;
+    sbtnOrderBy                                                : TSpeedButton;
+    sbtnUp                                                     : TSpeedButton;
+
+    MainMenu                                                   : TMainMenu;
+    menuTools                                               : TMenuItem;
+    menuHelp                                                     : TMenuItem;
+    menuAbout                                            : TMenuItem;
+    InstalaroDMSHDDExplorernoPS21                              : TMenuItem;
+    N1                                                         : TMenuItem;
+    menuExit                                                      : TMenuItem;
+    InstalaroDMSHDDExplorernoMemoryCard1                       : TMenuItem;
+    InstalaroEXPLOIT1                                          : TMenuItem;
+    N2                                                         : TMenuItem;
+    RemoveroHDDMegaPackBRdoPS21                                : TMenuItem;
+    menuUserManual                                            : TMenuItem;
+    N3                                                         : TMenuItem;
+    MiniFTP1                                                   : TMenuItem;
+
+    lblPS2IP                                                   : TLabel;
+    lblAuthor                                                  : TLabel;
+
+    edtPS2IP                                                   : TEdit;
+
+    FTP                                                        : TIdFTP;
+
+    StatusBar                                                  : TStatusBar;
+
+    OpenDialogCNF                                              : TOpenDialog;
+    SaveDialogAppListDat                                       : TSaveDialog;
+    OpenDialogAppListDat                                       : TOpenDialog;
+
+    ImageList1                                                 : TImageList;
+    ImageList2                                                 : TImageList;
+
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-    procedure BitBtn1Click(Sender: TObject);
+    procedure btnConnectClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure BitBtn2Click(Sender: TObject);
-    procedure BitBtn5Click(Sender: TObject);
-    procedure BitBtn6Click(Sender: TObject);
-    procedure BitBtn4Click(Sender: TObject);
-    procedure CheckListBox1DblClick(Sender: TObject);
-    procedure BitBtn3Click(Sender: TObject);
-    procedure Sair1Click(Sender: TObject);
+    procedure btnOpenCNFFileClick(Sender: TObject);
+    procedure btnSelectAllClick(Sender: TObject);
+    procedure btnToogleSelectionClick(Sender: TObject);
+    procedure btnDetailsClick(Sender: TObject);
+    procedure chklstbProgramsToInstallDblClick(Sender: TObject);
+    procedure btnInstallSelectedProgramsClick(Sender: TObject);
+    procedure menuExitClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure BitBtn7Click(Sender: TObject);
+    procedure btnUninstallClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure InstalaroEXPLOIT1Click(Sender: TObject);
     procedure InstalaroDMSHDDExplorernoMemoryCard1Click(Sender: TObject);
     procedure InstalaroDMSHDDExplorernoPS21Click(Sender: TObject);
     procedure RemoveroHDDMegaPackBRdoPS21Click(Sender: TObject);
-    procedure Sobreoprograma1Click(Sender: TObject);
-    procedure SpeedButton3Click(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
-    procedure Label2Click(Sender: TObject);
+    procedure menuAboutClick(Sender: TObject);
+    procedure sbtnUpClick(Sender: TObject);
+    procedure sbtnDownClick(Sender: TObject);
+    procedure sbtnOrderByClick(Sender: TObject);
+    procedure lblAuthorClick(Sender: TObject);
     procedure FTPWork(ASender: TObject; AWorkMode: TWorkMode;
       AWorkCount: Integer);
-    procedure Manualdousurio1Click(Sender: TObject);
+    procedure menuUserManualClick(Sender: TObject);
     procedure MiniFTP1Click(Sender: TObject);
   private
     { Private declarations }
@@ -147,15 +158,15 @@ var
    i: Integer;
    Selecionado: Integer;
 begin
-   Selecionado := FrmPrincipal.ListBox1.ItemIndex;
-   FrmPrincipal.ListBox1.Items.Clear;
+   Selecionado := FrmPrincipal.lstbInstalledPrograms.ItemIndex;
+   FrmPrincipal.lstbInstalledPrograms.Items.Clear;
 
    for i := 0 to ListaInstalados.Count-1 do begin
-      FrmPrincipal.ListBox1.Items.Add(TAppListItem(ListaInstalados[i]).Titulo);
+      FrmPrincipal.lstbInstalledPrograms.Items.Add(TAppListItem(ListaInstalados[i]).Titulo);
    end;
 
-   if Selecionado < FrmPrincipal.ListBox1.Count then
-      FrmPrincipal.ListBox1.ItemIndex := Selecionado;
+   if Selecionado < FrmPrincipal.lstbInstalledPrograms.Count then
+      FrmPrincipal.lstbInstalledPrograms.ItemIndex := Selecionado;
 end;
 
 procedure AtualizaListaInstalar;
@@ -163,15 +174,15 @@ var
    i: integer;
    Selecionado: Integer;
 begin
-   Selecionado := FrmPrincipal.CheckListBox1.ItemIndex;
-   FrmPrincipal.CheckListBox1.Items.Clear;
+   Selecionado := FrmPrincipal.chklstbProgramsToInstall.ItemIndex;
+   FrmPrincipal.chklstbProgramsToInstall.Items.Clear;
 
    for i := 0 to ListaInstalar.Count-1 do begin
-      FrmPrincipal.CheckListBox1.Items.Add(TAppListItem(ListaInstalar[i]).Titulo);
+      FrmPrincipal.chklstbProgramsToInstall.Items.Add(TAppListItem(ListaInstalar[i]).Titulo);
    end;
 
-   if Selecionado < FrmPrincipal.CheckListBox1.Count then
-      FrmPrincipal.CheckListBox1.ItemIndex := Selecionado;
+   if Selecionado < FrmPrincipal.chklstbProgramsToInstall.Count then
+      FrmPrincipal.chklstbProgramsToInstall.ItemIndex := Selecionado;
 end;
 
 function ProgramaJaInstalado(Programa: TAppListItem): Boolean;
@@ -197,7 +208,7 @@ begin
    Result := True;
 
    for i := 0 to ListaInstalar.Count-1 do begin
-      if not FrmPrincipal.CheckListBox1.Checked[i] then continue;
+      if not FrmPrincipal.chklstbProgramsToInstall.Checked[i] then continue;
 
       Item := TAppListItem(ListaInstalar[i]);
 
@@ -205,7 +216,7 @@ begin
          not ProgramaJaInstalado(Item) then begin
 
          for j := 0 to Item.ListaArquivos.Count-1 do begin
-            NomeArquivo := IncludeTrailingBackslash(ExtractFilePath(FrmPrincipal.OpenDialog1.FileName)) + 'APPS\' + Item.Diretorio + '\' + Item.ListaArquivos[j];
+            NomeArquivo := IncludeTrailingBackslash(ExtractFilePath(FrmPrincipal.OpenDialogAppListDat.FileName)) + 'APPS\' + Item.Diretorio + '\' + Item.ListaArquivos[j];
 
             if not FileExists(NomeArquivo) then begin
                Application.MessageBox(PChar('O arquivo: '#13#10#13#10 + NomeArquivo + #13#10#13#10' não foi encontrado! Processo de instalação abortado!'), 'Erro', 0);
@@ -229,7 +240,7 @@ begin
 
    with FrmPrincipal do begin
       for i := 0 to ListaInstalar.Count-1 do begin
-         if (CheckListBox1.Checked[i]) and (ProgramaJaInstalado(TAppListItem(ListaInstalar[i]))) then begin
+         if (chklstbProgramsToInstall.Checked[i]) and (ProgramaJaInstalado(TAppListItem(ListaInstalar[i]))) then begin
             lista := lista + (TAppListItem(ListaInstalar[i]).Titulo + #13#10);
          end;
       end;
@@ -244,8 +255,8 @@ var
 begin
    n := 0;
 
-   for i := 0 to FrmPrincipal.CheckListBox1.Count-1 do begin
-      if FrmPrincipal.CheckListBox1.Checked[i] then Inc(n);
+   for i := 0 to FrmPrincipal.chklstbProgramsToInstall.Count-1 do begin
+      if FrmPrincipal.chklstbProgramsToInstall.Checked[i] then Inc(n);
    end;
 
    Result := n;
@@ -348,7 +359,7 @@ begin
    n := 1;
 
    for i := 0 to ListaInstalar.Count-1 do begin
-      if not FrmPrincipal.CheckListBox1.Checked[i] then Continue;
+      if not FrmPrincipal.chklstbProgramsToInstall.Checked[i] then Continue;
 
       Programa := TAppListItem(ListaInstalar[i]);
       JaInstalado := ProgramaJaInstalado(Programa);
@@ -357,8 +368,8 @@ begin
 
       if not InstalarPrograma then Continue;
 
-      FrmPrincipal.StatusBar1.SimpleText := 'Instalando: ' + Programa.Titulo + '... (' + IntToStr(n) + ' de ' + IntToStr(NumItensSelecionados) + ')';
-      FrmPrincipal.StatusBar1.Repaint;
+      FrmPrincipal.StatusBar.SimpleText := 'Instalando: ' + Programa.Titulo + '... (' + IntToStr(n) + ' de ' + IntToStr(NumItensSelecionados) + ')';
+      FrmPrincipal.StatusBar.Repaint;
 
       // Primeira Parte - Atualizar lista de programas instalados:
       if JaInstalado then
@@ -379,7 +390,7 @@ begin
       end;
 
       for j := 0 to Programa.ListaArquivos.Count-1 do begin
-         FTP.Put(IncludeTrailingBackslash(ExtractFilePath(FrmPrincipal.OpenDialog1.FileName)) + 'APPS\' + Programa.Diretorio + '\' + Programa.ListaArquivos[j], '/pfs/0/' + Programa.Diretorio + '/' + Programa.ListaArquivos[j]);
+         FTP.Put(IncludeTrailingBackslash(ExtractFilePath(FrmPrincipal.OpenDialogAppListDat.FileName)) + 'APPS\' + Programa.Diretorio + '\' + Programa.ListaArquivos[j], '/pfs/0/' + Programa.Diretorio + '/' + Programa.ListaArquivos[j]);
       end;
 
       CriaUninstallCnf(Programa, TempPath + 'uninstall.cnf');
@@ -390,28 +401,28 @@ begin
 
    //OrdenaLista(ListaInstalados);
 
-   FrmPrincipal.StatusBar1.SimpleText := 'Atualizando lista de programas instalados...';
-   FrmPrincipal.StatusBar1.Repaint;
+   FrmPrincipal.StatusBar.SimpleText := 'Atualizando lista de programas instalados...';
+   FrmPrincipal.StatusBar.Repaint;
 
    SalvaAppList(ListaInstalados, TempPath + 'APPLIST.DAT');
    FTP.Put(TempPath + 'APPLIST.DAT', '/pfs/0/APPLIST.DAT');
 
    AtualizaListaInstalados;
 
-   FrmPrincipal.StatusBar1.SimpleText := 'Pronto!';
-   FrmPrincipal.StatusBar1.Repaint;
+   FrmPrincipal.StatusBar.SimpleText := 'Pronto!';
+   FrmPrincipal.StatusBar.Repaint;
 end;
 
 procedure DesabilitaOpcoes;
 begin
    with FrmPrincipal do begin
-      //BitBtn2.Enabled := False;
-      BitBtn3.Enabled := False;
-      BitBtn4.Enabled := False;
-      //BitBtn5.Enabled := False;
-      BitBtn7.Enabled := False;
+      //btnOpenCNFFile.Enabled := False;
+      btnInstallSelectedPrograms.Enabled := False;
+      btnDetails.Enabled := False;
+      //btnSelectAll.Enabled := False;
+      btnUninstall.Enabled := False;
       // Habilita digitação de novo IP
-      Edit1.Enabled := True;
+      edtPS2IP.Enabled := True;
       // Menus
       InstalaroDMSHDDExplorernoMemoryCard1.Enabled := False;
       InstalaroDMSHDDExplorernoPS21.Enabled := False;
@@ -424,15 +435,15 @@ end;
 procedure HabilitaOpcoes;
 begin
    with FrmPrincipal do begin
-      //BitBtn2.Enabled := True;
-      if boot_encontrada then BitBtn3.Enabled := True
-      else BitBtn3.Enabled := False;
+      //btnOpenCNFFile.Enabled := True;
+      if boot_encontrada then btnInstallSelectedPrograms.Enabled := True
+      else btnInstallSelectedPrograms.Enabled := False;
 
-      BitBtn4.Enabled := True;
-      //BitBtn5.Enabled := True;
-      BitBtn7.Enabled := True;
+      btnDetails.Enabled := True;
+      //btnSelectAll.Enabled := True;
+      btnUninstall.Enabled := True;
       // Desabilita digitação de novo IP
-      Edit1.Enabled := False;
+      edtPS2IP.Enabled := False;
       // Menus
       InstalaroDMSHDDExplorernoMemoryCard1.Enabled := True;
 
@@ -458,23 +469,23 @@ begin
    DiretoriosRaiz := TStringList.Create;
    ArquivosRaiz := TStringList.Create;
 
-   FrmPrincipal.StatusBar1.SimpleText := 'Acessando partição __boot...';
-   FrmPrincipal.StatusBar1.Repaint;
+   FrmPrincipal.StatusBar.SimpleText := 'Acessando partição __boot...';
+   FrmPrincipal.StatusBar.Repaint;
 
    try
       FTP.ChangeDir('/pfs/0');
       FTP.List;
    except
       Application.MessageBox('Não foi possível acessar a partição __boot', 'Erro', 0);
-      FrmPrincipal.StatusBar1.SimpleText := 'Pronto!';
-      FrmPrincipal.StatusBar1.Repaint;
+      FrmPrincipal.StatusBar.SimpleText := 'Pronto!';
+      FrmPrincipal.StatusBar.Repaint;
       Exit;
    end;
 
-   FrmPrincipal.StatusBar1.SimpleText := 'Removendo o HDD MegaPack BR do PS2...';
-   FrmPrincipal.StatusBar1.Repaint;
+   FrmPrincipal.StatusBar.SimpleText := 'Removendo o HDD MegaPack BR do PS2...';
+   FrmPrincipal.StatusBar.Repaint;
 
-   FrmPrincipal.BitBtn1.Enabled := False;
+   FrmPrincipal.btnConnect.Enabled := False;
    Screen.Cursor := crHourGlass;
 
    for i := 0 to FTP.DirectoryListing.Count-1 do begin
@@ -496,8 +507,8 @@ begin
       DeletaDiretorio(FTP, DiretoriosRaiz[i]);
    end;
 
-   FrmPrincipal.StatusBar1.SimpleText := 'Atualizando lista de programas instalados...';
-   FrmPrincipal.StatusBar1.Repaint;
+   FrmPrincipal.StatusBar.SimpleText := 'Atualizando lista de programas instalados...';
+   FrmPrincipal.StatusBar.Repaint;
 
 
    // Limpa lista de programas instalados
@@ -512,37 +523,37 @@ begin
    DiretoriosRaiz.Free;
    ArquivosRaiz.Free;
 
-   FrmPrincipal.BitBtn1.Enabled := True;
+   FrmPrincipal.btnConnect.Enabled := True;
    Screen.Cursor := crDefault;
-   FrmPrincipal.StatusBar1.SimpleText := 'Pronto!';
-   FrmPrincipal.StatusBar1.Repaint;
+   FrmPrincipal.StatusBar.SimpleText := 'Pronto!';
+   FrmPrincipal.StatusBar.Repaint;
 
 
    Application.MessageBox('HDD MegaPack BR desinstalado com sucesso!', 'Mensagem', 0);
 end;
 
 
-procedure TFrmPrincipal.BitBtn1Click(Sender: TObject);
+procedure TFrmPrincipal.btnConnectClick(Sender: TObject);
 begin
    if Instalando then Exit;
 
-   if Trim(Edit1.Text) = '' then begin
+   if Trim(edtPS2IP.Text) = '' then begin
       Application.MessageBox('Informe um endereço IP válido!', 'Atenção', 0);
-      Edit1.SetFocus;
+      edtPS2IP.SetFocus;
       Exit;
    end;
 
    if not Conectado then begin
       try
-         StatusBar1.SimpleText := 'Conectando a ' + Edit1.Text + '...';
-         StatusBar1.Repaint;
-         FTP.Host := Edit1.Text;
+         StatusBar.SimpleText := 'Conectando a ' + edtPS2IP.Text + '...';
+         StatusBar.Repaint;
+         FTP.Host := edtPS2IP.Text;
          FTP.Connect;
       Except
          on E: Exception do begin
             Application.MessageBox('Não foi possível conectar ao PS2! Verifique as conexões de rede, bem como as configurações!', 'Erro', 0);
-            StatusBar1.SimpleText := 'Pronto!';
-            StatusBar1.Repaint;
+            StatusBar.SimpleText := 'Pronto!';
+            StatusBar.Repaint;
             Exit;
          end;
       end;
@@ -550,8 +561,8 @@ begin
       boot_encontrada := True;
 
       try
-         StatusBar1.SimpleText := 'Montando partição __boot...';
-         StatusBar1.Repaint;
+         StatusBar.SimpleText := 'Montando partição __boot...';
+         StatusBar.Repaint;
 
          FTP.SendCmd('SITE UMNT /pfs/0/');
          FTP.SendCmd('SITE MNT /pfs/0/ hdd:__boot');
@@ -561,8 +572,8 @@ begin
       Except
          on E: Exception do begin
             Application.MessageBox('Não foi possível acessar a partição __boot! Verifique se o HDD está conectado e formatado adequadamente!'+#13#10#13#10+'Algumas funcionalidades estarão indisponíveis!', 'Atenção', 0);
-            //StatusBar1.SimpleText := 'Pronto!';
-            //StatusBar1.Repaint;
+            //StatusBar.SimpleText := 'Pronto!';
+            //StatusBar.Repaint;
             //FTP.Quit;
             //Exit;
             boot_encontrada := False;
@@ -570,16 +581,16 @@ begin
       end;
 
       try
-         StatusBar1.SimpleText := 'Obtendo lista de programas instalados...';
-         StatusBar1.Repaint;
+         StatusBar.SimpleText := 'Obtendo lista de programas instalados...';
+         StatusBar.Repaint;
          FTP.Get('/pfs/0/APPLIST.DAT', TempPath + '_APPLIST.DAT', True);
          AbreAppList(ListaInstalados, TempPath + '_APPLIST.DAT');
          AtualizaListaInstalados;
       Except
          //on E: Exception do begin
          //   Application.MessageBox('Não foi possível obter a lista de programas instalados (APPLIST.DAT)!', 'Erro', 0);
-         //   StatusBar1.SimpleText := 'Pronto!';
-         //   StatusBar1.Repaint;
+         //   StatusBar.SimpleText := 'Pronto!';
+         //   StatusBar.Repaint;
          //   FTP.Quit;
          //   Exit;
          //end;
@@ -587,13 +598,13 @@ begin
          AtualizaListaInstalados;
       end;
 
-      StatusBar1.SimpleText := 'Pronto!';
-      StatusBar1.Repaint;
+      StatusBar.SimpleText := 'Pronto!';
+      StatusBar.Repaint;
       Conectado := True;
-      BitBtn1.Caption := '&Desconectar';
-      BitBtn1.Default := False;
-      BitBtn1.Glyph := nil;
-      ImageList1.GetBitmap(1, BitBtn1.Glyph);
+      btnConnect.Caption := '&Desconectar';
+      btnConnect.Default := False;
+      btnConnect.Glyph := nil;
+      ImageList1.GetBitmap(1, btnConnect.Glyph);
       HabilitaOpcoes;
    end else begin
       try
@@ -605,43 +616,43 @@ begin
       Conectado := False;
       ListaInstalados.Clear;
       AtualizaListaInstalados;
-      CheckListBox1.Clear;
-      BitBtn1.Caption := '&Conectar';
-      BitBtn1.Default := True;
-      BitBtn1.Glyph := nil;
-      ImageList1.GetBitmap(0, BitBtn1.Glyph);
+      chklstbProgramsToInstall.Clear;
+      btnConnect.Caption := '&Conectar';
+      btnConnect.Default := True;
+      btnConnect.Glyph := nil;
+      ImageList1.GetBitmap(0, btnConnect.Glyph);
       DesabilitaOpcoes;
    end;
 end;
 
 
-procedure TFrmPrincipal.BitBtn2Click(Sender: TObject);
+procedure TFrmPrincipal.btnOpenCNFFileClick(Sender: TObject);
 begin
    if Instalando then Exit;
 
-   OpenDialog1.InitialDir := ExtractFilePath(Application.ExeName) + 'MEGAPACK\';
-   if OpenDialog1.Execute then begin
-      AbreInstallCnf(ListaInstalar, OpenDialog1.FileName);
+   OpenDialogCNF.InitialDir := ExtractFilePath(Application.ExeName) + 'MEGAPACK\';
+   if OpenDialogCNF.Execute then begin
+      AbreInstallCnf(ListaInstalar, OpenDialogCNF.FileName);
       AtualizaListaInstalar;
    end;
 end;
 
-procedure TFrmPrincipal.BitBtn3Click(Sender: TObject);
+procedure TFrmPrincipal.btnInstallSelectedProgramsClick(Sender: TObject);
 var
    ListaJaInstalados: String;
    AtualizarJaInstalados: Boolean;
 begin
    if Instalando then Exit;
 
-   if CheckListBox1.Count < 1 then begin
+   if chklstbProgramsToInstall.Count < 1 then begin
       Application.MessageBox('Você precisa, primeiramente, abrir uma lista de arquivos a serem instalados (INSTALL.CNF)!', 'Atenção', 0);
-      BitBtn2.SetFocus;
+      btnOpenCNFFile.SetFocus;
       Exit;
    end;
 
    if NumItensSelecionados < 1 then begin
       Application.MessageBox('Você precisa selecionar, pelo menos, um programa para ser instalado!', 'Atenção', 0);
-      CheckListBox1.SetFocus;
+      chklstbProgramsToInstall.SetFocus;
       Exit;
    end;
 
@@ -658,119 +669,119 @@ begin
    if Application.MessageBox('Confirma a instalação dos programas selecionados?', 'Confirmação', MB_YESNO + MB_DEFBUTTON2) <> MRYES then Exit;
 
    Screen.Cursor := crHourGlass;
-   BitBtn3.Enabled := False;
-   BitBtn1.Enabled := False;
-   ListBox1.Enabled := False;
-   CheckListBox1.Enabled := False;
+   btnInstallSelectedPrograms.Enabled := False;
+   btnConnect.Enabled := False;
+   lstbInstalledPrograms.Enabled := False;
+   chklstbProgramsToInstall.Enabled := False;
    Instalando := True;
 
    InstalaProgramas(FTP, AtualizarJaInstalados);
 
    Screen.Cursor := crDefault;
-   BitBtn3.Enabled := True;
-   BitBtn1.Enabled := True;
-   ListBox1.Enabled := True;
-   CheckListBox1.Enabled := True;
+   btnInstallSelectedPrograms.Enabled := True;
+   btnConnect.Enabled := True;
+   lstbInstalledPrograms.Enabled := True;
+   chklstbProgramsToInstall.Enabled := True;
    Instalando := False;
 
    Application.MessageBox(PChar('Processo de instalação concluído com sucesso!' + #13#13 + 'Caso essa seja a primeira instalação após uma formatação do HDD ou uma remoção completa do HDD MegPack BR do PS2, não se esqueça de instalar o DMS HDD Explorer através da opção ''Instalar o DMS HDD Explorer no HDD (DEV2)'' no menu ''Ferramentas'''), 'Mensagem', 0);   
 end;
 
-procedure TFrmPrincipal.BitBtn4Click(Sender: TObject);
+procedure TFrmPrincipal.btnDetailsClick(Sender: TObject);
 begin
    if Instalando then Exit;
    
-   if ListBox1.ItemIndex > -1 then begin
+   if lstbInstalledPrograms.ItemIndex > -1 then begin
       Application.CreateForm(TFrmDetalhePrograma, FrmDetalhePrograma);
-      FrmDetalhePrograma.Edit1.Text := TAppListItem(ListaInstalados[ListBox1.ItemIndex]).Titulo;
-      FrmDetalhePrograma.Edit2.Text := TAppListItem(ListaInstalados[ListBox1.ItemIndex]).Autor;
-      FrmDetalhePrograma.Memo1.Lines.Text := TAppListItem(ListaInstalados[ListBox1.ItemIndex]).Descricao;
-      FrmDetalhePrograma.Edit3.Text := TAppListItem(ListaInstalados[ListBox1.ItemIndex]).Executavel;
-      FrmDetalhePrograma.Item := TAppListItem(ListaInstalados[ListBox1.ItemIndex]);
+      FrmDetalhePrograma.Edit1.Text := TAppListItem(ListaInstalados[lstbInstalledPrograms.ItemIndex]).Titulo;
+      FrmDetalhePrograma.Edit2.Text := TAppListItem(ListaInstalados[lstbInstalledPrograms.ItemIndex]).Autor;
+      FrmDetalhePrograma.Memo1.Lines.Text := TAppListItem(ListaInstalados[lstbInstalledPrograms.ItemIndex]).Descricao;
+      FrmDetalhePrograma.Edit3.Text := TAppListItem(ListaInstalados[lstbInstalledPrograms.ItemIndex]).Executavel;
+      FrmDetalhePrograma.Item := TAppListItem(ListaInstalados[lstbInstalledPrograms.ItemIndex]);
       FrmDetalhePrograma.ShowModal;
 
       if FrmDetalhePrograma.ModalResult = MrOK then begin
          // Envia atualizações
          //AtualizaListaInstalados;
-         BitBtn1.Enabled := False;
+         btnConnect.Enabled := False;
          Screen.Cursor := crHourGlass;
 
-         StatusBar1.SimpleText := 'Atualizando lista...';
-         StatusBar1.Repaint;
+         StatusBar.SimpleText := 'Atualizando lista...';
+         StatusBar.Repaint;
 
          SalvaAppList(ListaInstalados, TempPath + 'APPLIST.DAT');
          FTP.Put(TempPath + 'APPLIST.DAT', '/pfs/0/APPLIST.DAT');
 
          AtualizaListaInstalados;
 
-         BitBtn1.Enabled := True;
+         btnConnect.Enabled := True;
          Screen.Cursor := crDefault;
 
-         StatusBar1.SimpleText := 'Pronto!';
-         StatusBar1.Repaint;
+         StatusBar.SimpleText := 'Pronto!';
+         StatusBar.Repaint;
       end;
 
       FrmDetalhePrograma.Free;
    end;
 end;
 
-procedure TFrmPrincipal.BitBtn5Click(Sender: TObject);
+procedure TFrmPrincipal.btnSelectAllClick(Sender: TObject);
 var
    i: Integer;
 begin
    if Instalando then Exit;
 
-   for i := 0 to CheckListBox1.Count-1 do begin
-      CheckListBox1.Checked[i] := True;
+   for i := 0 to chklstbProgramsToInstall.Count-1 do begin
+      chklstbProgramsToInstall.Checked[i] := True;
    end;
 
 end;
 
-procedure TFrmPrincipal.BitBtn6Click(Sender: TObject);
+procedure TFrmPrincipal.btnToogleSelectionClick(Sender: TObject);
 var
    i: Integer;
 begin
    if Instalando then Exit;
 
-   for i := 0 to CheckListBox1.Count-1 do begin
-      CheckListBox1.Checked[i] := not CheckListBox1.Checked[i];
+   for i := 0 to chklstbProgramsToInstall.Count-1 do begin
+      chklstbProgramsToInstall.Checked[i] := not chklstbProgramsToInstall.Checked[i];
    end;
 
 end;
-procedure TFrmPrincipal.BitBtn7Click(Sender: TObject);
+procedure TFrmPrincipal.btnUninstallClick(Sender: TObject);
 begin
    if Instalando then Exit;
 
-   if ListBox1.ItemIndex > -1 then begin
+   if lstbInstalledPrograms.ItemIndex > -1 then begin
       if Application.MessageBox('Confirma a desinstalação do programa selecionado?', 'Confirmação', MB_YESNO + MB_DEFBUTTON2) <> MRYES then Exit;
 
       Screen.Cursor := crHourGlass;
-      BitBtn7.Enabled := False;
-      BitBtn1.Enabled := False;
+      btnUninstall.Enabled := False;
+      btnConnect.Enabled := False;
 
-      StatusBar1.SimpleText := 'Desinstalando: ' + TAppListItem(ListaInstalados[ListBox1.ItemIndex]).Titulo + '...';
-      StatusBar1.Repaint;
+      StatusBar.SimpleText := 'Desinstalando: ' + TAppListItem(ListaInstalados[lstbInstalledPrograms.ItemIndex]).Titulo + '...';
+      StatusBar.Repaint;
 
-      DeletaDiretorio(FTP, '/pfs/0/' + TAppListItem(ListaInstalados[ListBox1.ItemIndex]).Diretorio);
-      DeletaItem(ListaInstalados, ListBox1.ItemIndex);
+      DeletaDiretorio(FTP, '/pfs/0/' + TAppListItem(ListaInstalados[lstbInstalledPrograms.ItemIndex]).Diretorio);
+      DeletaItem(ListaInstalados, lstbInstalledPrograms.ItemIndex);
 
       SalvaAppList(ListaInstalados, TempPath + 'APPLIST.DAT');
       FTP.Put(TempPath + 'APPLIST.DAT', '/pfs/0/APPLIST.DAT');
 
       AtualizaListaInstalados;
 
-      StatusBar1.SimpleText := 'Pronto!';
-      StatusBar1.Repaint;
+      StatusBar.SimpleText := 'Pronto!';
+      StatusBar.Repaint;
 
       Screen.Cursor := crDefault;
-      BitBtn7.Enabled := True;
-      BitBtn1.Enabled := True;
+      btnUninstall.Enabled := True;
+      btnConnect.Enabled := True;
    end;
 end;
 
-procedure TFrmPrincipal.CheckListBox1DblClick(Sender: TObject);
+procedure TFrmPrincipal.chklstbProgramsToInstallDblClick(Sender: TObject);
 begin
-   if CheckListBox1.ItemIndex > -1 then begin
+   if chklstbProgramsToInstall.ItemIndex > -1 then begin
       Application.CreateForm(TFrmDetalhePrograma, FrmDetalhePrograma);
       FrmDetalhePrograma.Edit1.ReadOnly := True;
       FrmDetalhePrograma.Edit2.ReadOnly := True;
@@ -778,10 +789,10 @@ begin
       FrmDetalhePrograma.Edit3.ReadOnly := True;
       FrmDetalhePrograma.BitBtn2.Enabled := False;
 
-      FrmDetalhePrograma.Edit1.Text := TAppListItem(ListaInstalar[CheckListBox1.ItemIndex]).Titulo;
-      FrmDetalhePrograma.Edit2.Text := TAppListItem(ListaInstalar[CheckListBox1.ItemIndex]).Autor;
-      FrmDetalhePrograma.Memo1.Lines.Text := TAppListItem(ListaInstalar[CheckListBox1.ItemIndex]).Descricao;
-      FrmDetalhePrograma.Edit3.Text := TAppListItem(ListaInstalar[CheckListBox1.ItemIndex]).Executavel;
+      FrmDetalhePrograma.Edit1.Text := TAppListItem(ListaInstalar[chklstbProgramsToInstall.ItemIndex]).Titulo;
+      FrmDetalhePrograma.Edit2.Text := TAppListItem(ListaInstalar[chklstbProgramsToInstall.ItemIndex]).Autor;
+      FrmDetalhePrograma.Memo1.Lines.Text := TAppListItem(ListaInstalar[chklstbProgramsToInstall.ItemIndex]).Descricao;
+      FrmDetalhePrograma.Edit3.Text := TAppListItem(ListaInstalar[chklstbProgramsToInstall.ItemIndex]).Executavel;
       FrmDetalhePrograma.ShowModal;
       FrmDetalhePrograma.Free;
    end;
@@ -827,7 +838,7 @@ end;
 
 procedure TFrmPrincipal.FormShow(Sender: TObject);
 begin
-   Edit1.SelectAll;
+   edtPS2IP.SelectAll;
 end;
 
 procedure TFrmPrincipal.FTPWork(ASender: TObject; AWorkMode: TWorkMode;
@@ -860,10 +871,10 @@ begin
    FrmInstalaDEV1.Free;
 
    Screen.Cursor := crHourGlass;
-   BitBtn1.Enabled := False;
+   btnConnect.Enabled := False;
 
-   StatusBar1.SimpleText := 'Instalando DEV1 no Memory Card...';
-   StatusBar1.Repaint;
+   StatusBar.SimpleText := 'Instalando DEV1 no Memory Card...';
+   StatusBar.Repaint;
    Instalando := True;
 
    try
@@ -876,20 +887,20 @@ begin
    except
       on E: Exception do begin
          Application.MessageBox(PChar('Falha ao instalar DEV1 no Memory Card:'#13#10#13#10 + E.Message), 'Erro', 0);
-         StatusBar1.SimpleText := 'Pronto!';
-         StatusBar1.Repaint;
+         StatusBar.SimpleText := 'Pronto!';
+         StatusBar.Repaint;
          Screen.Cursor := crDefault;
-         BitBtn1.Enabled := True;
+         btnConnect.Enabled := True;
          Instalando := False;
          Exit;
       end;
    end;
 
-   StatusBar1.SimpleText := 'Pronto!';
-   StatusBar1.Repaint;
+   StatusBar.SimpleText := 'Pronto!';
+   StatusBar.Repaint;
 
    Screen.Cursor := crDefault;
-   BitBtn1.Enabled := True;
+   btnConnect.Enabled := True;
    Instalando := False;
 
    Application.MessageBox('DEV1 instalado com sucesso no Memory Card', 'Mensagem', 0);
@@ -903,32 +914,32 @@ begin
       Exit;
 
    Screen.Cursor := crHourGlass;
-   BitBtn1.Enabled := False;
+   btnConnect.Enabled := False;
    Instalando := True;
 
-   StatusBar1.SimpleText := 'Instalando DEV2 no Hard Disk Drive (HDD)...';
-   StatusBar1.Repaint;
+   StatusBar.SimpleText := 'Instalando DEV2 no Hard Disk Drive (HDD)...';
+   StatusBar.Repaint;
 
    try
       FTP.Put(ExtractFilePath(Application.ExeName) + 'DMS/BOOT.ELF' , '/pfs/0/boot.elf');
    except
       on E: Exception do begin
          Application.MessageBox(PChar('Falha ao instalar DEV2 no HDD:'#13#10#13#10 + E.Message), 'Erro', 0);
-         StatusBar1.SimpleText := 'Pronto!';
-         StatusBar1.Repaint;
+         StatusBar.SimpleText := 'Pronto!';
+         StatusBar.Repaint;
          Screen.Cursor := crDefault;
-         BitBtn1.Enabled := True;
+         btnConnect.Enabled := True;
          Instalando := False;
          Exit;
       end;
    end;
 
-   StatusBar1.SimpleText := 'Pronto!';
-   StatusBar1.Repaint;
+   StatusBar.SimpleText := 'Pronto!';
+   StatusBar.Repaint;
    Instalando := False;
 
    Screen.Cursor := crDefault;
-   BitBtn1.Enabled := True;
+   btnConnect.Enabled := True;
 
    Application.MessageBox('DEV2 instalado com sucesso no HDD', 'Mensagem', 0);
 end;
@@ -942,12 +953,12 @@ begin
    FrmInstalaExploit.ShowModal;
 end;
 
-procedure TFrmPrincipal.Label2Click(Sender: TObject);
+procedure TFrmPrincipal.lblAuthorClick(Sender: TObject);
 begin
    OpenURL('http://www.brunofreitas.com/'); { *Converted from ShellExecute* }
 end;
 
-procedure TFrmPrincipal.Manualdousurio1Click(Sender: TObject);
+procedure TFrmPrincipal.menuUserManualClick(Sender: TObject);
 begin
     OpenDocument(PChar(ExtractFilePath(Application.ExeName) + 'manual.pdf')); { *Converted from ShellExecute* }
 end;
@@ -973,14 +984,14 @@ begin
    Instalando := False;
 end;
 
-procedure TFrmPrincipal.Sair1Click(Sender: TObject);
+procedure TFrmPrincipal.menuExitClick(Sender: TObject);
 begin
    if Instalando then Exit;
 
    Close;
 end;
 
-procedure TFrmPrincipal.Sobreoprograma1Click(Sender: TObject);
+procedure TFrmPrincipal.menuAboutClick(Sender: TObject);
 begin
    if Instalando then Exit;
 
@@ -988,46 +999,46 @@ begin
    FrmSobre.ShowModal;
 end;
 
-procedure TFrmPrincipal.SpeedButton1Click(Sender: TObject);
+procedure TFrmPrincipal.sbtnDownClick(Sender: TObject);
 begin
    if Instalando then Exit;
 
-   if ListBox1.ItemIndex <> -1 then begin
-      if ListBox1.ItemIndex < ListBox1.Items.Count-1 then begin
-         BitBtn1.Enabled := False;
-         SpeedButton1.Enabled := False;
+   if lstbInstalledPrograms.ItemIndex <> -1 then begin
+      if lstbInstalledPrograms.ItemIndex < lstbInstalledPrograms.Items.Count-1 then begin
+         btnConnect.Enabled := False;
+         sbtnDown.Enabled := False;
 
-         StatusBar1.SimpleText := 'Atualizando lista...';
-         StatusBar1.Repaint;
+         StatusBar.SimpleText := 'Atualizando lista...';
+         StatusBar.Repaint;
 
-         ListaInstalados.Exchange(ListBox1.ItemIndex, ListBox1.ItemIndex+1);
+         ListaInstalados.Exchange(lstbInstalledPrograms.ItemIndex, lstbInstalledPrograms.ItemIndex+1);
 
          SalvaAppList(ListaInstalados, TempPath + 'APPLIST.DAT');
          FTP.Put(TempPath + 'APPLIST.DAT', '/pfs/0/APPLIST.DAT');
 
          AtualizaListaInstalados;
-         ListBox1.ItemIndex := ListBox1.ItemIndex + 1;
+         lstbInstalledPrograms.ItemIndex := lstbInstalledPrograms.ItemIndex + 1;
          
-         StatusBar1.SimpleText := 'Pronto!';
-         StatusBar1.Repaint;
+         StatusBar.SimpleText := 'Pronto!';
+         StatusBar.Repaint;
 
-         BitBtn1.Enabled := True;
-         SpeedButton1.Enabled := True;
+         btnConnect.Enabled := True;
+         sbtnDown.Enabled := True;
       end;
    end;
 end;
 
-procedure TFrmPrincipal.SpeedButton2Click(Sender: TObject);
+procedure TFrmPrincipal.sbtnOrderByClick(Sender: TObject);
 begin
    if Instalando then Exit;
 
-   if ListBox1.Items.Count < 1 then Exit;
+   if lstbInstalledPrograms.Items.Count < 1 then Exit;
 
-   BitBtn1.Enabled := False;
-   SpeedButton2.Enabled := False;
+   btnConnect.Enabled := False;
+   sbtnOrderBy.Enabled := False;
 
-   StatusBar1.SimpleText := 'Atualizando lista...';
-   StatusBar1.Repaint;
+   StatusBar.SimpleText := 'Atualizando lista...';
+   StatusBar.Repaint;
 
    OrdenaLista(ListaInstalados);
 
@@ -1036,38 +1047,38 @@ begin
 
    AtualizaListaInstalados;
 
-   StatusBar1.SimpleText := 'Pronto!';
-   StatusBar1.Repaint;
+   StatusBar.SimpleText := 'Pronto!';
+   StatusBar.Repaint;
 
-   BitBtn1.Enabled := True;
-   SpeedButton2.Enabled := True;
+   btnConnect.Enabled := True;
+   sbtnOrderBy.Enabled := True;
 end;
 
-procedure TFrmPrincipal.SpeedButton3Click(Sender: TObject);
+procedure TFrmPrincipal.sbtnUpClick(Sender: TObject);
 begin
    if Instalando then Exit;
 
-   if ListBox1.ItemIndex <> -1 then begin
-      if ListBox1.ItemIndex > 0 then begin
-         BitBtn1.Enabled := False;
-         SpeedButton3.Enabled := False;
+   if lstbInstalledPrograms.ItemIndex <> -1 then begin
+      if lstbInstalledPrograms.ItemIndex > 0 then begin
+         btnConnect.Enabled := False;
+         sbtnUp.Enabled := False;
 
-         StatusBar1.SimpleText := 'Atualizando lista...';
-         StatusBar1.Repaint;
+         StatusBar.SimpleText := 'Atualizando lista...';
+         StatusBar.Repaint;
 
-         ListaInstalados.Exchange(ListBox1.ItemIndex, ListBox1.ItemIndex-1);
+         ListaInstalados.Exchange(lstbInstalledPrograms.ItemIndex, lstbInstalledPrograms.ItemIndex-1);
 
          SalvaAppList(ListaInstalados, TempPath + 'APPLIST.DAT');
          FTP.Put(TempPath + 'APPLIST.DAT', '/pfs/0/APPLIST.DAT');
 
          AtualizaListaInstalados;
-         ListBox1.ItemIndex := ListBox1.ItemIndex - 1;
+         lstbInstalledPrograms.ItemIndex := lstbInstalledPrograms.ItemIndex - 1;
 
-         StatusBar1.SimpleText := 'Pronto!';
-         StatusBar1.Repaint;
+         StatusBar.SimpleText := 'Pronto!';
+         StatusBar.Repaint;
 
-         BitBtn1.Enabled := True;
-         SpeedButton3.Enabled := True;
+         btnConnect.Enabled := True;
+         sbtnUp.Enabled := True;
       end;
    end;
 end;
