@@ -1,7 +1,7 @@
 object FrmMiniFTP: TFrmMiniFTP
-  Left = 637
+  Left = 678
   Height = 610
-  Top = 232
+  Top = 225
   Width = 975
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
@@ -17,7 +17,7 @@ object FrmMiniFTP: TFrmMiniFTP
   OnShow = FormShow
   Position = poScreenCenter
   LCLVersion = '2.0.2.0'
-  object GroupBox1: TGroupBox
+  object grpMyComputer: TGroupBox
     Left = 2
     Height = 522
     Top = 0
@@ -30,10 +30,11 @@ object FrmMiniFTP: TFrmMiniFTP
     Font.Name = 'Tahoma'
     ParentFont = False
     TabOrder = 0
-    object FileListBox1: TFileListBox
+    OnClick = grpMyComputerClick
+    object lstbMyComputerFiles: TFileListBox
       Left = 10
-      Height = 314
-      Top = 166
+      Height = 432
+      Top = 48
       Width = 422
       Directory = 'D:\lazarus'
       Font.Color = clWindowText
@@ -41,22 +42,73 @@ object FrmMiniFTP: TFrmMiniFTP
       Font.Name = 'Tahoma'
       ItemHeight = 21
       MultiSelect = True
-      OnDblClick = FileListBox1DblClick
+      OnDblClick = lstbMyComputerFilesDblClick
       ParentShowHint = False
       ParentFont = False
       TabOrder = 0
     end
-    object DriveComboBox1: TComboBox
+    object btnChooseDir: TSpeedButton
+      Left = 397
+      Height = 29
+      Top = 10
+      Width = 35
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFFFF46BC
+        EBFF3DB6EBFF3DB6EBFF3DB6EBFF3DB6EBFF3DB6EBFF37B2EBFF37B2EBFF37B2
+        EBFF37B2EBFF37B2EBFF37B2EBFF32AEEBFFFFFFFFFFFFFFFF00FFFFFFFF46BC
+        EBFFC4F3FDFFCFF4FCFFCFF4FCFFC4F3FDFFC3EEFBFFBDEAF9FFB5EAF8FFB0E6
+        F6FFAAE3F6FFAAE3F6FFBDEAF9FF32AEEBFFFFFFFFFFFFFFFF00FFFFFFFF46BC
+        EBFFC4F3FDFFACEEFCFFACEEFCFFA1E9F9FF97E4F7FF8DE0F6FF83DBF3FF76D5
+        F1FF69CEEDFF69CEEDFFAAE3F6FF32AEEBFFFFFFFFFFFFFFFF00FFFFFFFF51C6
+        EBFFCFF4FCFFACEEFCFFACEEFCFFACEEFCFFA1E9F9FF97E4F7FF8DE0F6FF83DB
+        F3FF76D5F1FF76D5F1FFB0E6F6FF32AEEBFFFFFFFFFFFFFFFF00FFFFFFFF51C6
+        EBFFD3F6FFFFB6F3FEFFB6F3FEFFACEEFCFFACEEFCFFA1E9F9FF97E4F7FF8DE0
+        F6FF83DBF3FF83DBF3FFB5EAF8FF32AEEBFFFFFFFFFFFFFFFF00FFFFFFFF51C6
+        EBFFF3FBFFFFF3FBFFFFF3FBFFFFE8F7FCFFACEEFCFFACEEFCFFA1E9F9FF97E4
+        F7FF97E4F7FF8DE0F6FFC3EEFBFF32AEEBFFFFFFFFFFFFFFFF00FFFFFFFF51C6
+        EBFF51C6EBFF51C6EBFF51C6EBFF51C6EBFFE8F7FCFFE8F7FCFFE8F7FCFFC3EE
+        FBFFC3EEFBFFB5EAF8FFC4F3FDFF32AEEBFFFFFFFFFFFFFFFF00FFFFFFFF8CD1
+        EBFFF3FBFFFFCEF7FFFFCEF7FFFFC5F7FFFF51C6EBFF46BCEBFF46BCEBFF46BC
+        EBFF3DB6EBFF3DB6EBFF37B2EBFF32AEEBFFFFFFFFFFFFFFFF00FFFFFFFF98D3
+        EBFFFFFFFFFFCEF7FFFFCEF7FFFFCEF7FFFFC5F7FFFFC5F7FFFFC5F7FFFFC5F7
+        FFFFB6F3FEFFB6F3FEFFC5F7FFFF31CFEBFFFFFFFFFFFFFFFF00FFFFFFFF98D3
+        EBFFFFFFFFFFCEF7FFFFCEF7FFFFCEF7FFFFC5F7FFFF69CEEDFF51C6EBFF51C6
+        EBFF31CFEBFF31CFEBFF31CFEBFF31CFEBFFFFFFFFFFFFFFFF00FFFFFF00FFFF
+        FFFF98D3EBFF98D3EBFF8BCFEBFF79CDEBFF79CDEBFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFF00FFFF
+        FF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+      }
+      OnClick = btnChooseDirClick
+    end
+    object txtLocalDir: TStaticText
       Left = 10
       Height = 29
       Top = 10
-      Width = 422
-      ItemHeight = 21
+      Width = 382
+      Alignment = taCenter
+      BorderStyle = sbsSunken
+      Caption = 'txtLocalDir'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -18
+      Font.Name = 'Tahoma'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentFont = False
       TabOrder = 1
-      Text = 'DriveComboBox1'
     end
   end
-  object GroupBox2: TGroupBox
+  object grpPS2: TGroupBox
     Left = 526
     Height = 522
     Top = 0
@@ -69,7 +121,7 @@ object FrmMiniFTP: TFrmMiniFTP
     Font.Name = 'Tahoma'
     ParentFont = False
     TabOrder = 1
-    object Label1: TLabel
+    object lblPS2Content: TLabel
       Left = 10
       Height = 22
       Top = 10
@@ -81,7 +133,7 @@ object FrmMiniFTP: TFrmMiniFTP
       ParentColor = False
       ParentFont = False
     end
-    object ListBox1: TListBox
+    object lstbPS2Files: TListBox
       Left = 10
       Height = 410
       Top = 34
@@ -94,7 +146,7 @@ object FrmMiniFTP: TFrmMiniFTP
       ParentFont = False
       TabOrder = 0
     end
-    object BitBtn4: TBitBtn
+    object btnPS2DeleteFiles: TBitBtn
       Left = 10
       Height = 38
       Top = 448
@@ -147,12 +199,12 @@ object FrmMiniFTP: TFrmMiniFTP
         FFFFFFFFFF5747FFFFFFFF4F474EFFFFFFFFFFFFFFFFFFFFFFFFFF4F4FFFFFFF
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       }
-      OnClick = BitBtn4Click
+      OnClick = btnPS2DeleteFilesClick
       ParentFont = False
       TabOrder = 1
     end
   end
-  object BitBtn1: TBitBtn
+  object btnSendToRight: TBitBtn
     Left = 453
     Height = 66
     Hint = 'Enviar arquivo(s) do PC para o PS2'
@@ -183,13 +235,13 @@ object FrmMiniFTP: TFrmMiniFTP
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
     }
-    OnClick = BitBtn1Click
+    OnClick = btnSendToRightClick
     ParentFont = False
     ParentShowHint = False
     ShowHint = True
     TabOrder = 2
   end
-  object BitBtn2: TBitBtn
+  object btnSendToLeft: TBitBtn
     Left = 453
     Height = 66
     Hint = 'Receber arquivo(s) do PS2 para o PC'
@@ -220,13 +272,13 @@ object FrmMiniFTP: TFrmMiniFTP
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
     }
-    OnClick = BitBtn2Click
+    OnClick = btnSendToLeftClick
     ParentFont = False
     ParentShowHint = False
     ShowHint = True
     TabOrder = 3
   end
-  object BitBtn3: TBitBtn
+  object btnClose: TBitBtn
     Left = 406
     Height = 38
     Top = 528
@@ -280,11 +332,11 @@ object FrmMiniFTP: TFrmMiniFTP
       F6FFFFF6AF5F5F5F16FFFFA7AFAFAFA7A7A7A767675F5F5F16FFFFEFA7A76767
       5F5F5F5F5F5F5F57AFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
     }
-    OnClick = BitBtn3Click
+    OnClick = btnCloseClick
     ParentFont = False
     TabOrder = 4
   end
-  object StatusBar1: TStatusBar
+  object StatusBar: TStatusBar
     Left = 0
     Height = 36
     Top = 574
@@ -295,5 +347,9 @@ object FrmMiniFTP: TFrmMiniFTP
     Panels = <>
     ParentFont = False
     SimpleText = 'Pronto!'
+  end
+  object dlgLocalDirSelect: TSelectDirectoryDialog
+    left = 256
+    top = 88
   end
 end

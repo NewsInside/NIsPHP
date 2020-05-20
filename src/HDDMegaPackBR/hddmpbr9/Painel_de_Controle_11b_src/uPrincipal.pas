@@ -37,8 +37,8 @@ uses
   LCLIntf, LCLType, LMessages,
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, CheckLst, IdBaseComponent, IdComponent,
-  IdTCPConnection, IdTCPClient, IdExplicitTLSClientServerBase, IdFTP, Menus,
+  Dialogs, StdCtrls, Buttons, CheckLst, IdComponent,
+  IdTCPConnection, IdTCPClient, IdFTP, Menus,
   ComCtrls,
   // Colocados manualmente
   IdFTPList, IdReplyRFC,
@@ -79,7 +79,7 @@ type
     RemoveroHDDMegaPackBRdoPS21                                : TMenuItem;
     menuUserManual                                            : TMenuItem;
     N3                                                         : TMenuItem;
-    MiniFTP1                                                   : TMenuItem;
+    MiniFTP                                                   : TMenuItem;
 
     lblPS2IP                                                   : TLabel;
     lblAuthor                                                  : TLabel;
@@ -99,31 +99,39 @@ type
 
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-    procedure btnConnectClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+
+    procedure btnConnectClick(Sender: TObject);
     procedure btnOpenCNFFileClick(Sender: TObject);
     procedure btnSelectAllClick(Sender: TObject);
     procedure btnToogleSelectionClick(Sender: TObject);
     procedure btnDetailsClick(Sender: TObject);
-    procedure chklstbProgramsToInstallDblClick(Sender: TObject);
     procedure btnInstallSelectedProgramsClick(Sender: TObject);
-    procedure menuExitClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnUninstallClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
+
+    procedure sbtnUpClick(Sender: TObject);
+    procedure sbtnDownClick(Sender: TObject);
+    procedure sbtnOrderByClick(Sender: TObject);
+
+    procedure chklstbProgramsToInstallDblClick(Sender: TObject);
+
+    procedure menuExitClick(Sender: TObject);
+    procedure menuUserManualClick(Sender: TObject);
+    procedure menuAboutClick(Sender: TObject);
+
+    procedure lblAuthorClick(Sender: TObject);
+
+    procedure MiniFTPClick(Sender: TObject);
+
     procedure InstalaroEXPLOIT1Click(Sender: TObject);
     procedure InstalaroDMSHDDExplorernoMemoryCard1Click(Sender: TObject);
     procedure InstalaroDMSHDDExplorernoPS21Click(Sender: TObject);
     procedure RemoveroHDDMegaPackBRdoPS21Click(Sender: TObject);
-    procedure menuAboutClick(Sender: TObject);
-    procedure sbtnUpClick(Sender: TObject);
-    procedure sbtnDownClick(Sender: TObject);
-    procedure sbtnOrderByClick(Sender: TObject);
-    procedure lblAuthorClick(Sender: TObject);
+
     procedure FTPWork(ASender: TObject; AWorkMode: TWorkMode;
       AWorkCount: Integer);
-    procedure menuUserManualClick(Sender: TObject);
-    procedure MiniFTP1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -428,7 +436,7 @@ begin
       InstalaroDMSHDDExplorernoPS21.Enabled := False;
       InstalaroEXPLOIT1.Enabled := False;
       RemoveroHDDMegaPackBRdoPS21.Enabled := False;
-      MiniFTP1.Enabled := False;
+      MiniFTP.Enabled := False;
    end;
 end;
 
@@ -455,8 +463,8 @@ begin
       if boot_encontrada then RemoveroHDDMegaPackBRdoPS21.Enabled := True
       else RemoveroHDDMegaPackBRdoPS21.Enabled := False;
 
-      if boot_encontrada then MiniFTP1.Enabled := True
-      else MiniFTP1.Enabled := False;
+      if boot_encontrada then MiniFTP.Enabled := True
+      else MiniFTP.Enabled := False;
    end;
 end;
 
@@ -963,7 +971,7 @@ begin
     OpenDocument(PChar(ExtractFilePath(Application.ExeName) + 'manual.pdf')); { *Converted from ShellExecute* }
 end;
 
-procedure TFrmPrincipal.MiniFTP1Click(Sender: TObject);
+procedure TFrmPrincipal.MiniFTPClick(Sender: TObject);
 begin
    if Instalando then Exit;
 

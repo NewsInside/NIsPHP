@@ -1,7 +1,7 @@
 object FrmPrincipal: TFrmPrincipal
-  Left = 3010
+  Left = 87
   Height = 678
-  Top = 145
+  Top = 97
   Width = 952
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
@@ -773,11 +773,10 @@ object FrmPrincipal: TFrmPrincipal
       object N2: TMenuItem
         Caption = '-'
       end
-      object MiniFTP1: TMenuItem
+      object MiniFTP: TMenuItem
         Caption = 'Mini-FTP'
-        Enabled = False
         ImageIndex = 5
-        OnClick = MiniFTP1Click
+        OnClick = MiniFTPClick
       end
       object N3: TMenuItem
         Caption = '-'

@@ -37,36 +37,35 @@ uses
   LCLIntf, LCLType, LMessages,
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, FileCtrl, StdCtrls, Buttons, ComCtrls, IdFTP, IdFTPList, IdReplyRFC,
-  IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient,
-  IdExplicitTLSClientServerBase;
+  Dialogs, FileCtrl, StdCtrls, Buttons, ComCtrls, IdFTP, IdFTPList;
 
 type
 
   { TFrmMiniFTP }
 
   TFrmMiniFTP = class(TForm)
-    GroupBox1: TGroupBox;
-    GroupBox2: TGroupBox;
-    DriveComboBox1: TComboBox;
-    DirectoryListBox1: TListBox;
-    FileListBox1: TFileListBox;
-    BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
-    ListBox1: TListBox;
-    Label1: TLabel;
-    StatusBar1: TStatusBar;
-    BitBtn4: TBitBtn;
-    procedure DriveComboBox1Change(Sender: TObject);
-    procedure DirectoryListBox1Change(Sender: TObject);
-    procedure BitBtn3Click(Sender: TObject);
-    procedure BitBtn1Click(Sender: TObject);
-    procedure BitBtn2Click(Sender: TObject);
+    grpMyComputer: TGroupBox;
+    grpPS2: TGroupBox;
+    lstbMyComputerFiles: TFileListBox;
+    btnSendToRight: TBitBtn;
+    btnSendToLeft: TBitBtn;
+    btnClose: TBitBtn;
+    lstbPS2Files: TListBox;
+    lblPS2Content: TLabel;
+    dlgLocalDirSelect: TSelectDirectoryDialog;
+    btnChooseDir: TSpeedButton;
+    txtLocalDir: TStaticText;
+    StatusBar: TStatusBar;
+    btnPS2DeleteFiles: TBitBtn;
+    procedure btnChooseDirClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
+    procedure btnSendToRightClick(Sender: TObject);
+    procedure btnSendToLeftClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure BitBtn4Click(Sender: TObject);
+    procedure btnPS2DeleteFilesClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FileListBox1DblClick(Sender: TObject);
+    procedure lstbMyComputerFilesDblClick(Sender: TObject);
+    procedure grpMyComputerClick(Sender: TObject);
   private
     { Private declarations }
     procedure AtualizaListaArquivos;
@@ -85,6 +84,8 @@ implementation
 {$ELSE}
   {$R *.lfm}
 {$ENDIF}
+
+uses uFileAndDriveUtils;
 
 procedure DesabilitaBotoes;
 var
@@ -108,11 +109,11 @@ begin
    end;
 end;
 
-procedure TFrmMiniFTP.BitBtn1Click(Sender: TObject);
+procedure TFrmMiniFTP.btnSendToRightClick(Sender: TObject);
 var
    k, q: Integer;
 begin
-   q := FileListBox1.SelCount;
+   q := lstbMyComputerFiles.SelCount;
 
    if q <= 0 then Exit;
 
@@ -121,11 +122,11 @@ begin
    Screen.Cursor := crHourGlass;
    DesabilitaBotoes;
 
-   with FileListBox1 do begin
+   with lstbMyComputerFiles do begin
       for k:=0 to Items.Count-1 do begin
          if Selected[k] then begin
-            FrmMiniFTP.StatusBar1.SimpleText := 'Copiando ' + Items[k] + ' do PC para o PS2...';
-            FrmMiniFTP.StatusBar1.Repaint;
+            FrmMiniFTP.StatusBar.SimpleText := 'Copiando ' + Items[k] + ' do PC para o PS2...';
+            FrmMiniFTP.StatusBar.Repaint;
 
             FTP.Put(IncludeTrailingBackslash(Directory) + Items[k], '/pfs/0/MISC/' + Items[k]);
          end;
@@ -134,16 +135,16 @@ begin
 
    AtualizaListaArquivos;
 
-   StatusBar1.SimpleText := 'Pronto!';
+   StatusBar.SimpleText := 'Pronto!';
    Screen.Cursor := crDefault;
    HabilitaBotoes;
 end;
 
-procedure TFrmMiniFTP.BitBtn2Click(Sender: TObject);
+procedure TFrmMiniFTP.btnSendToLeftClick(Sender: TObject);
 var
    k, q: Integer;
 begin
-   q := ListBox1.SelCount;
+   q := lstbPS2Files.SelCount;
 
    if q <= 0 then Exit;
 
@@ -152,68 +153,68 @@ begin
    Screen.Cursor := crHourGlass;
    DesabilitaBotoes;
 
-   with ListBox1 do begin
+   with lstbPS2Files do begin
       for k:=0 to Items.Count-1 do begin
          if Selected[k] then begin
-            FrmMiniFTP.StatusBar1.SimpleText := 'Copiando ' + Items[k] + ' do PS2 para o PC...';
-            FrmMiniFTP.StatusBar1.Repaint;
+            FrmMiniFTP.StatusBar.SimpleText := 'Copiando ' + Items[k] + ' do PS2 para o PC...';
+            FrmMiniFTP.StatusBar.Repaint;
 
-            FTP.Get('/pfs/0/MISC/' + Items[k], IncludeTrailingBackslash(FileListBox1.Directory) + Items[k], true);
+            FTP.Get('/pfs/0/MISC/' + Items[k], IncludeTrailingBackslash(lstbMyComputerFiles.Directory) + Items[k], true);
          end;
       end;
    end;
 
-   FileListBox1.Update;
+   lstbMyComputerFiles.Update;
 
-   StatusBar1.SimpleText := 'Pronto!';
+   StatusBar.SimpleText := 'Pronto!';
    Screen.Cursor := crDefault;
    HabilitaBotoes;
 end;
 
-procedure TFrmMiniFTP.BitBtn3Click(Sender: TObject);
+procedure TFrmMiniFTP.btnCloseClick(Sender: TObject);
 begin
    Close;
 end;
 
-procedure TFrmMiniFTP.BitBtn4Click(Sender: TObject);
+procedure TFrmMiniFTP.btnPS2DeleteFilesClick(Sender: TObject);
 var
    k: Integer;
 begin
-   if ListBox1.SelCount <= 0 then Exit;
+   if lstbPS2Files.SelCount <= 0 then Exit;
 
    if Application.MessageBox(PChar('Confirma a remoção do(s) arquivo(s) selecionados?'), 'Confirmação', MB_YESNO) <> MRYES then Exit;
 
    Screen.Cursor := crHourGlass;
-   BitBtn4.Enabled := False;
+   btnPS2DeleteFiles.Enabled := False;
 
-   with ListBox1 do begin
+   with lstbPS2Files do begin
       for k:=0 to Items.Count-1 do begin
          if Selected[k] then begin
-            FrmMiniFTP.StatusBar1.SimpleText := 'Deletando o arquivo ' + ListBox1.Items[k] + ' do PS2...';
-            FrmMiniFTP.StatusBar1.Repaint;
+            FrmMiniFTP.StatusBar.SimpleText := 'Deletando o arquivo ' + lstbPS2Files.Items[k] + ' do PS2...';
+            FrmMiniFTP.StatusBar.Repaint;
 
-            FTP.Delete('/pfs/0/MISC/' + ListBox1.Items[k]);
+            FTP.Delete('/pfs/0/MISC/' + lstbPS2Files.Items[k]);
          end;
       end;
    end;
 
    AtualizaListaArquivos;
 
-   StatusBar1.SimpleText := 'Pronto!';
-   StatusBar1.Repaint;
+   StatusBar.SimpleText := 'Pronto!';
+   StatusBar.Repaint;
    Screen.Cursor := crDefault;
-   BitBtn4.Enabled := True;
+   btnPS2DeleteFiles.Enabled := True;
 
 end;
 
-procedure TFrmMiniFTP.DirectoryListBox1Change(Sender: TObject);
+procedure TFrmMiniFTP.btnChooseDirClick(Sender: TObject);
 begin
-   //FileListBox1.Directory := DirectoryListBox1.Directory;
-end;
-
-procedure TFrmMiniFTP.DriveComboBox1Change(Sender: TObject);
-begin
-   //DirectoryListBox1.Drive := DriveComboBox1.Drive;
+   if dlgLocalDirSelect.Execute = true then
+   begin
+      txtLocalDir.Caption := dlgLocalDirSelect.FileName;
+      lstbMyComputerFiles.Directory:= dlgLocalDirSelect.FileName;
+      lstbMyComputerFiles.UpdateFileList;
+   end;
 end;
 
 procedure TFrmMiniFTP.AtualizaListaArquivos;
@@ -229,20 +230,25 @@ begin
       Exit;
    end;
 
-   ListBox1.Items.Clear;
+   lstbPS2Files.Items.Clear;
 
    for i := 0 to FTP.DirectoryListing.Count-1 do begin
       if (FTP.DirectoryListing.Items[i].FileName <> '.') and (FTP.DirectoryListing.Items[i].FileName <> '..') then begin
          case FTP.DirectoryListing.Items[i].ItemType of
-            ditFile: ListBox1.Items.Add(FTP.DirectoryListing.Items[i].FileName);
+            ditFile: lstbPS2Files.Items.Add(FTP.DirectoryListing.Items[i].FileName);
          end;
       end;
    end;
 end;
 
-procedure TFrmMiniFTP.FileListBox1DblClick(Sender: TObject);
+procedure TFrmMiniFTP.lstbMyComputerFilesDblClick(Sender: TObject);
 begin
-   Application.MessageBox(PChar(FileListBox1.FileName), 'Nome do Arquivo:', 0);
+   Application.MessageBox(PChar(lstbMyComputerFiles.FileName), 'Nome do Arquivo:', 0);
+end;
+
+procedure TFrmMiniFTP.grpMyComputerClick(Sender: TObject);
+begin
+
 end;
 
 procedure TFrmMiniFTP.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -253,11 +259,11 @@ end;
 procedure TFrmMiniFTP.FormShow(Sender: TObject);
 begin
    try
-      FTP.MakeDir('/pfs/0/MISC');
+      //FTP.MakeDir('/pfs/0/MISC');
    except
    end;
 
-   AtualizaListaArquivos;
+   txtLocalDir.Caption := '';
 end;
 
 end.

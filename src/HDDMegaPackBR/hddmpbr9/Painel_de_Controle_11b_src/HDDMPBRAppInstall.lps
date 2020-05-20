@@ -52,12 +52,12 @@
         <ComponentName Value="FrmInstalaExploit"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <TopLine Value="26"/>
-        <CursorPos X="8" Y="41"/>
+        <CursorPos X="26" Y="32"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit4>
       <Unit5>
@@ -92,9 +92,10 @@
         <ComponentName Value="FrmMiniFTP"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="30"/>
-        <CursorPos X="67" Y="41"/>
+        <TopLine Value="247"/>
+        <CursorPos Y="266"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -127,124 +128,124 @@
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="199" Column="42" TopLine="188"/>
-      </Position1>
-      <Position2>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="251" Column="5" TopLine="221"/>
-      </Position2>
-      <Position3>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="193" Column="17" TopLine="188"/>
-      </Position3>
-      <Position4>
-        <Filename Value="ufileanddriveutils.pas"/>
-        <Caret Line="28" Column="28"/>
-      </Position4>
-      <Position5>
-        <Filename Value="ufileanddriveutils.pas"/>
-        <Caret Line="26" Column="30"/>
-      </Position5>
-      <Position6>
-        <Filename Value="ufileanddriveutils.pas"/>
-        <Caret Line="28" Column="36"/>
-      </Position6>
-      <Position7>
-        <Filename Value="uPrincipal.pas"/>
-        <Caret Line="103" Column="25" TopLine="81"/>
-      </Position7>
-      <Position8>
-        <Filename Value="uPrincipal.pas"/>
-        <Caret Line="102" Column="25" TopLine="91"/>
-      </Position8>
-      <Position9>
-        <Filename Value="uPrincipal.pas"/>
-        <Caret Line="104" Column="23" TopLine="92"/>
-      </Position9>
-      <Position10>
         <Filename Value="uPrincipal.pas"/>
         <Caret Line="126" Column="21" TopLine="100"/>
-      </Position10>
-      <Position11>
+      </Position1>
+      <Position2>
         <Filename Value="uPrincipal.pas"/>
         <Caret Line="1060" Column="19" TopLine="1012"/>
-      </Position11>
-      <Position12>
+      </Position2>
+      <Position3>
         <Filename Value="uPrincipal.pas"/>
         <Caret Line="632" Column="18" TopLine="588"/>
-      </Position12>
-      <Position13>
+      </Position3>
+      <Position4>
         <Filename Value="uPrincipal.pas"/>
         <Caret Line="106" Column="15" TopLine="82"/>
-      </Position13>
-      <Position14>
+      </Position4>
+      <Position5>
         <Filename Value="uPrincipal.pas"/>
         <Caret Line="632" Column="7" TopLine="600"/>
+      </Position5>
+      <Position6>
+        <Filename Value="uMiniFTP.pas"/>
+        <Caret Line="243" Column="9" TopLine="224"/>
+      </Position6>
+      <Position7>
+        <Filename Value="uMiniFTP.pas"/>
+        <Caret Line="210" Column="26" TopLine="193"/>
+      </Position7>
+      <Position8>
+        <Filename Value="uMiniFTP.pas"/>
+        <Caret Line="215" Column="80" TopLine="191"/>
+      </Position8>
+      <Position9>
+        <Filename Value="uMiniFTP.pas"/>
+        <Caret Line="216" Column="34" TopLine="191"/>
+      </Position9>
+      <Position10>
+        <Filename Value="uMiniFTP.pas"/>
+        <Caret Line="40" Column="69" TopLine="16"/>
+      </Position10>
+      <Position11>
+        <Filename Value="uMiniFTP.pas"/>
+        <Caret Line="229" Column="39" TopLine="218"/>
+      </Position11>
+      <Position12>
+        <Filename Value="HDDMPBRAppInstall.dpr"/>
+        <Caret Line="35" Column="35"/>
+      </Position12>
+      <Position13>
+        <Filename Value="uMiniFTP.pas"/>
+        <Caret Line="218" Column="29" TopLine="170"/>
+      </Position13>
+      <Position14>
+        <Filename Value="uMiniFTP.pas"/>
+        <Caret Line="45" Column="16" TopLine="30"/>
       </Position14>
       <Position15>
         <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="243" Column="9" TopLine="224"/>
+        <Caret Line="179" Column="45" TopLine="169"/>
       </Position15>
       <Position16>
         <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="210" Column="26" TopLine="193"/>
+        <Caret Line="270" Column="27" TopLine="254"/>
       </Position16>
       <Position17>
         <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="215" Column="80" TopLine="191"/>
+        <Caret Line="72" Column="36" TopLine="62"/>
       </Position17>
       <Position18>
         <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="216" Column="34" TopLine="191"/>
+        <Caret Line="41" Column="67" TopLine="30"/>
       </Position18>
       <Position19>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="40" Column="69" TopLine="16"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="41" Column="33" TopLine="26"/>
       </Position19>
       <Position20>
-        <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="229" Column="39" TopLine="218"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="42" Column="40" TopLine="40"/>
       </Position20>
       <Position21>
-        <Filename Value="HDDMPBRAppInstall.dpr"/>
-        <Caret Line="35" Column="35"/>
+        <Filename Value="uPrincipal.pas"/>
+        <Caret Line="41" Column="53" TopLine="40"/>
       </Position21>
       <Position22>
         <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="218" Column="29" TopLine="170"/>
+        <Caret Line="41" Column="67" TopLine="30"/>
       </Position22>
       <Position23>
         <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="45" Column="16" TopLine="30"/>
+        <Caret Line="226" TopLine="225"/>
       </Position23>
       <Position24>
         <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="179" Column="45" TopLine="169"/>
+        <Caret Line="175" TopLine="167"/>
       </Position24>
       <Position25>
         <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="270" Column="27" TopLine="254"/>
+        <Caret Line="219" Column="35" TopLine="208"/>
       </Position25>
       <Position26>
         <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="72" Column="36" TopLine="62"/>
+        <Caret Line="221" TopLine="208"/>
       </Position26>
       <Position27>
         <Filename Value="uMiniFTP.pas"/>
-        <Caret Line="41" Column="67" TopLine="30"/>
+        <Caret Line="270" Column="4" TopLine="253"/>
       </Position27>
       <Position28>
-        <Filename Value="uPrincipal.pas"/>
-        <Caret Line="41" Column="33" TopLine="26"/>
+        <Filename Value="uMiniFTP.pas"/>
+        <Caret Line="272" Column="6" TopLine="253"/>
       </Position28>
       <Position29>
-        <Filename Value="uPrincipal.pas"/>
-        <Caret Line="42" Column="40" TopLine="40"/>
+        <Filename Value="uMiniFTP.pas"/>
+        <Caret Line="218" TopLine="203"/>
       </Position29>
       <Position30>
-        <Filename Value="uPrincipal.pas"/>
-        <Caret Line="41" Column="53" TopLine="40"/>
+        <Filename Value="uMiniFTP.pas"/>
+        <Caret Line="271" Column="29" TopLine="250"/>
       </Position30>
     </JumpHistory>
     <RunParams>
@@ -259,7 +260,7 @@
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
         <Source Value="uMiniFTP.pas"/>
-        <Line Value="52"/>
+        <Line Value="51"/>
       </Item1>
     </BreakPoints>
   </Debugging>
