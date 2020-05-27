@@ -11,3 +11,4 @@
 **/*.user
 **/*.config.exe
 **/*.vshost.exe
+**/*.lps
