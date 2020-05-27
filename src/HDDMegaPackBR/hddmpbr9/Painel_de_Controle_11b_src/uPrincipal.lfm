@@ -1,7 +1,7 @@
 object FrmPrincipal: TFrmPrincipal
-  Left = 87
+  Left = 141
   Height = 678
-  Top = 97
+  Top = 65
   Width = 952
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
@@ -21,14 +21,14 @@ object FrmPrincipal: TFrmPrincipal
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.2.0'
+  LCLVersion = '2.0.8.0'
   object lblAuthor: TLabel
     Cursor = crHandPoint
     Left = 288
     Height = 21
     Top = 584
-    Width = 371
-    Caption = '©03/2007 - Bruno Freitas - bootsector@ig.com.br'
+    Width = 477
+    Caption = 'by NIsPHP Team - https://www.github.com/NewsInside/NIsPHP'
     Font.Color = clWindowText
     Font.Height = -17
     Font.Name = 'Tahoma'
@@ -531,7 +531,7 @@ object FrmPrincipal: TFrmPrincipal
       Font.Name = 'Tahoma'
       ParentFont = False
       TabOrder = 0
-      Text = '192.168.0.10'
+      Text = '192.168.1.120'
     end
     object btnConnect: TBitBtn
       Left = 10
@@ -743,13 +743,13 @@ object FrmPrincipal: TFrmPrincipal
     NATKeepAlive.IntervalMS = 0
     ProxySettings.ProxyType = fpcmNone
     ProxySettings.Port = 0
-    left = 760
-    top = 472
+    left = 216
+    top = 568
   end
   object MainMenu: TMainMenu
     Images = ImageList2
-    left = 504
-    top = 472
+    left = 832
+    top = 568
     object menuTools: TMenuItem
       Caption = '&Ferramentas'
       object InstalaroDMSHDDExplorernoMemoryCard1: TMenuItem
@@ -814,12 +814,12 @@ object FrmPrincipal: TFrmPrincipal
     Title = 'Abrir arquivo INSTALL.CNF...'
     FileName = 'INSTALL.CNF'
     Filter = 'Arquivos CNF (*.CNF)|*.cnf|Todos os arquivos|*.*'
-    left = 816
-    top = 472
+    left = 72
+    top = 568
   end
   object ImageList1: TImageList
-    left = 648
-    top = 472
+    left = 168
+    top = 568
     Bitmap = {
       4C69020000001000000010000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -893,18 +893,18 @@ object FrmPrincipal: TFrmPrincipal
     FileName = 'APPLIST.DAT'
     Filter = 'APPLIST.DAT|APPLIST.DAT'
     Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
-    left = 600
-    top = 472
+    left = 880
+    top = 568
   end
   object OpenDialogAppListDat: TOpenDialog
     Title = 'Abrir APPLIST.DAT...'
     Filter = 'APPLIST.DAT|APPLIST.DAT'
-    left = 552
-    top = 472
+    left = 24
+    top = 568
   end
   object ImageList2: TImageList
-    left = 704
-    top = 472
+    left = 120
+    top = 568
     Bitmap = {
       4C69060000001000000010000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

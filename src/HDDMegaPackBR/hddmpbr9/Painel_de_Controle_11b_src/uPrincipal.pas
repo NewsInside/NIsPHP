@@ -38,7 +38,7 @@ uses
 {$ENDIF}
   Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, CheckLst, IdComponent,
-  IdTCPConnection, IdTCPClient, IdFTP, Menus,
+  IdTCPConnection, IdTCPClient, IdFTP, IdExplicitTLSClientServerBase, Menus,
   ComCtrls,
   // Colocados manualmente
   IdFTPList, IdReplyRFC,
@@ -552,14 +552,17 @@ begin
    end;
 
    if not Conectado then begin
-      try
          StatusBar.SimpleText := 'Conectando a ' + edtPS2IP.Text + '...';
          StatusBar.Repaint;
-         FTP.Host := edtPS2IP.Text;
-         FTP.Connect;
-      Except
+         FTP.Host := '192.168.1.120';
+         FTP.Username := 'anonymous';
+         FTP.UseHOST := False;
+         FTP.Password := '';
+         try
+            FTP.Connect;
+         Except
          on E: Exception do begin
-            Application.MessageBox('Não foi possível conectar ao PS2! Verifique as conexões de rede, bem como as configurações!', 'Erro', 0);
+            Application.MessageBox(PChar('Não foi possível conectar ao PS2! Verifique as conexões de rede, bem como as configurações!' + Chr(13)+Chr(10)+Chr(13)+Chr(10) + E.Message), 'Erro', 0);
             StatusBar.SimpleText := 'Pronto!';
             StatusBar.Repaint;
             Exit;
