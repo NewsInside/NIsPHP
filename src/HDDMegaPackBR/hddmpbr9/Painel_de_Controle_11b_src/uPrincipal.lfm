@@ -1,13 +1,13 @@
 object FrmPrincipal: TFrmPrincipal
-  Left = 141
-  Height = 678
-  Top = 65
-  Width = 952
+  Left = -10
+  Height = 675
+  Top = 0
+  Width = 945
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'HDD MegaPack BR - Painel de Controle - Versão 1.1b'
-  ClientHeight = 648
-  ClientWidth = 952
+  ClientHeight = 645
+  ClientWidth = 945
   Color = clBtnFace
   DesignTimePPI = 144
   Font.Color = clWindowText
@@ -606,7 +606,7 @@ object FrmPrincipal: TFrmPrincipal
     ParentFont = False
     TabOrder = 3
     object btnOpenCNFFile: TBitBtn
-      Left = 10
+      Left = 16
       Height = 38
       Top = 31
       Width = 434
@@ -724,8 +724,8 @@ object FrmPrincipal: TFrmPrincipal
   object StatusBar: TStatusBar
     Left = 0
     Height = 36
-    Top = 612
-    Width = 952
+    Top = 609
+    Width = 945
     Font.Color = clWindowText
     Font.Height = -17
     Font.Name = 'Tahoma'

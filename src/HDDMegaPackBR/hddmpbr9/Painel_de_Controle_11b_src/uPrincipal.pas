@@ -554,10 +554,8 @@ begin
    if not Conectado then begin
          StatusBar.SimpleText := 'Conectando a ' + edtPS2IP.Text + '...';
          StatusBar.Repaint;
-         FTP.Host := '192.168.1.120';
-         FTP.Username := 'anonymous';
+         FTP.Host := edtPS2IP.Text;
          FTP.UseHOST := False;
-         FTP.Password := '';
          try
             FTP.Connect;
          Except
