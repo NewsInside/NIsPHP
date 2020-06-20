@@ -24,6 +24,10 @@ SOFTWARE.
 
 unit uAppList;
 
+{$IFDEF FPC}
+  {$MODE Delphi}
+{$ENDIF}
+
 interface
 
 uses SysUtils, Classes, Dialogs;
@@ -112,7 +116,7 @@ begin
    inherited;
 end;
 
-// Funções Diversas
+// FunÃ§Ãµes Diversas
 
 procedure AbreAppList(var Lista: TList; NomeArquivo: String);
 var

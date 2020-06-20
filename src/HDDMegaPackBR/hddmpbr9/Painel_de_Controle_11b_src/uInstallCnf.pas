@@ -24,6 +24,10 @@ SOFTWARE.
 
 unit uInstallCnf;
 
+{$IFDEF FPC}
+  {$MODE Delphi}
+{$ENDIF}
+
 interface
 
 uses Classes, SysUtils, Dialogs, uAppList;
@@ -65,7 +69,7 @@ begin
          Readln(Arquivo, Linha);
       until (Trim(UpperCase(Linha)) = '[APP]') or (Eof(Arquivo));
 
-      // Lê dados que se encontram entre [APP] e [/APP] para StringList
+      // LÃª dados que se encontram entre [APP] e [/APP] para StringList
       if Trim(UpperCase(Linha)) = '[APP]' then begin
          Registro.Clear;
          while (Trim(UpperCase(Linha)) <> '[/APP]') and (not Eof(Arquivo)) do begin

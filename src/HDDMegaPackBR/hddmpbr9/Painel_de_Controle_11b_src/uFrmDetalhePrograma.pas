@@ -24,10 +24,19 @@ SOFTWARE.
 
 unit uFrmDetalhePrograma;
 
+{$IFDEF FPC}
+  {$MODE Delphi}
+{$ENDIF}
+
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+{$IFnDEF FPC}
+  Windows,
+{$ELSE}
+  LCLIntf, LCLType, LMessages,
+{$ENDIF}
+  Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, uAppList;
 
 type
@@ -57,24 +66,28 @@ var
 implementation
 
 
-{$R *.dfm}
+{$IFnDEF FPC}
+  {$R *.dfm}
+{$ELSE}
+  {$R *.lfm}
+{$ENDIF}
 
 procedure TFrmDetalhePrograma.BitBtn2Click(Sender: TObject);
 begin
    if Trim(Edit1.Text) = '' then begin
-      Application.MessageBox('Você precisa especificar o Título do programa!', 'Atenção', 0);
+      Application.MessageBox('VocÃª precisa especificar o TÃ­tulo do programa!', 'AtenÃ§Ã£o', 0);
       Edit1.SetFocus;
       Exit;
    end;
 
    if Trim(Edit2.Text) = '' then begin
-      Application.MessageBox('Você precisa especificar o Autor do programa!', 'Atenção', 0);
+      Application.MessageBox('VocÃª precisa especificar o Autor do programa!', 'AtenÃ§Ã£o', 0);
       Edit2.SetFocus;
       Exit;
    end;
 
    if Trim(Memo1.Lines.Text) = '' then begin
-      Application.MessageBox('Você precisa especificar a Descrição do programa!', 'Atenção', 0);
+      Application.MessageBox('VocÃª precisa especificar a DescriÃ§Ã£o do programa!', 'AtenÃ§Ã£o', 0);
       Memo1.SetFocus;
       Exit;
    end;

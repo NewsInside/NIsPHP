@@ -7,3 +7,8 @@
 **/AutomaticConversion.log
 **/ConverterBackup
 **/._*
+**/*.suo
+**/*.user
+**/*.config.exe
+**/*.vshost.exe
+**/*.lps

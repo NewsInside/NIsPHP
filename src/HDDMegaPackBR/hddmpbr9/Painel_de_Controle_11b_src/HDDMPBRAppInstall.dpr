@@ -24,8 +24,12 @@ SOFTWARE.
 
 program HDDMPBRAppInstall;
 
+{$IFDEF FPC}
+  {$MODE Delphi}
+{$ENDIF}
+
 uses
-  Forms,
+  Forms, Interfaces,
   uPrincipal in 'uPrincipal.pas' {FrmPrincipal},
   uAppList in 'uAppList.pas',
   uInstallCnf in 'uInstallCnf.pas',
