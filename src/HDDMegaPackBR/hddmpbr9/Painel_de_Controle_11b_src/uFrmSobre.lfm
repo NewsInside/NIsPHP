@@ -1,166 +1,187 @@
 object FrmSobre: TFrmSobre
-  Left = 0
-  Top = 0
+  Left = 951
+  Height = 724
+  Top = 81
+  Width = 483
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Sobre o programa...'
-  ClientHeight = 456
-  ClientWidth = 322
+  ClientHeight = 724
+  ClientWidth = 483
   Color = clBtnFace
-  Font.Charset = DEFAULT_CHARSET
+  DesignTimePPI = 144
   Font.Color = clWindowText
-  Font.Height = -11
+  Font.Height = -17
   Font.Name = 'Tahoma'
-  Font.Style = []
-  Position = poScreenCenter
   OnClose = FormClose
-  PixelsPerInch = 96
+  Position = poScreenCenter
+  LCLVersion = '2.0.8.0'
   object GroupBox1: TGroupBox
-    Left = 0
-    Top = 0
-    Width = 321
-    Height = 425
+    Left = 1
+    Height = 678
+    Top = 8
+    Width = 482
     Caption = 'Informações:'
+    ClientHeight = 652
+    ClientWidth = 478
+    Font.Color = clWindowText
+    Font.Height = -17
+    Font.Name = 'Tahoma'
+    ParentFont = False
     TabOrder = 1
     object Label1: TLabel
-      Left = 6
-      Top = 138
-      Width = 87
-      Height = 13
-      Caption = 'Desenvolvido por:'
-      Font.Charset = DEFAULT_CHARSET
+      Left = 9
+      Height = 21
+      Top = 256
+      Width = 249
+      Caption = 'Versão anterior desenvolvida por:'
       Font.Color = clWindowText
-      Font.Height = -11
+      Font.Height = -17
       Font.Name = 'Tahoma'
       Font.Style = [fsUnderline]
+      ParentColor = False
       ParentFont = False
     end
     object Label4: TLabel
-      Left = 36
-      Top = 381
-      Width = 245
-      Height = 26
+      Left = 45
+      Height = 42
+      Top = 600
+      Width = 386
       Alignment = taCenter
-      Caption = 
-        'O HDD MegaPack BR é GRATUITO!'#13#10'Se você pagou por isso, você foi ' +
-        'ENGANADO!'
-      Font.Charset = DEFAULT_CHARSET
+      Caption = 'O HDD MegaPack BR é GRATUITO!'#13#10'Se você pagou por isso, você foi ENGANADO!'
       Font.Color = clRed
-      Font.Height = -11
+      Font.Height = -17
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
+      ParentColor = False
       ParentFont = False
     end
     object Label5: TLabel
-      Left = 6
-      Top = 339
-      Width = 79
-      Height = 13
+      Left = 9
+      Height = 21
+      Top = 552
+      Width = 121
       Caption = 'Suporte técnico:'
-      Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -11
+      Font.Height = -17
       Font.Name = 'Tahoma'
       Font.Style = [fsUnderline]
+      ParentColor = False
       ParentFont = False
     end
     object Label6: TLabel
-      Left = 16
-      Top = 360
-      Width = 285
-      Height = 13
       Cursor = crHandPoint
+      Left = 24
+      Height = 21
+      Top = 576
+      Width = 433
       Caption = 'http://forum.outerspace.com.br/showthread.php?t=55417'
-      Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlue
-      Font.Height = -11
+      Font.Height = -17
       Font.Name = 'Tahoma'
       Font.Style = [fsUnderline]
+      ParentColor = False
       ParentFont = False
       OnClick = Label6Click
     end
     object Label7: TLabel
-      Left = 6
-      Top = 298
-      Width = 172
-      Height = 13
+      Left = 9
+      Height = 21
+      Top = 504
+      Width = 271
       Caption = 'Agradecimentos mais que especiais:'
-      Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -11
+      Font.Height = -17
       Font.Name = 'Tahoma'
       Font.Style = [fsUnderline]
+      ParentColor = False
       ParentFont = False
     end
     object Label8: TLabel
-      Left = 95
-      Top = 321
-      Width = 42
-      Height = 13
+      Left = 144
+      Height = 21
+      Top = 528
+      Width = 63
       Caption = 'luckess'
-      Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlue
-      Font.Height = -11
+      Font.Height = -17
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
+      ParentColor = False
       ParentFont = False
     end
     object Label9: TLabel
-      Left = 145
-      Top = 321
-      Width = 6
-      Height = 13
+      Left = 218
+      Height = 21
+      Top = 528
+      Width = 9
       Caption = 'e'
+      Font.Color = clWindowText
+      Font.Height = -17
+      Font.Name = 'Tahoma'
+      ParentColor = False
+      ParentFont = False
     end
     object Label10: TLabel
-      Left = 159
-      Top = 321
-      Width = 62
-      Height = 13
+      Left = 238
+      Height = 21
+      Top = 528
+      Width = 96
       Caption = 'tobe81cwb'
-      Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlue
-      Font.Height = -11
+      Font.Height = -17
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
+      ParentColor = False
       ParentFont = False
     end
     object Memo1: TMemo
-      Left = 6
-      Top = 2
-      Width = 305
-      Height = 137
-      TabStop = False
+      Left = 9
+      Height = 197
+      Top = 3
+      Width = 458
       Color = clBtnFace
+      Font.Color = clWindowText
+      Font.Height = -17
+      Font.Name = 'Tahoma'
       Lines.Strings = (
         'O HDD MEGAPACK BR é o mais famoso pacote de aplicativos '
-        'de PS2 disponível na internet, trazendo  emuladores,  media '
+        'de PS2 disponível na internet, trazendo  emuladores, media '
         'players, aplicativos de conexão com o PC, managers de ar-'
         'quivos, códigos para jogos e versões variadas do HDLoader'
         'para extrair o máximo que o PS2 pode oferecer.'
         ''
-        'O HDD MEGA PACK BR funciona em qualquer PS2 com  HDD, '
+        'O HDD MEGA PACK BR funciona em qualquer PS2 com HDD, '
         'destravado com qualquer modchip e também sem destrava-'
-        'mento.')
+        'mento.'
+      )
+      ParentFont = False
       ReadOnly = True
       TabOrder = 0
+      TabStop = False
       WordWrap = False
     end
     object Panel1: TPanel
-      Left = 29
-      Top = 156
-      Width = 106
-      Height = 137
+      Left = 9
+      Height = 206
+      Top = 288
+      Width = 159
       BevelInner = bvLowered
+      ClientHeight = 206
+      ClientWidth = 159
+      Font.Color = clWindowText
+      Font.Height = -17
+      Font.Name = 'Tahoma'
+      ParentFont = False
       TabOrder = 1
       object Image1: TImage
-        Left = 1
-        Top = 0
-        Width = 100
+        Left = 36
         Height = 100
+        Top = 24
+        Width = 100
         AutoSize = True
         Picture.Data = {
-          0A544A504547496D61676572190000FFD8FFE000104A46494600010101004800
+          0A544A706567496D61676572190000FFD8FFE000104A46494600010101004800
           480000FFDB004300010101010101010101010101010101010101010101010101
           0101010101010101010101010101010101010101010101010101010101010101
           0101010101010101FFDB00430101010101010101010101010101010101010101
@@ -364,38 +385,45 @@ object FrmSobre: TFrmSobre
           ACD82DCC5B66861D474FB4B9681E295A155917257598F763D392CC4F031C9249
           27DC927DE8A005A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A2
           8A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2800A28A2803FF
-          D9}
+          D9
+        }
       end
       object Label2: TLabel
-        Left = 14
-        Top = 102
-        Width = 75
-        Height = 26
+        Left = 21
+        Height = 42
+        Top = 153
+        Width = 115
         Alignment = taCenter
         Caption = 'Bruno Freitas'#13#10'"bootsector"'
-        Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -11
+        Font.Height = -17
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
+        ParentColor = False
         ParentFont = False
       end
     end
     object Panel2: TPanel
-      Left = 181
-      Top = 156
-      Width = 106
-      Height = 137
+      Left = 298
+      Height = 206
+      Top = 288
+      Width = 159
       BevelInner = bvLowered
+      ClientHeight = 206
+      ClientWidth = 159
+      Font.Color = clWindowText
+      Font.Height = -17
+      Font.Name = 'Tahoma'
+      ParentFont = False
       TabOrder = 2
       object Image2: TImage
-        Left = 1
-        Top = 1
-        Width = 100
+        Left = 24
         Height = 100
+        Top = 24
+        Width = 100
         AutoSize = True
         Picture.Data = {
-          0954474946496D6167652111000047494638396164006400D53D000907062992
+          0954474946496D6167652011000047494638396164006400D53D000907062992
           328E2F102332521A4D1B511E0ABE845CA7A4A68D6855151C334B332F133010CF
           4515CFD0CB2E160EE38A5A5B504E6F260A935C3D55453CE6E4E16A665DBDB2AC
           828C7FCB7B51633D2D12131A4B2E1FAF3C16D9936C897976F46A2F638E619C8F
@@ -532,34 +560,36 @@ object FrmSobre: TFrmSobre
           A651A39B1CBB040B96AC76FBBC2BCBBA2438ACEA3B84D2895E0E087DC52BB332
           0B67F2E9B49F39B08CDBB8FA6BBE3EC4978B44F8870EE9878CA6002A60C0643A
           014E380E5E6BBB19D0C0647018776BBEAD7B8D9B38C01627BCE8B66B3FBA601B
-          AC634D95B8B1A1008B2BC24100003B}
+          AC634D95B8B1A1008B2BC2410000
+        }
         Transparent = True
       end
       object Label3: TLabel
-        Left = 12
-        Top = 102
-        Width = 78
-        Height = 26
+        Left = 18
+        Height = 42
+        Top = 153
+        Width = 118
         Alignment = taCenter
         Caption = 'Thiago Ataide'#13#10'"thataide"'
-        Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -11
+        Font.Height = -17
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
+        ParentColor = False
         ParentFont = False
       end
     end
   end
   object BitBtn1: TBitBtn
-    Left = 123
-    Top = 428
-    Width = 75
-    Height = 25
+    Left = 184
+    Height = 38
+    Top = 680
+    Width = 112
     Cancel = True
     Caption = '&OK'
-    TabOrder = 0
-    OnClick = BitBtn1Click
+    Font.Color = clWindowText
+    Font.Height = -17
+    Font.Name = 'Tahoma'
     Glyph.Data = {
       36050000424D3605000000000000360400002800000010000000100000000100
       0800000000000001000000000000000000000001000000000000000000000000
@@ -602,6 +632,10 @@ object FrmSobre: TFrmSobre
       737C7C7C7C6AFFFFFFFFFFFF29727373737B7C7C7C62FFFFFFFFFFFF21727273
       73737B7C6AFFFFFFFFFFFFFF213272727373737252FFFFFFFFFFFFFF02293272
       72737373595BFFFFFFFFFFFF022929327272737373625BFFFFFFFFFF02292929
-      32727273737363FFFFFFFFFF02ACACACACACACACACACACFFFFFF}
+      32727273737363FFFFFFFFFF02ACACACACACACACACACACFFFFFF
+    }
+    OnClick = BitBtn1Click
+    ParentFont = False
+    TabOrder = 0
   end
 end
